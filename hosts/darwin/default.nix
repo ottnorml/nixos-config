@@ -17,8 +17,16 @@ let user = "spt"; in
 
     settings = {
       trusted-users = [ "@admin" "${user}" ];
-      substituters = [ "https://nix-community.cachix.org" "https://cache.nixos.org" ];
-      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+      substituters = [
+        "https://cache.lix.systems"
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
     };
 
     gc = {
@@ -80,7 +88,7 @@ let user = "spt"; in
         orientation = "bottom";
         #tilesize = 48;
         tilesize = 42;
-       };
+      };
 
       finder = {
         _FXShowPosixPathInTitle = false;
