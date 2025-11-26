@@ -30,6 +30,7 @@ with pkgs; [
   fd
   font-awesome
   hack-font
+  jetbrains-mono
   noto-fonts
   noto-fonts-color-emoji
   meslo-lgs-nf
@@ -39,7 +40,6 @@ with pkgs; [
 
   # Text and terminal utilities
   htop
-  jetbrains-mono
   jq
   ripgrep
   tree

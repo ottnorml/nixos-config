@@ -25,6 +25,7 @@ in
 
   homebrew = {
     enable = true;
+    brews = pkgs.callPackage ./brews.nix { };
     casks = pkgs.callPackage ./casks.nix { };
     # onActivation.cleanup = "uninstall";
 
@@ -74,7 +75,7 @@ in
       username = user;
       entries = [
         { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
-        { path = "/System/Applications/System Settings.app/"; }
+        # { path = "/System/Applications/System Settings.app/"; }
         {
           path = toString myEmacsLauncher;
           section = "others";

@@ -27,6 +27,17 @@ shared-packages ++ [
   rofi-calc
   libtool # for Emacs vterm
 
+  # Cloud-related tools and SDKs
+  golangci-lint
+  helm
+  kubectl
+  kubebuilder
+  mise
+  opentofu
+  operator-sdk
+  skaffold
+  terraform
+
   # Screenshot and recording tools
   flameshot
 

@@ -1,0 +1,16 @@
+_:
+
+[
+  # Development Tools
+  "golangci-lint"
+  "kubebuilder"
+  "mise"
+  "operator-sdk"
+  "skaffold"
+
+  # Cloud-related tools and SDKs
+  "helm"
+  "kubectl"
+  "opentofu"
+  "terraform"
+]
