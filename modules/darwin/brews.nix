@@ -2,6 +2,7 @@ _:
 
 [
   # Development Tools
+  "glab"
   "golangci-lint"
   "kubebuilder"
   "mise"

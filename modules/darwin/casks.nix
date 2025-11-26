@@ -9,10 +9,15 @@ _:
   "postman"
   # "cursor"
 
+  # Cloud-related tools and SDKs
+  "freelens"
+  "gcloud-cli"
+
   # Productivity Tools
   "raycast"
 
   # Browsers
+  "firefox"
   "google-chrome"
 
   # Communication Tools - Examples (uncomment as needed)
@@ -29,6 +34,6 @@ _:
 
   # Entertainment Tools - Examples (uncomment as needed)
   # "spotify"
-  "vlc"
   "steam"
+  "vlc"
 ]
