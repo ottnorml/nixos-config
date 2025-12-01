@@ -63,6 +63,27 @@ in
 
       # Always color ls and group directories
       alias ls='ls --color=auto'
+      alias ll='ls -lisahF'
+
+
+      # https://carapace-sh.github.io/carapace-bin/setup.html#zsh
+      # ''${UserConfigDir}/zsh/.zshrc
+      export CARAPACE_BRIDGES='zsh' # optional
+      zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+      source <(carapace _carapace)
+
+      function mkcd {
+        mkdir --parents "''$1" && cd "''$1"
+      }
+      function reload {
+        # Delete current completion cache
+        command rm -f $_comp_dumpfile $ZSH_COMPDUMP
+
+        # Old zsh versions don't have ZSH_ARGZERO
+        local zsh="''${ZSH_ARGZERO:-''${functrace[-1]%:*}}"
+        # Check whether to run a login shell
+        [[ "$zsh" = -* || -o login ]] && exec -l "''${zsh#-}" || exec "$zsh"
+      }
     '';
   };
 
@@ -262,36 +283,36 @@ in
     };
   };
 
-#  ssh = {
-#    enable = true;
-#    enableDefaultConfig = false;
-#    includes = [
-#      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-#        "/home/${user}/.ssh/config_external"
-#      )
-#      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-#        "/Users/${user}/.ssh/config_external"
-#      )
-#    ];
-#    matchBlocks = {
-#      "*" = {
-#        # Set the default values we want to keep
-#        sendEnv = [ "LANG" "LC_*" ];
-#        hashKnownHosts = true;
-#      };
-#      "github.com" = {
-#        identitiesOnly = true;
-#        identityFile = [
-#          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-#            "/home/${user}/.ssh/id_github"
-#          )
-#          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-#            "/Users/${user}/.ssh/id_github"
-#          )
-#        ];
-#      };
-#    };
-#  };
+  #  ssh = {
+  #    enable = true;
+  #    enableDefaultConfig = false;
+  #    includes = [
+  #      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
+  #        "/home/${user}/.ssh/config_external"
+  #      )
+  #      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
+  #        "/Users/${user}/.ssh/config_external"
+  #      )
+  #    ];
+  #    matchBlocks = {
+  #      "*" = {
+  #        # Set the default values we want to keep
+  #        sendEnv = [ "LANG" "LC_*" ];
+  #        hashKnownHosts = true;
+  #      };
+  #      "github.com" = {
+  #        identitiesOnly = true;
+  #        identityFile = [
+  #          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
+  #            "/home/${user}/.ssh/id_github"
+  #          )
+  #          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
+  #            "/Users/${user}/.ssh/id_github"
+  #          )
+  #        ];
+  #      };
+  #    };
+  #  };
 
   tmux = {
     enable = true;

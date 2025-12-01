@@ -14,4 +14,8 @@ _:
   "kubectl"
   "opentofu"
   "terraform"
+
+  # Utility Tools
+  "carapace"
+  "difftastic"
 ]

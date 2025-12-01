@@ -42,6 +42,7 @@ shared-packages ++ [
   flameshot
 
   # Text and terminal utilities
+  carapace
   tree
   unixtools.ifconfig
   unixtools.netstat
