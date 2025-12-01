@@ -58,7 +58,7 @@ in
           { "emacs-launcher.command".source = myEmacsLauncher; }
         ];
 
-        stateVersion = "25.11";
+        stateVersion = "25.05";
       };
 
       # Extend the zsh configuration
