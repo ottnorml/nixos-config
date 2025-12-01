@@ -27,7 +27,15 @@ in
     enable = true;
     brews = pkgs.callPackage ./brews.nix { };
     casks = pkgs.callPackage ./casks.nix { };
-    # onActivation.cleanup = "uninstall";
+    onActivation = {
+      autoUpdate = true;
+      # cleanup = "zap"; # Uninstall packages/casks not in Brewfile
+      upgrade = true;
+    };
+
+    global = {
+      brewfile = true;
+    };
 
     # These app IDs are from using the mas CLI app
     # mas = mac app store
