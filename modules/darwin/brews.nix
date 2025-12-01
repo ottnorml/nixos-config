@@ -20,5 +20,7 @@ _:
   "carapace"
   "difftastic"
   "sketchybar"
+  "vivid"
   "yabai"
+  "zoxide"
 ]

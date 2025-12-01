@@ -47,9 +47,11 @@ shared-packages ++ [
   tree
   unixtools.ifconfig
   unixtools.netstat
+  vivid
   xclip # For the org-download package in Emacs
   xorg.xwininfo # Provides a cursor to click and learn about windows
   xorg.xrandr
+  zoxide
 
   # File and system utilities
   inotify-tools # inotifywait, inotifywatch - For file system events
