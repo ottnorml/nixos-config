@@ -1,9 +1,27 @@
 _:
 
+let
+  makeNoBinaries = name: {
+    inherit name;
+    # ` brew install --cask --no-binaries`
+    args = { no_binaries = true; };
+  };
+
+  jetbrainsIDEs = map makeNoBinaries [
+    "android-studio"
+    "goland"
+    "intellij-idea"
+    "phpstorm"
+  ];
+in
+jetbrainsIDEs ++
 [
+  # IDEs
+  "jetbrains-toolbox"
+  "visual-studio-code"
+
   # Development Tools
   "docker-desktop"
-  "visual-studio-code"
   "iterm2"
   "kitty"
   "postman"
