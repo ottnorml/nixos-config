@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "FelixKratz-formulae": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762104534,
+        "narHash": "sha256-w9yG/ro4TtL84sTDAqcWEgc2JQpm4vRKlCHa5U8U67c=",
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "rev": "b97877f8ef98e47a3e81eb366bf8dfc0cd7289d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "type": "github"
+      }
+    },
     "agenix": {
       "inputs": {
         "darwin": "darwin",
@@ -189,6 +205,22 @@
         "type": "github"
       }
     },
+    "koekeishiya-formulae": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759843705,
+        "narHash": "sha256-4dLzkwdIw02V8rbNzdOZ4h3ZwtpqRof2WV3KwXN/EXE=",
+        "owner": "koekeishiya",
+        "repo": "homebrew-formulae",
+        "rev": "c9fc60dcb9746ae35a08e1fa8e6eaa2f604a3b92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "koekeishiya",
+        "repo": "homebrew-formulae",
+        "type": "github"
+      }
+    },
     "nix-homebrew": {
       "inputs": {
         "brew-src": "brew-src"
@@ -257,6 +289,7 @@
     },
     "root": {
       "inputs": {
+        "FelixKratz-formulae": "FelixKratz-formulae",
         "agenix": "agenix",
         "darwin": "darwin_2",
         "disko": "disko",
@@ -264,6 +297,7 @@
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_3",
         "secrets": "secrets"

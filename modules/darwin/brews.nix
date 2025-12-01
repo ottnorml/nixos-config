@@ -18,4 +18,6 @@ _:
   # Utility Tools
   "carapace"
   "difftastic"
+  "sketchybar"
+  "yabai"
 ]
