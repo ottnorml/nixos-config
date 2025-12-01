@@ -75,6 +75,7 @@ in
       function mkcd {
         mkdir --parents "''$1" && cd "''$1"
       }
+
       function reload {
         # Delete current completion cache
         command rm -f $_comp_dumpfile $ZSH_COMPDUMP
@@ -84,6 +85,13 @@ in
         # Check whether to run a login shell
         [[ "$zsh" = -* || -o login ]] && exec -l "''${zsh#-}" || exec "$zsh"
       }
+
+      # https://github.com/ohmyzsh/ohmyzsh/blob/a449c0247d69726fe4f3ca4fe88182bdb215a5d3/plugins/zoxide/zoxide.plugin.zsh
+      if (( $+commands[zoxide] )); then
+        eval "$(zoxide init --cmd ''${ZOXIDE_CMD_OVERRIDE:-cd} zsh)"
+      else
+        echo 'zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
+      fi
     '';
   };
 
