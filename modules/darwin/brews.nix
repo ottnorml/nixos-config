@@ -11,6 +11,7 @@ _:
 
   # Cloud-related tools and SDKs
   "helm"
+  "k3d"
   "kubectl"
   "opentofu"
   "terraform"

@@ -30,8 +30,9 @@ shared-packages ++ [
   # Cloud-related tools and SDKs
   golangci-lint
   helm
-  kubectl
+  k3d
   kubebuilder
+  kubectl
   mise
   opentofu
   operator-sdk
