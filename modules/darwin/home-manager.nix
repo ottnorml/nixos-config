@@ -62,7 +62,7 @@ in
       };
 
       # Extend the zsh configuration
-      programs.zsh.initContent = lib.mkBefore ''
+      programs.zsh.initContent = lib.mkOrder 550 ''
         function _brew_shellenv {
           # https://github.com/ohmyzsh/ohmyzsh/blob/a449c0247d69726fe4f3ca4fe88182bdb215a5d3/plugins/brew/brew.plugin.zsh#L1-L24
           if (( ! $+commands[brew] )); then
@@ -129,3 +129,4 @@ in
     };
   };
 }
+
