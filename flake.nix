@@ -91,9 +91,9 @@
 
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
         darwin.lib.darwinSystem {
-          inherit system;
           specialArgs = inputs;
           modules = [
+            { nixpkgs.hostPlatform = system; }
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
             {
@@ -113,13 +113,12 @@
             }
             ./hosts/darwin
           ];
-        }
-      );
+        });
 
       nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
-        inherit system;
         specialArgs = inputs;
         modules = [
+          { nixpkgs.hostPlatform = system; }
           disko.nixosModules.disko
           home-manager.nixosModules.home-manager
           {
