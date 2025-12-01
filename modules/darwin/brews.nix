@@ -17,6 +17,7 @@ _:
   "terraform"
 
   # Utility Tools
+  "coreutils"
   "carapace"
   "difftastic"
   "sketchybar"
