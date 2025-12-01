@@ -50,6 +50,7 @@ with pkgs; [
 
   # Development tools
   curl
+  devbox
   gh
   terraform
   kubectl
