@@ -67,10 +67,12 @@ in
 
 
       # https://carapace-sh.github.io/carapace-bin/setup.html#zsh
-      # ''${UserConfigDir}/zsh/.zshrc
-      export CARAPACE_BRIDGES='zsh' # optional
-      zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-      source <(carapace _carapace)
+      if (( $+commands[carapace] )); then
+        # ''${UserConfigDir}/zsh/.zshrc
+        export CARAPACE_BRIDGES='zsh' # optional
+        zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+        source <(carapace _carapace)
+      fi
 
       function mkcd {
         mkdir --parents "''$1" && cd "''$1"
