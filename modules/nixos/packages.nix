@@ -38,6 +38,7 @@ shared-packages ++ [
   operator-sdk
   skaffold
   terraform
+  trivy
 
   # Screenshot and recording tools
   flameshot

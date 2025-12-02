@@ -8,6 +8,7 @@ _:
   "mise"
   "operator-sdk"
   "skaffold"
+  "trivy"
 
   # Cloud-related tools and SDKs
   "helm"
