@@ -21,6 +21,7 @@ _:
   "coreutils"
   "carapace"
   "difftastic"
+  "mas"
   "sketchybar"
   "vivid"
   "yabai"
