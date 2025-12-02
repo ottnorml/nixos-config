@@ -48,6 +48,7 @@ jetbrainsIDEs ++
   # Utility Tools - Examples (uncomment as needed)
   # "syncthing"
   "1password"
+  "keepassxc"
   "rectangle"
 
   # Entertainment Tools - Examples (uncomment as needed)

@@ -5,8 +5,10 @@ let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
 shared-packages ++ [
 
   # Security and authentication
-  yubikey-agent
+  ausweisapp
+  eduvpn-client
   keepassxc
+  yubikey-agent
 
   # App and package management
   appimage-run

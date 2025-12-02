@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, ... }:
+{ config, pkgs, ... }:
 
 let
   user = "spt";
@@ -49,6 +49,8 @@ in
     # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
 
     masApps = {
+      "AusweisApp" = 948660805;
+      "eduVPN" = 1317704208;
       "wireguard" = 1451685025;
     };
   };
