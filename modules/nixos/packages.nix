@@ -32,6 +32,7 @@ shared-packages ++ [
   # Cloud-related tools and SDKs
   golangci-lint
   helm
+  helmfile
   k3d
   kubebuilder
   kubectl

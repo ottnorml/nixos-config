@@ -12,6 +12,7 @@ _:
 
   # Cloud-related tools and SDKs
   "helm"
+  "helmfile"
   "k3d"
   "kubectl"
   "opentofu"
