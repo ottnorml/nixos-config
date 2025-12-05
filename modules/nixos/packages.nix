@@ -30,6 +30,7 @@ shared-packages ++ [
   libtool # for Emacs vterm
 
   # Cloud-related tools and SDKs
+  glab
   golangci-lint
   helm
   helmfile
