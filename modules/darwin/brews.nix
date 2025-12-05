@@ -2,6 +2,7 @@ _:
 
 [
   # Development Tools
+  "gitlab-ci-local"
   "glab"
   "golangci-lint"
   "kubebuilder"
