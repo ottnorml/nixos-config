@@ -1,16 +1,27 @@
 {
   description = "Starter Configuration with secrets for MacOS and NixOS";
   inputs = {
+    # Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+
+    # Core tools
     agenix.url = "github:ryantm/agenix";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager/release-25.05";
+
+    # Darwin-specific
     darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-homebrew = {
-      url = "github:zhaofengli-wip/nix-homebrew";
-    };
+
+    # Homebrew integration
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    # Homebrew taps
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
       flake = false;
@@ -31,10 +42,8 @@
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
     };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    # Private configurations
     secrets = {
       url = "git+ssh://git@github.com/OttNorml/nixos-config.git";
       flake = false;
