@@ -2,7 +2,7 @@
   description = "Starter Configuration with secrets for MacOS and NixOS";
   inputs = {
     # Core
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Core tools
     agenix.url = "github:ryantm/agenix";
@@ -11,13 +11,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Darwin-specific
     darwin = {
-      url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
