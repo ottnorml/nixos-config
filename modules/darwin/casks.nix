@@ -32,6 +32,7 @@ jetbrainsIDEs ++
   "gcloud-cli"
 
   # Productivity Tools
+  "lm-studio"
   "raycast"
 
   # Browsers
@@ -50,6 +51,7 @@ jetbrainsIDEs ++
   "1password"
   "keepassxc"
   "rectangle"
+  "rustdesk"
 
   # Entertainment Tools - Examples (uncomment as needed)
   # "spotify"
