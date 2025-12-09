@@ -30,6 +30,9 @@ in
       HOMEBREW_NO_INSECURE_REDIRECT = "1";
       HOMEBREW_NO_ENV_HINTS = "0";
     };
+
+    # This is included so that the homebrew packages are available in the PATH.
+    systemPath = [ config.homebrew.brewPrefix ];
   };
 
   homebrew = {
