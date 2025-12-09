@@ -133,7 +133,7 @@ in
         {
           path = "${config.users.users.${user}.home}/Downloads";
           section = "others";
-          options = "--sort dateadded --view auto --display stack";
+          options = "--sort dateadded --view fan --display stack";
         }
       ];
     };
