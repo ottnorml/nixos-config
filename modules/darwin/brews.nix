@@ -5,6 +5,8 @@ _:
   "gitlab-ci-local"
   "glab"
   "golangci-lint"
+  "ijq"
+  "jq"
   "kubebuilder"
   "mise"
   "operator-sdk"
