@@ -23,6 +23,15 @@ in
     shell = pkgs.zsh;
   };
 
+  environment = {
+    # You can configure your usual shell environment for homebrew here.
+    variables = {
+      HOMEBREW_NO_ANALYTICS = "1";
+      HOMEBREW_NO_INSECURE_REDIRECT = "1";
+      HOMEBREW_NO_ENV_HINTS = "0";
+    };
+  };
+
   homebrew = {
     enable = true;
     brews = pkgs.callPackage ./brews.nix { };
