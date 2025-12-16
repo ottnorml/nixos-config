@@ -39,6 +39,7 @@ in
     enable = true;
     brews = pkgs.callPackage ./brews.nix { };
     casks = pkgs.callPackage ./casks.nix { };
+    greedyCasks = true;
     onActivation = {
       autoUpdate = true;
       # cleanup = "zap"; # Uninstall packages/casks not in Brewfile
