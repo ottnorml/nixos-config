@@ -1,13 +1,13 @@
 _:
 
 let
-  makeNoBinaries = name: {
+  mkNoBinaries = name: {
     inherit name;
     # ` brew install --cask --no-binaries`
     args = { no_binaries = true; };
   };
 
-  jetbrainsIDEs = map makeNoBinaries [
+  jetbrainsIDEs = map mkNoBinaries [
     "android-studio"
     "goland"
     "intellij-idea"
