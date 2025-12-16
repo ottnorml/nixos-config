@@ -55,6 +55,7 @@ jetbrainsIDEs ++
 
   # Entertainment Tools - Examples (uncomment as needed)
   # "spotify"
+  "jellyfin-media-player"
   "steam"
   "vlc"
 ]
