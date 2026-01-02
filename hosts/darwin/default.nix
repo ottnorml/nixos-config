@@ -45,7 +45,7 @@ let user = "spt"; in
   # Load configuration that is shared across systems
   environment.systemPackages = with pkgs; [
     emacs-unstable
-    agenix.packages."${pkgs.system}".default
+    agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
   ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
 
   launchd.user.agents.emacs.path = [ config.environment.systemPath ];

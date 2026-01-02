@@ -308,7 +308,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    agenix.packages."${pkgs.system}".default # "x86_64-linux"
+    agenix.packages."${pkgs.stdenv.hostPlatform.system}".default # "x86_64-linux"
     gitFull
     inetutils
   ];
