@@ -10,6 +10,7 @@ _:
   "kubebuilder"
   "mise"
   "operator-sdk"
+  "semgrep"
   "skaffold"
   "trivy"
 
