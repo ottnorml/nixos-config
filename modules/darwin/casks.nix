@@ -12,6 +12,7 @@ let
     "goland"
     "intellij-idea"
     "phpstorm"
+    "rustrover"
   ];
 in
 jetbrainsIDEs ++
