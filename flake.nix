@@ -45,6 +45,10 @@
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
     };
+    richard-fairthorne-tap = {
+      url = "github:richard-fairthorne/homebrew-tap";
+      flake = false;
+    };
 
     # Private configurations
     secrets = {
@@ -52,7 +56,7 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
+  outputs = { self, darwin, nix-homebrew, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
     let
       user = "spt";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -118,6 +122,7 @@
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-core" = homebrew-core;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
+                  "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
                 };
                 mutableTaps = false;
                 autoMigrate = true;

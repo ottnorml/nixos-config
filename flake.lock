@@ -271,6 +271,22 @@
         "type": "github"
       }
     },
+    "richard-fairthorne-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767115723,
+        "narHash": "sha256-iAwg/gjnaM42LpdraeEf4KccVVVFvL3PQqYb0iw42EA=",
+        "owner": "richard-fairthorne",
+        "repo": "homebrew-tap",
+        "rev": "42aeb97c233b3f7658fe20a555fdbf0e13c5ae98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "richard-fairthorne",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "FelixKratz-formulae": "FelixKratz-formulae",
@@ -284,6 +300,7 @@
         "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",
+        "richard-fairthorne-tap": "richard-fairthorne-tap",
         "secrets": "secrets"
       }
     },
