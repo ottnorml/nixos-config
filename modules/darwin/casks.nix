@@ -22,6 +22,7 @@ jetbrainsIDEs ++
   "visual-studio-code"
 
   # Development Tools
+  "android-platform-tools"
   "docker-desktop"
   "iterm2"
   "kitty"
