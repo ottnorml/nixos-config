@@ -44,6 +44,7 @@ in
       autoUpdate = true;
       # cleanup = "zap"; # Uninstall packages/casks not in Brewfile
       upgrade = true;
+      extraFlags = [ "--all" "--verbose" ];
     };
 
     global = {
