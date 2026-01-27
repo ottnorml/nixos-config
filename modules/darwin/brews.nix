@@ -21,6 +21,7 @@ _:
   "k3d"
   "kubectl"
   "opentofu"
+  "talosctl"
   "terraform"
 
   # Utility Tools
