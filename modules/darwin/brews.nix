@@ -26,6 +26,7 @@ _:
 
   # Utility Tools
   "coreutils"
+  "dockutil"
   "carapace"
   "difftastic"
   "mas"

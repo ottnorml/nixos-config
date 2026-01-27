@@ -137,6 +137,7 @@ in
     dock = {
       enable = true;
       username = user;
+      dockutilPath = "${config.homebrew.brewPrefix}/bin/dockutil";
       entries = [
         { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
         # { path = "/System/Applications/System Settings.app/"; }
@@ -153,4 +154,3 @@ in
     };
   };
 }
-

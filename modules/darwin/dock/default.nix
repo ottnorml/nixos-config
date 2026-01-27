@@ -9,7 +9,7 @@
 with lib;
 let
   cfg = config.local.dock;
-  inherit (pkgs) stdenv dockutil;
+  inherit (pkgs) stdenv;
 in
 {
   options = {
@@ -43,6 +43,13 @@ in
       username = mkOption {
         description = "Username to apply the dock settings to";
         type = types.str;
+      };
+
+      dockutilPath = mkOption {
+        description = "Path to the dockutil binary used to configure the Dock.";
+        type = types.str;
+        default = lib.getExe pkgs.dockutil;
+        defaultText = lib.literalMD "`pkgs.dockutil`";
       };
     };
   };
@@ -81,21 +88,26 @@ in
           (normalize path)
         );
       wantURIs = concatMapStrings (entry: "${entryURI entry.path}\n") cfg.entries;
+      dockutilCmd = lib.escapeShellArg cfg.dockutilPath;
       createEntries = concatMapStrings
         (
           entry:
-          "${dockutil}/bin/dockutil --no-restart --add '${entry.path}' --section ${entry.section} ${entry.options}\n"
+          "${dockutilCmd} --no-restart --add '${entry.path}' --section ${entry.section} ${entry.options}\n"
         )
         cfg.entries;
     in
     {
       system.activationScripts.postActivation.text = ''
           echo >&2 "Setting up the Dock for ${cfg.username}..."
+          if [ ! -x ${dockutilCmd} ]; then
+            echo >&2 "dockutil not found at ${dockutilCmd}; skipping Dock setup."
+            exit 0
+          fi
           su ${cfg.username} -s /bin/sh <<'USERBLOCK'
-        haveURIs="$(${dockutil}/bin/dockutil --list | ${pkgs.coreutils}/bin/cut -f2)"
+        haveURIs="$(${dockutilCmd} --list | ${pkgs.coreutils}/bin/cut -f2)"
         if ! diff -wu <(echo -n "$haveURIs") <(echo -n '${wantURIs}') >&2 ; then
           echo >&2 "Resetting Dock."
-          ${dockutil}/bin/dockutil --no-restart --remove all
+          ${dockutilCmd} --no-restart --remove all
           ${createEntries}
           killall Dock
         else
