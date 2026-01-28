@@ -54,6 +54,22 @@
         "type": "github"
       }
     },
+    "crumbyte-noxdir": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767541255,
+        "narHash": "sha256-VpPZ9GxkwfHGdABIookGPdzHeyY+YJxr7kHDEk4+Fac=",
+        "owner": "crumbyte",
+        "repo": "homebrew-noxdir",
+        "rev": "dc0932f2c3eebbff090cf0a5c7ea57b86b04d8a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "crumbyte",
+        "repo": "homebrew-noxdir",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -291,6 +307,7 @@
       "inputs": {
         "FelixKratz-formulae": "FelixKratz-formulae",
         "agenix": "agenix",
+        "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin_2",
         "disko": "disko",
         "home-manager": "home-manager_2",

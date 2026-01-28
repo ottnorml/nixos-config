@@ -37,6 +37,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    crumbyte-noxdir = {
+      url = "github:crumbyte/homebrew-noxdir";
+      flake = false;
+    };
     FelixKratz-formulae = {
       url = "github:FelixKratz/homebrew-formulae";
       flake = false;
@@ -56,7 +60,7 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
+  outputs = { self, darwin, nix-homebrew, crumbyte-noxdir, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
     let
       user = "spt";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -117,6 +121,7 @@
                 inherit user;
                 enable = true;
                 taps = {
+                  "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
                   "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "homebrew/homebrew-cask" = homebrew-cask;
