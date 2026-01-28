@@ -18,7 +18,7 @@ let
 in
 jetbrainsIDEs ++
 [
-  # IDEs
+  # IDEs & Editors
   "jetbrains-toolbox"
   "visual-studio-code"
 
@@ -28,13 +28,12 @@ jetbrainsIDEs ++
   "iterm2"
   "kitty"
   "postman"
-  # "cursor"
 
-  # Cloud-related tools and SDKs
+  # Cloud & Infrastructure
   "freelens"
   "gcloud-cli"
 
-  # Productivity Tools
+  # Productivity
   "lm-studio"
   "raycast"
 
@@ -42,22 +41,23 @@ jetbrainsIDEs ++
   "firefox"
   "google-chrome"
 
-  # Communication Tools - Examples (uncomment as needed)
+  # Communication
   "discord"
-  # "notion"
   "slack"
   "telegram"
-  # "zoom"
 
-  # Utility Tools - Examples (uncomment as needed)
-  # "syncthing"
+  # Security & Password Managers
   "1password"
   "keepassxc"
+
+  # Utilities
+  "crumbyte/noxdir/noxdir"
+  "jordanbaird-ice"
+  "nextcloud-vfs"
   "rectangle"
   "rustdesk"
 
-  # Entertainment Tools - Examples (uncomment as needed)
-  # "spotify"
+  # Entertainment & Media
   "jellyfin-media-player"
   "openttd"
   "steam"
