@@ -287,6 +287,22 @@
         "type": "github"
       }
     },
+    "ottnorml-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769821546,
+        "narHash": "sha256-PNHpPxcKacVSJ6GoNrJpVCldUpmVhBwmpZd+lvqozfE=",
+        "owner": "ottnorml",
+        "repo": "homebrew-tap",
+        "rev": "04a106d530001a7195b7464c88fd960e11a333b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ottnorml",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "richard-fairthorne-tap": {
       "flake": false,
       "locked": {
@@ -317,6 +333,7 @@
         "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",
+        "ottnorml-tap": "ottnorml-tap",
         "richard-fairthorne-tap": "richard-fairthorne-tap",
         "secrets": "secrets"
       }

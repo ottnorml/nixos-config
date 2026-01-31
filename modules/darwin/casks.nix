@@ -54,6 +54,7 @@ jetbrainsIDEs ++
   "crumbyte/noxdir/noxdir"
   "jordanbaird-ice"
   "nextcloud-vfs"
+  "ottnorml/tap/mdns-browser"
   "rectangle"
   "rustdesk"
 
