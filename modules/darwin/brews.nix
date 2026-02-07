@@ -29,6 +29,7 @@ _:
   "vcluster"
 
   # Development tools
+  "act"
   "gitlab-ci-local"
   "glab"
   "golangci-lint"
