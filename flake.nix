@@ -49,8 +49,8 @@
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
     };
-    ottnorml-tap = {
-      url = "github:ottnorml/homebrew-tap";
+    ottnorml-mdns-browser = {
+      url = "github:ottnorml/homebrew-mdns-browser";
       flake = false;
     };
     richard-fairthorne-tap = {
@@ -64,7 +64,7 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, crumbyte-noxdir, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, ottnorml-tap, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
+  outputs = { self, darwin, nix-homebrew, crumbyte-noxdir, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, ottnorml-mdns-browser, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
     let
       user = "spt";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -131,7 +131,7 @@
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-core" = homebrew-core;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
-                  "ottnorml/homebrew-tap" = ottnorml-tap;
+                  "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
                 };
                 mutableTaps = false;
