@@ -36,6 +36,7 @@ jetbrainsIDEs ++
   # Productivity
   "lm-studio"
   "raycast"
+  "zotero"
 
   # Browsers
   "firefox"
