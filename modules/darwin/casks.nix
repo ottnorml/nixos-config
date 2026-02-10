@@ -46,6 +46,7 @@ jetbrainsIDEs ++
   "discord"
   "slack"
   "telegram"
+  "whatsapp"
 
   # Security & Password Managers
   "1password"
