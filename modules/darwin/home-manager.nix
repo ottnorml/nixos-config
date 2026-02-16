@@ -32,7 +32,7 @@ in
     };
 
     # This is included so that the homebrew packages are available in the PATH.
-    systemPath = [ config.homebrew.brewPrefix ];
+    systemPath = [ "${config.homebrew.prefix}/bin" ];
   };
 
   homebrew = {
@@ -137,7 +137,7 @@ in
     dock = {
       enable = true;
       username = user;
-      dockutilPath = "${config.homebrew.brewPrefix}/dockutil";
+      dockutilPath = "${config.homebrew.prefix}/bin/dockutil";
       entries = [
         { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
         # { path = "/System/Applications/System Settings.app/"; }
