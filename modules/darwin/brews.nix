@@ -3,6 +3,7 @@ _:
 [
   # Cloud / IaC / Kubernetes ecosystem
   "cosign"
+  "cloud-provider-kind"
   "hcloud"
   "helm"
   "helmfile"
