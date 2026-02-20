@@ -54,11 +54,11 @@ jetbrainsIDEs ++
 
   # Utilities
   "crumbyte/noxdir/noxdir"
-  "jordanbaird-ice"
   "nextcloud-vfs"
   "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
   "rustdesk"
+  "thaw"
 
   # Entertainment & Media
   "jellyfin-media-player"
