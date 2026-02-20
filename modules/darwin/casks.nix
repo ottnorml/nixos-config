@@ -32,6 +32,14 @@ jetbrainsIDEs ++
   # Cloud & Infrastructure
   "freelens"
   "gcloud-cli"
+  {
+    name = "headlamp";
+    # Note: The `no_quarantine` option bypasses macOS Gatekeeper security warnings.
+    # Headlamp's desktop app is unsigned. For more information about running unsigned apps, see:
+    # - https://headlamp.dev/docs/latest/installation/desktop/
+    # - https://headlamp.dev/docs/latest/installation/desktop/mac-installation/
+    args = { no_quarantine = true; };
+  }
 
   # Productivity
   "lm-studio"
