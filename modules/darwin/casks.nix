@@ -42,6 +42,9 @@ jetbrainsIDEs ++
   }
 
   # Productivity
+  "codex"
+  "codex-app"
+  "gemini-cli"
   "lm-studio"
   "raycast"
   "zotero"
