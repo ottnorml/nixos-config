@@ -31,6 +31,7 @@ _:
 
   # Development tools
   "act"
+  "gemini-cli"
   "gitlab-ci-local"
   "glab"
   "golangci-lint"
