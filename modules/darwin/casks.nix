@@ -42,6 +42,7 @@ jetbrainsIDEs ++
   }
 
   # Productivity
+  "claudebar"
   "codex"
   "codex-app"
   "lm-studio"
