@@ -65,6 +65,7 @@ jetbrainsIDEs ++
 
   # Utilities
   "crumbyte/noxdir/noxdir"
+  "home-assistant"
   "nextcloud-vfs"
   "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
