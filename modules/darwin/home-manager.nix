@@ -2,11 +2,6 @@
 
 let
   user = "spt";
-  # Define the content of your file as a derivation
-  myEmacsLauncher = pkgs.writeScript "emacs-launcher.command" ''
-    #!/bin/sh
-    emacsclient -c -n &
-  '';
   sharedFiles = import ../shared/files.nix { inherit config pkgs; };
   additionalFiles = import ./files.nix { inherit user config pkgs; };
 in
@@ -79,7 +74,6 @@ in
         file = lib.mkMerge [
           sharedFiles
           additionalFiles
-          { "emacs-launcher.command".source = myEmacsLauncher; }
         ];
 
         stateVersion = "25.05";
@@ -87,6 +81,15 @@ in
 
       # Extend the zsh configuration
       programs.zsh.initContent = lib.mkOrder 550 ''
+        # Darwin override: shared config sets emacsclient editor defaults.
+        export ALTERNATE_EDITOR=""
+        export EDITOR="vim"
+        export VISUAL="vim"
+
+        e() {
+          vim "$@"
+        }
+
         function _brew_shellenv {
           # https://github.com/ohmyzsh/ohmyzsh/blob/a449c0247d69726fe4f3ca4fe88182bdb215a5d3/plugins/brew/brew.plugin.zsh#L1-L24
           if (( ! $+commands[brew] )); then
@@ -141,10 +144,6 @@ in
       entries = [
         { path = "${pkgs.alacritty}/Applications/Alacritty.app/"; }
         # { path = "/System/Applications/System Settings.app/"; }
-        {
-          path = toString myEmacsLauncher;
-          section = "others";
-        }
         {
           path = "${config.users.users.${user}.home}/Downloads";
           section = "others";
