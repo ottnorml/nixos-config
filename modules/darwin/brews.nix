@@ -4,7 +4,7 @@ _:
   # Cloud / IaC / Kubernetes ecosystem
   "cloud-provider-kind"
   "cosign"
-  "flux"
+  "fluxcd/tap/flux"
   "hcloud"
   "helm"
   "helmfile"
