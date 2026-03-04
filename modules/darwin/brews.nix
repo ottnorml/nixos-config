@@ -2,8 +2,8 @@ _:
 
 [
   # Cloud / IaC / Kubernetes ecosystem
-  "cosign"
   "cloud-provider-kind"
+  "cosign"
   "flux"
   "hcloud"
   "helm"
@@ -38,8 +38,8 @@ _:
   "glab"
   "golangci-lint"
   "ijq"
-  "jq"
   "jj"
+  "jq"
   "kubebuilder"
   "mise"
   "operator-sdk"
