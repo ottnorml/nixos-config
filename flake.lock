@@ -132,6 +132,22 @@
         "type": "github"
       }
     },
+    "fluxcd-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772195821,
+        "narHash": "sha256-TGnGm5wOU5Rq4wVSuHrE/Oy25nQ1EpHyQKX24WaKhBY=",
+        "owner": "fluxcd",
+        "repo": "homebrew-tap",
+        "rev": "3751f2001831f45a03abdb1d2c1b376c39db2322",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fluxcd",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -326,6 +342,7 @@
         "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin_2",
         "disko": "disko",
+        "fluxcd-tap": "fluxcd-tap",
         "home-manager": "home-manager_2",
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",

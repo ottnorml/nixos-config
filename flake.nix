@@ -45,6 +45,10 @@
       url = "github:FelixKratz/homebrew-formulae";
       flake = false;
     };
+    fluxcd-tap = {
+      url = "github:fluxcd/homebrew-tap";
+      flake = false;
+    };
     koekeishiya-formulae = {
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
@@ -64,7 +68,7 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, crumbyte-noxdir, FelixKratz-formulae, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, ottnorml-mdns-browser, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
+  outputs = { self, darwin, nix-homebrew, crumbyte-noxdir, FelixKratz-formulae, fluxcd-tap, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, ottnorml-mdns-browser, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
     let
       user = "spt";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -127,6 +131,7 @@
                 taps = {
                   "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
                   "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
+                  "fluxcd/homebrew-tap" = fluxcd-tap;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-core" = homebrew-core;
