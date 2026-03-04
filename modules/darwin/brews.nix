@@ -4,6 +4,7 @@ _:
   # Cloud / IaC / Kubernetes ecosystem
   "cosign"
   "cloud-provider-kind"
+  "flux"
   "hcloud"
   "helm"
   "helmfile"
@@ -13,6 +14,7 @@ _:
   "kind"
   "kompose"
   "kor"
+  "krew"
   "kubecm"
   "kubeconform"
   "kubectl"
