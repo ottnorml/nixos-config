@@ -61,6 +61,7 @@ _:
   "ncdu"
   "netfetch"
   "nmap"
+  "pandoc"
   "pv"
   "sketchybar"
   "vivid"
