@@ -45,6 +45,7 @@ jetbrainsIDEs ++
   "claudebar"
   "codex"
   "codex-app"
+  "google-drive"
   "lm-studio"
   "raycast"
   "zotero"
