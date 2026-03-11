@@ -42,6 +42,7 @@ _:
   "jj"
   "jq"
   "kubebuilder"
+  "markdownlint-cli"
   "mise"
   "operator-sdk"
   "pairqr"
