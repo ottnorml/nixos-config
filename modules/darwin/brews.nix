@@ -58,6 +58,8 @@ _:
   "coreutils"
   "difftastic"
   "direnv"
+  "duf"
+  "dust"
   "dockutil"
   "mas"
   "ncdu"
