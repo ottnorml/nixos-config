@@ -42,6 +42,7 @@ jetbrainsIDEs ++
   }
 
   # Productivity
+  "chatgpt"
   "claudebar"
   "codex"
   "codex-app"
@@ -68,7 +69,6 @@ jetbrainsIDEs ++
   # Utilities
   "apache-directory-studio"
   "appcleaner"
-  "chatgpt"
   "clipy"
   "crumbyte/noxdir/noxdir"
   "home-assistant"
