@@ -39,6 +39,7 @@ _:
   "glab"
   "golangci-lint"
   "ijq"
+  "jetbrains/junie/junie"
   "jj"
   "jq"
   "kubebuilder"
