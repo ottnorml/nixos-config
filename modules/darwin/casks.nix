@@ -66,9 +66,16 @@ jetbrainsIDEs ++
   "keepassxc"
 
   # Utilities
+  "apache-directory-studio"
+  "appcleaner"
+  "chatgpt"
+  "clipy"
   "crumbyte/noxdir/noxdir"
   "home-assistant"
+  "localsend"
+  "logitech-g-hub"
   "macfuse"
+  "menumeters"
   "nextcloud-vfs"
   "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
