@@ -17,7 +17,7 @@ _:
   "krew"
   "kubecm"
   "kubeconform"
-  "kubectl"
+  "kubernetes-cli"
   "kubectx"
   "kubent"
   "kubescape"
