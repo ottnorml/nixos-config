@@ -68,7 +68,31 @@
       flake = false;
     };
   };
-  outputs = { self, darwin, nix-homebrew, crumbyte-noxdir, FelixKratz-formulae, fluxcd-tap, homebrew-bundle, homebrew-core, homebrew-cask, koekeishiya-formulae, ottnorml-mdns-browser, richard-fairthorne-tap, home-manager, nixpkgs, disko, agenix, secrets } @inputs:
+  outputs =
+    { self
+      # Core
+    , nixpkgs
+      # Core tools
+    , agenix
+    , disko
+    , home-manager
+      # Darwin-specific
+    , darwin
+      # Homebrew integration
+    , nix-homebrew
+      # Homebrew taps
+    , crumbyte-noxdir
+    , FelixKratz-formulae
+    , fluxcd-tap
+    , homebrew-bundle
+    , homebrew-cask
+    , homebrew-core
+    , koekeishiya-formulae
+    , ottnorml-mdns-browser
+    , richard-fairthorne-tap
+      # Private configurations
+    , secrets
+    } @inputs:
     let
       user = "spt";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
