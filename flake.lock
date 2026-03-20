@@ -237,6 +237,22 @@
         "type": "github"
       }
     },
+    "jetbrains-junie": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773782107,
+        "narHash": "sha256-yItt1Rx1O44YYTDhv3yvkQGZpdiCTDCT61nSpff7gS4=",
+        "owner": "jetbrains",
+        "repo": "homebrew-junie",
+        "rev": "044427ad2cf07fbddf5ed0c7bf2c4983e3025b28",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jetbrains",
+        "repo": "homebrew-junie",
+        "type": "github"
+      }
+    },
     "koekeishiya-formulae": {
       "flake": false,
       "locked": {
@@ -347,6 +363,7 @@
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "jetbrains-junie": "jetbrains-junie",
         "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",

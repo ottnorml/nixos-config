@@ -49,6 +49,10 @@
       url = "github:fluxcd/homebrew-tap";
       flake = false;
     };
+    jetbrains-junie = {
+      url = "github:jetbrains/homebrew-junie";
+      flake = false;
+    };
     koekeishiya-formulae = {
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
@@ -87,6 +91,7 @@
     , homebrew-bundle
     , homebrew-cask
     , homebrew-core
+    , jetbrains-junie
     , koekeishiya-formulae
     , ottnorml-mdns-browser
     , richard-fairthorne-tap
@@ -159,6 +164,7 @@
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-core" = homebrew-core;
+                  "jetbrains/homebrew-junie" = jetbrains-junie;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
