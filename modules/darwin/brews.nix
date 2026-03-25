@@ -46,6 +46,7 @@ _:
   "markdownlint-cli"
   "mise"
   "operator-sdk"
+  "plantuml"
   "pre-commit"
   "richard-fairthorne/tap/pairqr"
   "semgrep"
