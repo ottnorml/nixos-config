@@ -34,6 +34,7 @@ _:
 
   # Development tools
   "act"
+  "bruno-cli"
   "gemini-cli"
   "gitlab-ci-local"
   "glab"

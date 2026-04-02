@@ -24,6 +24,7 @@ jetbrainsIDEs ++
 
   # Development Tools
   "android-platform-tools"
+  "bruno"
   "docker-desktop"
   "iterm2"
   "kitty"
