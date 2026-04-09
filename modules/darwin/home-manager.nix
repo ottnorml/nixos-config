@@ -24,6 +24,7 @@ in
       HOMEBREW_NO_ANALYTICS = "1";
       HOMEBREW_NO_INSECURE_REDIRECT = "1";
       HOMEBREW_NO_ENV_HINTS = "0";
+      CLOUDSDK_PYTHON = "${pkgs.python313}/bin/python3";
     };
 
     # This is included so that the homebrew packages are available in the PATH.
