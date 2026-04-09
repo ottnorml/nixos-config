@@ -73,6 +73,8 @@ jetbrainsIDEs ++
   "clipy"
   "crumbyte/noxdir/noxdir"
   "home-assistant"
+  "keka"
+  "kekaexternalhelper"
   "localsend"
   "logitech-g-hub"
   "macfuse"
