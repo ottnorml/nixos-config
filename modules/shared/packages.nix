@@ -39,7 +39,6 @@ with pkgs; [
   nodejs_24
 
   # Text and terminal utilities
-  htop
   jq
   ripgrep
   tree

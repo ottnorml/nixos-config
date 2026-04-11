@@ -65,6 +65,7 @@ _:
   "duf"
   "dust"
   "dockutil"
+  "htop"
   "mas"
   "ncdu"
   "netfetch"

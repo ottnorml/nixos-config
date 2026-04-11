@@ -49,6 +49,7 @@ shared-packages ++ [
   flameshot
 
   # Text and terminal utilities
+  htop
   carapace
   tree
   unixtools.ifconfig
