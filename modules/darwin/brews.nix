@@ -54,6 +54,7 @@ _:
   "skaffold"
   "tig"
   "trivy"
+  "mistral-vibe"
 
   # System / shell / general utilities
   "carapace"
