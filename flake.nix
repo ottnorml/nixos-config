@@ -37,6 +37,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    alexstrnik-browserino = {
+      url = "github:AlexStrNik/homebrew-Browserino";
+      flake = false;
+    };
     crumbyte-noxdir = {
       url = "github:crumbyte/homebrew-noxdir";
       flake = false;
@@ -85,6 +89,7 @@
       # Homebrew integration
     , nix-homebrew
       # Homebrew taps
+    , alexstrnik-browserino
     , crumbyte-noxdir
     , FelixKratz-formulae
     , fluxcd-tap
@@ -158,6 +163,7 @@
                 inherit user;
                 enable = true;
                 taps = {
+                  "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
                   "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
                   "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
                   "fluxcd/homebrew-tap" = fluxcd-tap;

@@ -37,6 +37,22 @@
         "type": "github"
       }
     },
+    "alexstrnik-browserino": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767864093,
+        "narHash": "sha256-Aso4CDemO9POwiL6IFT/ipO76x9QTG9B+H7u/3huu7M=",
+        "owner": "AlexStrNik",
+        "repo": "homebrew-Browserino",
+        "rev": "16341f622042d2071a55d95957a859c64b0b197e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AlexStrNik",
+        "repo": "homebrew-Browserino",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -355,6 +371,7 @@
       "inputs": {
         "FelixKratz-formulae": "FelixKratz-formulae",
         "agenix": "agenix",
+        "alexstrnik-browserino": "alexstrnik-browserino",
         "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin_2",
         "disko": "disko",
