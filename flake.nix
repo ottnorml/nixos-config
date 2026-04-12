@@ -69,6 +69,10 @@
       url = "github:richard-fairthorne/homebrew-tap";
       flake = false;
     };
+    toobuntu-cask-tools = {
+      url = "github:toobuntu/homebrew-cask-tools";
+      flake = false;
+    };
 
     # Private configurations
     secrets = {
@@ -100,6 +104,7 @@
     , koekeishiya-formulae
     , ottnorml-mdns-browser
     , richard-fairthorne-tap
+    , toobuntu-cask-tools
       # Private configurations
     , secrets
     } @inputs:
@@ -174,6 +179,7 @@
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
+                  "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
                 };
                 mutableTaps = false;
                 autoMigrate = true;

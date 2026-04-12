@@ -386,7 +386,8 @@
         "nixpkgs": "nixpkgs_2",
         "ottnorml-mdns-browser": "ottnorml-mdns-browser",
         "richard-fairthorne-tap": "richard-fairthorne-tap",
-        "secrets": "secrets"
+        "secrets": "secrets",
+        "toobuntu-cask-tools": "toobuntu-cask-tools"
       }
     },
     "secrets": {
@@ -417,6 +418,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "toobuntu-cask-tools": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775015451,
+        "narHash": "sha256-acB+PjtW5r8f4e3pJA8oDtj+cwRQpbdDRUlbNV4AGxU=",
+        "owner": "toobuntu",
+        "repo": "homebrew-cask-tools",
+        "rev": "b09ff1f9d315939bce2afa4a002a7c0fae2b65ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "toobuntu",
+        "repo": "homebrew-cask-tools",
         "type": "github"
       }
     }
