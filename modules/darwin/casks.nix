@@ -70,6 +70,7 @@ jetbrainsIDEs ++
   # Utilities
   "apache-directory-studio"
   "appcleaner"
+  "alexstrnik/browserino/browserino"
   "clipy"
   "crumbyte/noxdir/noxdir"
   "home-assistant"
