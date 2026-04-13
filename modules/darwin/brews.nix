@@ -26,6 +26,7 @@ _:
   "opentofu"
   "popeye"
   "skopeo"
+  "sops"
   "talosctl"
   "terraform"
   "terragrunt"
