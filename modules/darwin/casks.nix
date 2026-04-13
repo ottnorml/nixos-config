@@ -78,6 +78,7 @@ jetbrainsIDEs ++
   "kekaexternalhelper"
   "localsend"
   "logitech-g-hub"
+  "maccy" # Clipy alternative
   "macfuse"
   "menumeters"
   "nextcloud-vfs"
