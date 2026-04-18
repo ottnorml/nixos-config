@@ -224,11 +224,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1776455856,
-        "narHash": "sha256-TdXdEp4wZH+6SsIsEKq8127vHOzfGgp/Di+mKT97VX4=",
+        "lastModified": 1776546909,
+        "narHash": "sha256-saVz2xjZGM/jOSQn0hjb5YD/ognAoF7WLQva5W92f64=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "a4756d565e180a22be358e137f1cefe51782bb3a",
+        "rev": "cf3b7e9f894ab3c07a4bd3a54ece8a0360d1c3a6",
         "type": "github"
       },
       "original": {
@@ -240,11 +240,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1776461416,
-        "narHash": "sha256-AqxPJs6cy7ZwsS2ovNuLxUJM+2kgnEi4ECXitf6nb18=",
+        "lastModified": 1776539489,
+        "narHash": "sha256-6yMOMe6QZSsdCYJ+poYzFuLYsRPefwlbPid5QBU7ztw=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "2aab2c98676928d65d72ce7fc2abd5c7f3634319",
+        "rev": "fc6306b361770ac47ce708d068b50b187698b7ab",
         "type": "github"
       },
       "original": {
@@ -272,11 +272,11 @@
     "koekeishiya-formulae": {
       "flake": false,
       "locked": {
-        "lastModified": 1774782840,
-        "narHash": "sha256-bCOkFffzJubYjsjgqkQvhDZYC0gmCDS8+/E/MYBDPKk=",
+        "lastModified": 1776523483,
+        "narHash": "sha256-cfX42vvJRxVNWd+DNwUwuwitMVzn9WpM9/Vbx04UoSU=",
         "owner": "koekeishiya",
         "repo": "homebrew-formulae",
-        "rev": "7c3310dcbd39ac63e8733c5faf60e3c5c532d967",
+        "rev": "c07a6fce9d9307894c88c8c0ea4a2089e6b20372",
         "type": "github"
       },
       "original": {
@@ -338,11 +338,11 @@
     "ottnorml-mdns-browser": {
       "flake": false,
       "locked": {
-        "lastModified": 1776348927,
-        "narHash": "sha256-XzxHpAr+QKOYxSCZd4nRjL7sZhbEsCCRydFGxpJYtsA=",
+        "lastModified": 1776514646,
+        "narHash": "sha256-Yi2iqE1efMRDoPGIlZ0QYRdeXGLdBy8XFlv0wQXt30Q=",
         "owner": "ottnorml",
         "repo": "homebrew-mdns-browser",
-        "rev": "ca409694b79ff18cf7ae64d53434e43a6709de48",
+        "rev": "af4e1d90e07fd33b85887e4e34b222971b006eb7",
         "type": "github"
       },
       "original": {
@@ -424,11 +424,11 @@
     "toobuntu-cask-tools": {
       "flake": false,
       "locked": {
-        "lastModified": 1776458224,
-        "narHash": "sha256-fB8ifeFiC0QD0oDX7vVBFbY+oAc+t//H12bY6ehbt5o=",
+        "lastModified": 1776496505,
+        "narHash": "sha256-44ElmS2RehdYgL4mscl5EaPgRy/pRPkffxNwIjUFQcw=",
         "owner": "toobuntu",
         "repo": "homebrew-cask-tools",
-        "rev": "61f95853e8acbafd4085fe7627fb86f5179b5d56",
+        "rev": "09892fa791eb3322bb7fdb52328e98c32ccdb433",
         "type": "github"
       },
       "original": {
