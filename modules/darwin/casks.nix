@@ -68,12 +68,13 @@ jetbrainsIDEs ++
   "keepassxc"
 
   # Utilities
+  "alexstrnik/browserino/browserino"
   "apache-directory-studio"
   "appcleaner"
-  "alexstrnik/browserino/browserino"
   "clipy"
   "crumbyte/noxdir/noxdir"
   "deskflow/tap/deskflow"
+  "flux-app"
   "home-assistant"
   "keka"
   "kekaexternalhelper"
