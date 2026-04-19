@@ -84,6 +84,7 @@ jetbrainsIDEs ++
   "nextcloud-vfs"
   "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
+  "reminders-menubar"
   "rustdesk"
   "thaw"
 
