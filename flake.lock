@@ -128,6 +128,22 @@
         "type": "github"
       }
     },
+    "deskflow-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776445721,
+        "narHash": "sha256-BtcYVNTzEipQ/1KOqPOMG9ZdPZ+1LPe6Az6N45JpLbg=",
+        "owner": "deskflow",
+        "repo": "homebrew-tap",
+        "rev": "c310e0eb51da13b5d27514297b9b0cdf5869e3d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "deskflow",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -374,6 +390,7 @@
         "alexstrnik-browserino": "alexstrnik-browserino",
         "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin_2",
+        "deskflow-tap": "deskflow-tap",
         "disko": "disko",
         "fluxcd-tap": "fluxcd-tap",
         "home-manager": "home-manager_2",

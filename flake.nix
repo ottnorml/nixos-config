@@ -45,6 +45,10 @@
       url = "github:crumbyte/homebrew-noxdir";
       flake = false;
     };
+    deskflow-tap = {
+      url = "github:deskflow/homebrew-tap";
+      flake = false;
+    };
     FelixKratz-formulae = {
       url = "github:FelixKratz/homebrew-formulae";
       flake = false;
@@ -95,6 +99,7 @@
       # Homebrew taps
     , alexstrnik-browserino
     , crumbyte-noxdir
+    , deskflow-tap
     , FelixKratz-formulae
     , fluxcd-tap
     , homebrew-bundle
@@ -170,6 +175,7 @@
                 taps = {
                   "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
                   "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
+                  "deskflow/homebrew-tap" = deskflow-tap;
                   "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
                   "fluxcd/homebrew-tap" = fluxcd-tap;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
