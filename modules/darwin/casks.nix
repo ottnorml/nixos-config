@@ -73,6 +73,7 @@ jetbrainsIDEs ++
   "alexstrnik/browserino/browserino"
   "clipy"
   "crumbyte/noxdir/noxdir"
+  "deskflow/tap/deskflow"
   "home-assistant"
   "keka"
   "kekaexternalhelper"
