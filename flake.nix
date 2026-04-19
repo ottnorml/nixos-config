@@ -25,10 +25,6 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     # Homebrew taps
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -102,7 +98,6 @@
     , deskflow-tap
     , FelixKratz-formulae
     , fluxcd-tap
-    , homebrew-bundle
     , homebrew-cask
     , homebrew-core
     , jetbrains-junie
@@ -178,7 +173,6 @@
                   "deskflow/homebrew-tap" = deskflow-tap;
                   "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
                   "fluxcd/homebrew-tap" = fluxcd-tap;
-                  "homebrew/homebrew-bundle" = homebrew-bundle;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-core" = homebrew-core;
                   "jetbrains/homebrew-junie" = jetbrains-junie;
