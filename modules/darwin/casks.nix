@@ -82,7 +82,7 @@ jetbrainsIDEs ++
   "maccy" # Clipy alternative
   "macfuse"
   "menumeters"
-  "nextcloud-vfs"
+  "nextcloud"
   "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
   "reminders-menubar"
