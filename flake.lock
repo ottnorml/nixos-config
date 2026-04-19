@@ -135,11 +135,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773889306,
-        "narHash": "sha256-PAqwnsBSI9SVC2QugvQ3xeYCB0otOwCacB1ueQj2tgw=",
+        "lastModified": 1776613567,
+        "narHash": "sha256-gC9Cp5ibBmGD5awCA9z7xy6MW6iJufhazTYJOiGlCUI=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "5ad85c82cc52264f4beddc934ba57f3789f28347",
+        "rev": "32f4236bfc141ae930b5ba2fb604f561fed5219d",
         "type": "github"
       },
       "original": {
@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776454077,
-        "narHash": "sha256-7zSUFWsU0+jlD7WB3YAxQ84Z/iJurA5hKPm8EfEyGJk=",
+        "lastModified": 1776562531,
+        "narHash": "sha256-Lh5Ns9DI67E+lSMOCGK0S+mFPy0mz0yOGiJTUXiR9JI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "565e5349208fe7d0831ef959103c9bafbeac0681",
+        "rev": "5b56ad02dc643808b8af6d5f3ff179e2ce9593f4",
         "type": "github"
       },
       "original": {
@@ -224,11 +224,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1776546909,
-        "narHash": "sha256-saVz2xjZGM/jOSQn0hjb5YD/ognAoF7WLQva5W92f64=",
+        "lastModified": 1776614528,
+        "narHash": "sha256-dqbhGv/WOZnTzUNwRjzrNNMBDvLQkVKVaQxF8VaCOYo=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "cf3b7e9f894ab3c07a4bd3a54ece8a0360d1c3a6",
+        "rev": "d644800a08b1db747c7e40cbca2aed28b809270b",
         "type": "github"
       },
       "original": {
@@ -240,11 +240,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1776539489,
-        "narHash": "sha256-6yMOMe6QZSsdCYJ+poYzFuLYsRPefwlbPid5QBU7ztw=",
+        "lastModified": 1776610604,
+        "narHash": "sha256-IGU95vJw7YKdG6j0/DtQFWOSvkR4frC0BwhBuDZffPU=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "fc6306b361770ac47ce708d068b50b187698b7ab",
+        "rev": "f4585b87620aa7b8e7e8baed3fc01bd7d0d31497",
         "type": "github"
       },
       "original": {
@@ -272,11 +272,11 @@
     "koekeishiya-formulae": {
       "flake": false,
       "locked": {
-        "lastModified": 1776523483,
-        "narHash": "sha256-cfX42vvJRxVNWd+DNwUwuwitMVzn9WpM9/Vbx04UoSU=",
+        "lastModified": 1776605599,
+        "narHash": "sha256-PWZTtljVG/S6t1Fcxy71qiqOjMnle6RB1GL9+QxGkj8=",
         "owner": "koekeishiya",
         "repo": "homebrew-formulae",
-        "rev": "c07a6fce9d9307894c88c8c0ea4a2089e6b20372",
+        "rev": "447bfb1ab8277c2c782df03b3bd88ca9354debd8",
         "type": "github"
       },
       "original": {
