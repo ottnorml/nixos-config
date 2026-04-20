@@ -61,6 +61,10 @@
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
     };
+    oven-sh-bun = {
+      url = "github:oven-sh/homebrew-bun";
+      flake = false;
+    };
     ottnorml-mdns-browser = {
       url = "github:ottnorml/homebrew-mdns-browser";
       flake = false;
@@ -102,6 +106,7 @@
     , homebrew-core
     , jetbrains-junie
     , koekeishiya-formulae
+    , oven-sh-bun
     , ottnorml-mdns-browser
     , richard-fairthorne-tap
     , toobuntu-cask-tools
@@ -177,6 +182,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "jetbrains/homebrew-junie" = jetbrains-junie;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
+                  "oven-sh/homebrew-bun" = oven-sh-bun;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
                   "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;

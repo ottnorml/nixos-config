@@ -351,6 +351,22 @@
         "type": "github"
       }
     },
+    "oven-sh-bun": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775790415,
+        "narHash": "sha256-fG5yymrXlfWkDE1ereJ+ttdzskXTSrQlCUDDVHWrMa4=",
+        "owner": "oven-sh",
+        "repo": "homebrew-bun",
+        "rev": "862fd7de93993c1e53041e6e4d1a3445b1301ba3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oven-sh",
+        "repo": "homebrew-bun",
+        "type": "github"
+      }
+    },
     "richard-fairthorne-tap": {
       "flake": false,
       "locked": {
@@ -385,6 +401,7 @@
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",
         "ottnorml-mdns-browser": "ottnorml-mdns-browser",
+        "oven-sh-bun": "oven-sh-bun",
         "richard-fairthorne-tap": "richard-fairthorne-tap",
         "secrets": "secrets",
         "toobuntu-cask-tools": "toobuntu-cask-tools"
