@@ -58,6 +58,7 @@ _:
   "tig"
   "trivy"
   "mistral-vibe"
+  "uv"
 
   # System / shell / general utilities
   "carapace"
