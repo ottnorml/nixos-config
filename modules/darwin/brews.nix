@@ -36,6 +36,7 @@ _:
   # Development tools
   "act"
   "bruno-cli"
+  "git"
   "gitlab-ci-local"
   "glab"
   "golangci-lint"
@@ -43,6 +44,7 @@ _:
   "jetbrains/junie/junie"
   "jj"
   "jq"
+  "koji"
   "kubebuilder"
   "lnav"
   "markdownlint-cli"
@@ -51,17 +53,18 @@ _:
   "oven-sh/bun/bun"
   "plantuml"
   "pre-commit"
+  "prek"
   "richard-fairthorne/tap/pairqr"
   "semgrep"
   "skaffold"
   "ssh-audit"
   "tig"
   "trivy"
-  "mistral-vibe"
   "uv"
 
   # AI tools
   "gemini-cli"
+  "mistral-vibe"
   "rulesync"
 
   # System / shell / general utilities
