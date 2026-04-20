@@ -44,6 +44,7 @@ jetbrainsIDEs ++
 
   # Productivity
   "chatgpt"
+  "claude-code"
   "claudebar"
   "codex"
   "codex-app"
