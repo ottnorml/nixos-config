@@ -36,7 +36,6 @@ _:
   # Development tools
   "act"
   "bruno-cli"
-  "gemini-cli"
   "gitlab-ci-local"
   "glab"
   "golangci-lint"
@@ -60,6 +59,10 @@ _:
   "trivy"
   "mistral-vibe"
   "uv"
+
+  # AI tools
+  "gemini-cli"
+  "rulesync"
 
   # System / shell / general utilities
   "carapace"
