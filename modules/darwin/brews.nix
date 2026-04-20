@@ -49,6 +49,7 @@ _:
   "markdownlint-cli"
   "mise"
   "operator-sdk"
+  "oven-sh/bun/bun"
   "plantuml"
   "pre-commit"
   "richard-fairthorne/tap/pairqr"
