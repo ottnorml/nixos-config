@@ -1,9 +1,16 @@
-{ config, pkgs, ... }:
+{ lib, ... }:
 
 let
   emacsOverlaySha256 = "11p1c1l04zrn8dd5w8zyzlv172z05dwi9avbckav4d5fk043m754";
 in
 {
+  # Shared ssh configration
+  programs.ssh.extraConfig = lib.mkAfter ''
+    Host *
+      HostKeyAlgorithms -*ecdsa-sha2-nistp*
+      KexAlgorithms -ecdh-sha2-nistp*
+      MACs -hmac-sha1*
+  '';
 
   nixpkgs = {
     config = {
