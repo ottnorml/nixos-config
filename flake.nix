@@ -22,7 +22,17 @@
     };
 
     # Homebrew integration
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+      inputs.brew-src.follows = "homebrew-brew";
+    };
+
+    # Override Homebrew version to prevent nix-homebrew from using its pinned older version
+    # (reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix)
+    homebrew-brew = {
+      url = "github:Homebrew/brew/5.1.7";
+      flake = false;
+    };
 
     # Homebrew taps
     homebrew-core = {
@@ -96,6 +106,7 @@
     , darwin
       # Homebrew integration
     , nix-homebrew
+    , homebrew-brew
       # Homebrew taps
     , alexstrnik-browserino
     , crumbyte-noxdir
@@ -189,6 +200,14 @@
                 };
                 mutableTaps = false;
                 autoMigrate = true;
+
+                # Uses the explicitly pinned Homebrew source instead of nix-homebrew’s default.
+                # `name` and `version` here are only metadata for Nix/store naming; the actual
+                # Homebrew version is determined by the `homebrew-brew` input above.
+                package = inputs.homebrew-brew // {
+                  name = "brew";
+                  version = "5.1.7";
+                };
               };
             }
             ./hosts/darwin
