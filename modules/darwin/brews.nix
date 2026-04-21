@@ -28,7 +28,6 @@ _:
   "skopeo"
   "sops"
   "talosctl"
-  "terraform"
   "terragrunt"
   "tilt"
   "vcluster"
