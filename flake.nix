@@ -22,7 +22,7 @@
     };
 
     # Homebrew integration
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     # Homebrew taps
     homebrew-core = {
