@@ -47,6 +47,10 @@
       url = "github:AlexStrNik/homebrew-Browserino";
       flake = false;
     };
+    anomalyco-tap = {
+      url = "github:anomalyco/homebrew-tap";
+      flake = false;
+    };
     crumbyte-noxdir = {
       url = "github:crumbyte/homebrew-noxdir";
       flake = false;
@@ -109,6 +113,7 @@
     , homebrew-brew
       # Homebrew taps
     , alexstrnik-browserino
+    , anomalyco-tap
     , crumbyte-noxdir
     , deskflow-tap
     , FelixKratz-formulae
@@ -185,6 +190,7 @@
                 enable = true;
                 taps = {
                   "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
+                  "anomalyco/homebrew-tap" = anomalyco-tap;
                   "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
                   "deskflow/homebrew-tap" = deskflow-tap;
                   "FelixKratz/homebrew-formulae" = FelixKratz-formulae;

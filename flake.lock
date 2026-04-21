@@ -53,6 +53,22 @@
         "type": "github"
       }
     },
+    "anomalyco-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776783067,
+        "narHash": "sha256-5DDeXG7yqJXGrK31ZyUSkml2roCFpyxUu0rvzWNgWbw=",
+        "owner": "anomalyco",
+        "repo": "homebrew-tap",
+        "rev": "8d290683a4bed704582bab995833f699d79e5025",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anomalyco",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "crumbyte-noxdir": {
       "flake": false,
       "locked": {
@@ -224,11 +240,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1776787696,
-        "narHash": "sha256-mbLMFGRIWoxHggZSQgBqkvfeRGRUy741A/9MDjb8rIA=",
+        "lastModified": 1776713550,
+        "narHash": "sha256-sHUDP42sBtFmXcBbGURreyOya/PEqrv+iw/7G3RlQmg=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "ccad8b5374aa2509c31a1381e88841f407542ab6",
+        "rev": "c4e4883a61df661673b50140665d8b67696f1221",
         "type": "github"
       },
       "original": {
@@ -390,6 +406,7 @@
         "FelixKratz-formulae": "FelixKratz-formulae",
         "agenix": "agenix",
         "alexstrnik-browserino": "alexstrnik-browserino",
+        "anomalyco-tap": "anomalyco-tap",
         "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin_2",
         "deskflow-tap": "deskflow-tap",
