@@ -62,6 +62,7 @@ _:
   "uv"
 
   # AI tools
+  "anomalyco/tap/opencode"
   "gemini-cli"
   "mistral-vibe"
   "rulesync"
