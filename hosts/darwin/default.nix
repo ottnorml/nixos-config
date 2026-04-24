@@ -11,6 +11,11 @@ let user = "spt"; in
     # agenix.darwinModules.default
   ];
 
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    reattach = true;
+  };
+
   # Setup user, packages, programs
   nix = {
     package = pkgs.nix;
