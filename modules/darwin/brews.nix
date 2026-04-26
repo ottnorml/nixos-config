@@ -77,6 +77,7 @@ _:
   "dust"
   "dockutil"
   "htop"
+  "hyperb1iss/tap/unifly"
   "mas"
   "ncdu"
   "netfetch"
