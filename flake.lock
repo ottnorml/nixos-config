@@ -271,6 +271,22 @@
         "type": "github"
       }
     },
+    "hyperb1iss-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775848799,
+        "narHash": "sha256-RPjOMuXsjCiv0s3WCqR4uFfevDSMBw22knIQJ+vl0Vw=",
+        "owner": "hyperb1iss",
+        "repo": "homebrew-tap",
+        "rev": "d4aa27e1a3bc4f40b73d04a1837c9b3b912c9676",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyperb1iss",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "jetbrains-junie": {
       "flake": false,
       "locked": {
@@ -402,6 +418,7 @@
         "homebrew-brew": "homebrew-brew",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "hyperb1iss-tap": "hyperb1iss-tap",
         "jetbrains-junie": "jetbrains-junie",
         "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",

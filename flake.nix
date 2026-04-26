@@ -70,6 +70,10 @@
       url = "github:fluxcd/homebrew-tap";
       flake = false;
     };
+    hyperb1iss-tap = {
+      url = "github:hyperb1iss/homebrew-tap";
+      flake = false;
+    };
     jetbrains-junie = {
       url = "github:jetbrains/homebrew-junie";
       flake = false;
@@ -123,6 +127,7 @@
     , fluxcd-tap
     , homebrew-cask
     , homebrew-core
+    , hyperb1iss-tap
     , jetbrains-junie
     , koekeishiya-formulae
     , oven-sh-bun
@@ -200,6 +205,7 @@
                   "fluxcd/homebrew-tap" = fluxcd-tap;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-core" = homebrew-core;
+                  "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
                   "jetbrains/homebrew-junie" = jetbrains-junie;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
                   "oven-sh/homebrew-bun" = oven-sh-bun;
