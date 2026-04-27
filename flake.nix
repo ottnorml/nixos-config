@@ -141,6 +141,10 @@
       user = "spt";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+
+      flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
+      brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
+
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
       devShell = system:
         let pkgs = nixpkgs.legacyPackages.${system}; in {
@@ -219,9 +223,9 @@
                 # Uses the explicitly pinned Homebrew source instead of nix-homebrew’s default.
                 # `name` and `version` here are only metadata for Nix/store naming; the actual
                 # Homebrew version is determined by the `homebrew-brew` input above.
-                package = inputs.homebrew-brew // {
-                  name = "brew";
-                  version = "5.1.7";
+                package = homebrew-brew // {
+                  name = "brew-${brewVersion}";
+                  version = brewVersion;
                 };
               };
             }
