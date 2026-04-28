@@ -65,6 +65,7 @@ _:
   "anomalyco/tap/opencode"
   "gemini-cli"
   "mistral-vibe"
+  "nono"
   "rtk"
   "rtk-ai/tap/icm"
   "rulesync"
