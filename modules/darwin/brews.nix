@@ -63,6 +63,7 @@ _:
 
   # AI tools
   "anomalyco/tap/opencode"
+  "backlog-md"
   "gemini-cli"
   "mistral-vibe"
   "nono"
