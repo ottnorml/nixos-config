@@ -65,6 +65,8 @@ _:
   "anomalyco/tap/opencode"
   "gemini-cli"
   "mistral-vibe"
+  "rtk"
+  "rtk-ai/tap/icm"
   "rulesync"
 
   # System / shell / general utilities
