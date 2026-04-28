@@ -58,6 +58,9 @@ with pkgs; [
   fzf
   direnv
 
+  # AI tools
+  zat
+
   # Programming languages and runtimes
   go
   rustc
