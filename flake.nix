@@ -94,6 +94,10 @@
       url = "github:richard-fairthorne/homebrew-tap";
       flake = false;
     };
+    rtk-ai-tap = {
+      url = "github:rtk-ai/homebrew-tap";
+      flake = false;
+    };
     toobuntu-cask-tools = {
       url = "github:toobuntu/homebrew-cask-tools";
       flake = false;
@@ -133,6 +137,7 @@
     , oven-sh-bun
     , ottnorml-mdns-browser
     , richard-fairthorne-tap
+    , rtk-ai-tap
     , toobuntu-cask-tools
       # Private configurations
     , secrets
@@ -215,6 +220,7 @@
                   "oven-sh/homebrew-bun" = oven-sh-bun;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
+                  "rtk-ai/homebrew-tap" = rtk-ai-tap;
                   "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
                 };
                 mutableTaps = false;

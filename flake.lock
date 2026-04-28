@@ -426,8 +426,25 @@
         "ottnorml-mdns-browser": "ottnorml-mdns-browser",
         "oven-sh-bun": "oven-sh-bun",
         "richard-fairthorne-tap": "richard-fairthorne-tap",
+        "rtk-ai-tap": "rtk-ai-tap",
         "secrets": "secrets",
         "toobuntu-cask-tools": "toobuntu-cask-tools"
+      }
+    },
+    "rtk-ai-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777286605,
+        "narHash": "sha256-84yvphFlG7uCu1Ixbng42N0nMVYTrrHRJhbbpINGQWc=",
+        "owner": "rtk-ai",
+        "repo": "homebrew-tap",
+        "rev": "eaae7f603432f546cf30257d91b4b7abcf050bb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rtk-ai",
+        "repo": "homebrew-tap",
+        "type": "github"
       }
     },
     "secrets": {
