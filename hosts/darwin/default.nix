@@ -60,6 +60,8 @@ let user = "spt"; in
     defaults = {
       NSGlobalDomain = {
         AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
+        AppleInterfaceStyleSwitchesAutomatically = true;
         ApplePressAndHoldEnabled = false;
 
         # 120, 90, 60, 30, 12, 6, 2
