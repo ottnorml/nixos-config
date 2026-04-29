@@ -102,6 +102,12 @@ let user = "spt"; in
         Clicking = true;
         TrackpadThreeFingerDrag = true;
       };
+
+      CustomUserPreferences = {
+        "com.raycast.macos" = {
+          updaterEnabled = false;
+        };
+      };
     };
   };
 }
