@@ -91,6 +91,18 @@ in
         stateVersion = "25.05";
       };
 
+      # Make the Delete key work consistently in zsh.
+      # Many terminals send the escape sequence ^[[3~ when Delete is pressed.
+      # Binding it to delete-char makes Delete remove the character under/right
+      # of the cursor, instead of doing nothing or printing unexpected characters like ~.
+      # The binding is applied to the default keymap as well as emacs and vi modes.
+      programs.zsh.initExtra = ''
+        bindkey '^[[3~' delete-char
+        bindkey -M emacs '^[[3~' delete-char
+        bindkey -M viins '^[[3~' delete-char
+        bindkey -M vicmd '^[[3~' delete-char
+      '';
+
       # Extend the zsh configuration
       programs.zsh.initContent = lib.mkOrder 550 ''
         # Darwin override: shared config sets emacsclient editor defaults.
