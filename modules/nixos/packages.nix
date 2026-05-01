@@ -12,8 +12,8 @@ shared-packages ++ [
 
   # App and package management
   appimage-run
-  gnumake
   cmake
+  gnumake
   home-manager
 
   # Media and design tools
@@ -25,9 +25,9 @@ shared-packages ++ [
   pavucontrol # Pulse audio controls
 
   # Testing and development tools
+  libtool # for Emacs vterm
   rofi
   rofi-calc
-  libtool # for Emacs vterm
 
   # Cloud-related tools and SDKs
   gitlab-ci-local
@@ -49,15 +49,15 @@ shared-packages ++ [
   flameshot
 
   # Text and terminal utilities
-  htop
   carapace
+  htop
   tree
   unixtools.ifconfig
   unixtools.netstat
   vivid
   xclip # For the org-download package in Emacs
-  xorg.xwininfo # Provides a cursor to click and learn about windows
   xorg.xrandr
+  xorg.xwininfo # Provides a cursor to click and learn about windows
   zoxide
 
   # File and system utilities

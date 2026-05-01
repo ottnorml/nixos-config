@@ -24,16 +24,16 @@ with pkgs; [
   docker-compose
 
   # Media-related packages
-  emacs-all-the-icons-fonts
   dejavu_fonts
-  ffmpeg
+  emacs-all-the-icons-fonts
   fd
+  ffmpeg
   font-awesome
   hack-font
   jetbrains-mono
+  meslo-lgs-nf
   noto-fonts
   noto-fonts-color-emoji
-  meslo-lgs-nf
 
   # Node.js development tools
   nodejs_24
@@ -41,31 +41,31 @@ with pkgs; [
   # Text and terminal utilities
   jq
   ripgrep
-  tree
   tmux
+  tree
   unrar
   unzip
   zsh-powerlevel10k
 
   # Development tools
+  # awscli2
   curl
   devbox
-  gh
-  terraform
-  kubectl
-  # awscli2
-  lazygit
-  fzf
   direnv
+  fzf
+  gh
+  kubectl
+  lazygit
+  terraform
 
   # AI tools
   zat
 
   # Programming languages and runtimes
-  go
-  rustc
   cargo
+  go
   openjdk
+  rustc
 
   # Python packages
   python3
