@@ -77,6 +77,17 @@ in
           additionalFiles
         ];
 
+        # Configure a user-local npm prefix so globally installed npm packages
+        # do not require sudo and are kept inside the Home Manager user's home.
+        # The matching bin directory is added to PATH so installed CLIs are available.
+        sessionVariables = {
+          NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.local/share/npm-global";
+        };
+
+        sessionPath = [
+          "${config.home.homeDirectory}/.local/share/npm-global/bin"
+        ];
+
         stateVersion = "25.05";
       };
 
