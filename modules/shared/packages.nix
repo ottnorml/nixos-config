@@ -56,6 +56,7 @@ with pkgs; [
   gh
   kubectl
   lazygit
+  shellcheck
   terraform
 
   # AI tools
