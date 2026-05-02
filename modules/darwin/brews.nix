@@ -54,7 +54,6 @@ _:
   "pre-commit"
   "prek"
   "richard-fairthorne/tap/pairqr"
-  "semgrep"
   "skaffold"
   "ssh-audit"
   "tig"
