@@ -82,6 +82,7 @@ _:
   "felixkratz/formulae/sketchybar"
   "htop"
   "hyperb1iss/tap/unifly"
+  "iproute2mac"
   "koekeishiya/formulae/yabai"
   "mas"
   "ncdu"
