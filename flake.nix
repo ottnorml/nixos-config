@@ -3,6 +3,7 @@
   inputs = {
     # Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs";
 
     # Core tools
     agenix = {
@@ -113,6 +114,7 @@
     { self
       # Core
     , nixpkgs
+    , nixpkgs-master
       # Core tools
     , agenix
     , disko

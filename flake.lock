@@ -355,6 +355,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1777764810,
+        "narHash": "sha256-Lreq+lAMy51HbHED6QmLSWsysio1kutyGe+TMRuGkeU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c9c9a2756c360de04c64b980a5018fb4596fc8f8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "ottnorml-mdns-browser": {
       "flake": false,
       "locked": {
@@ -423,6 +438,7 @@
         "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "ottnorml-mdns-browser": "ottnorml-mdns-browser",
         "oven-sh-bun": "oven-sh-bun",
         "richard-fairthorne-tap": "richard-fairthorne-tap",
