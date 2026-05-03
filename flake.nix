@@ -2,7 +2,7 @@
   description = "Starter Configuration with secrets for MacOS and NixOS";
   inputs = {
     # Core
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Core tools
     agenix = {
