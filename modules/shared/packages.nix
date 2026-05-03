@@ -56,7 +56,7 @@ with pkgs; [
   gh
   kubectl
   lazygit
-  semgrep
+  nixpkgs-master.semgrep
   shellcheck
   terraform
 
