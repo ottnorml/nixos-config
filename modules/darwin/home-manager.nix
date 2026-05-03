@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, nixpkgs-master, pkgs, ... }:
 
 let
   user = "spt";
@@ -71,7 +71,7 @@ in
     users.${user} = { pkgs, config, lib, ... }: {
       home = {
         enableNixpkgsReleaseCheck = false;
-        packages = pkgs.callPackage ./packages.nix { };
+        packages = pkgs.callPackage ./packages.nix { inherit nixpkgs-master; };
         file = lib.mkMerge [
           sharedFiles
           additionalFiles

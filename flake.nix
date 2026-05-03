@@ -191,6 +191,13 @@
         "check-keys" = mkApp "check-keys" system;
         "rollback" = mkApp "rollback" system;
       };
+
+      mkSpecialArgs = system: inputs // {
+        nixpkgs-master = import nixpkgs-master {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
     in
     {
       devShells = forAllSystems devShell;
@@ -198,7 +205,7 @@
 
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
         darwin.lib.darwinSystem {
-          specialArgs = inputs;
+          specialArgs = mkSpecialArgs system;
           modules = [
             { nixpkgs.hostPlatform = system; }
             home-manager.darwinModules.home-manager
@@ -242,7 +249,7 @@
         });
 
       nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
-        specialArgs = inputs;
+        specialArgs = mkSpecialArgs system;
         modules = [
           { nixpkgs.hostPlatform = system; }
           disko.nixosModules.disko

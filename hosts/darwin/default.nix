@@ -1,4 +1,4 @@
-{ agenix, config, pkgs, ... }:
+{ agenix, config, nixpkgs-master, pkgs, ... }:
 
 let user = "spt"; in
 
@@ -60,7 +60,7 @@ let user = "spt"; in
   # Load configuration that is shared across systems
   environment.systemPackages = with pkgs; [
     agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
-  ] ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
+  ] ++ (import ../../modules/shared/packages.nix { inherit nixpkgs-master pkgs; });
 
   system = {
     checks.verifyNixPath = false;
