@@ -2,6 +2,7 @@ _:
 
 [
   # Cloud / IaC / Kubernetes ecosystem
+  "Adembc/tap/lazyssh"
   "cloud-provider-kind"
   "cosign"
   "fluxcd/tap/flux"
