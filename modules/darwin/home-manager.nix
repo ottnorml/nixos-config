@@ -60,8 +60,11 @@ in
 
     masApps = {
       "AusweisApp" = 948660805;
+      "Draw Things" = 6444050820;
       "eduVPN" = 1317704208;
-      "wireguard" = 1451685025;
+      "uBlock Origin Lite" = 6745342698;
+      "WireGuard" = 1451685025;
+      "Xcode" = 497799835;
     };
   };
 
