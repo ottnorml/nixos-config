@@ -319,6 +319,22 @@
         "type": "github"
       }
     },
+    "jordond-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770659585,
+        "narHash": "sha256-epfzlsWO49B9gklPzJhMJaZluxsiMZwl26hgUY6MEwc=",
+        "owner": "jordond",
+        "repo": "homebrew-tap",
+        "rev": "33555a37f54c0d234ba30360c5ba5c8eb47aaa96",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jordond",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "kdash-rs-kdash": {
       "flake": false,
       "locked": {
@@ -484,6 +500,7 @@
         "homebrew-core": "homebrew-core",
         "hyperb1iss-tap": "hyperb1iss-tap",
         "jetbrains-junie": "jetbrains-junie",
+        "jordond-tap": "jordond-tap",
         "kdash-rs-kdash": "kdash-rs-kdash",
         "koekeishiya-formulae": "koekeishiya-formulae",
         "matthart1983-tap": "matthart1983-tap",

@@ -83,6 +83,10 @@
       url = "github:jetbrains/homebrew-junie";
       flake = false;
     };
+    jordond-tap = {
+      url = "github:jordond/homebrew-tap";
+      flake = false;
+    };
     kdash-rs-kdash = {
       url = "github:kdash-rs/homebrew-kdash";
       flake = false;
@@ -148,6 +152,7 @@
     , homebrew-core
     , hyperb1iss-tap
     , jetbrains-junie
+    , jordond-tap
     , kdash-rs-kdash
     , koekeishiya-formulae
     , matthart1983-tap
@@ -241,6 +246,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
                   "jetbrains/homebrew-junie" = jetbrains-junie;
+                  "jordond/homebrew-tap" = jordond-tap;
                   "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
                   "matthart1983/homebrew-tap" = matthart1983-tap;
