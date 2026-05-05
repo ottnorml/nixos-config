@@ -86,6 +86,8 @@ _:
   "iproute2mac"
   "koekeishiya/formulae/yabai"
   "mas"
+  "matthart1983/tap/netwatch"
+  "matthart1983/tap/syswatch"
   "ncdu"
   "netfetch"
   "nmap"
