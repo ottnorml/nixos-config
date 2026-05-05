@@ -1,9 +1,26 @@
-{ config, nixpkgs-master, pkgs, ... }:
+{ config, lib, nixpkgs-master, pkgs, ... }:
 
 let
   user = "spt";
   sharedFiles = import ../shared/files.nix { inherit config pkgs; };
   additionalFiles = import ./files.nix { inherit user config pkgs; };
+
+  # Sort Homebrew entries the same way `brew bundle dump` writes them to a Brewfile:
+  # regular entries first, tapped entries such as `owner/tap/name` afterwards, and
+  # alphabetical order within each group. Casks may be strings or attrsets with extra
+  # arguments, so comparisons are always done against the resolved entry name.
+  brewEntryName = entry:
+    if builtins.isAttrs entry
+    then entry.name
+    else entry;
+
+  isTappedBrewEntry = entry: lib.hasInfix "/" (brewEntryName entry);
+
+  sortBrewfileEntries = lib.sort (a: b:
+    if isTappedBrewEntry a == isTappedBrewEntry b
+    then brewEntryName a < brewEntryName b
+    else !isTappedBrewEntry a && isTappedBrewEntry b
+  );
 in
 {
   imports = [
@@ -33,8 +50,8 @@ in
 
   homebrew = {
     enable = true;
-    brews = pkgs.callPackage ./brews.nix { };
-    casks = pkgs.callPackage ./casks.nix { };
+    brews = sortBrewfileEntries (pkgs.callPackage ./brews.nix { });
+    casks = sortBrewfileEntries (pkgs.callPackage ./casks.nix { });
     greedyCasks = true;
     onActivation = {
       autoUpdate = true;
