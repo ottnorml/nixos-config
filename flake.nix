@@ -39,14 +39,6 @@
     };
 
     # Homebrew taps
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
     alexstrnik-browserino = {
       url = "github:AlexStrNik/homebrew-Browserino";
       flake = false;
@@ -71,6 +63,14 @@
       url = "github:fluxcd/homebrew-tap";
       flake = false;
     };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
     hyperb1iss-tap = {
       url = "github:hyperb1iss/homebrew-tap";
       flake = false;
@@ -91,12 +91,12 @@
       url = "github:matthart1983/homebrew-tap";
       flake = false;
     };
-    oven-sh-bun = {
-      url = "github:oven-sh/homebrew-bun";
-      flake = false;
-    };
     ottnorml-mdns-browser = {
       url = "github:ottnorml/homebrew-mdns-browser";
+      flake = false;
+    };
+    oven-sh-bun = {
+      url = "github:oven-sh/homebrew-bun";
       flake = false;
     };
     richard-fairthorne-tap = {
@@ -146,8 +146,8 @@
     , kdash-rs-kdash
     , koekeishiya-formulae
     , matthart1983-tap
-    , oven-sh-bun
     , ottnorml-mdns-browser
+    , oven-sh-bun
     , richard-fairthorne-tap
     , rtk-ai-tap
     , toobuntu-cask-tools
@@ -238,8 +238,8 @@
                   "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
                   "matthart1983/homebrew-tap" = matthart1983-tap;
-                  "oven-sh/homebrew-bun" = oven-sh-bun;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
+                  "oven-sh/homebrew-bun" = oven-sh-bun;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
                   "rtk-ai/homebrew-tap" = rtk-ai-tap;
                   "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
