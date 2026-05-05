@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "Adembc-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759955810,
+        "narHash": "sha256-oolSwYsSJv/bL9UxPb82jN+6H+xKfCpsXY58WxWhHp8=",
+        "owner": "Adembc",
+        "repo": "homebrew-tap",
+        "rev": "bab7bffededefab5fddda59fe37de9efa1c78209",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Adembc",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "FelixKratz-formulae": {
       "flake": false,
       "locked": {
@@ -452,6 +468,7 @@
     },
     "root": {
       "inputs": {
+        "Adembc-tap": "Adembc-tap",
         "FelixKratz-formulae": "FelixKratz-formulae",
         "agenix": "agenix",
         "alexstrnik-browserino": "alexstrnik-browserino",

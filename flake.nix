@@ -39,6 +39,10 @@
     };
 
     # Homebrew taps
+    Adembc-tap = {
+      url = "github:Adembc/homebrew-tap";
+      flake = false;
+    };
     alexstrnik-browserino = {
       url = "github:AlexStrNik/homebrew-Browserino";
       flake = false;
@@ -133,6 +137,7 @@
     , nix-homebrew
     , homebrew-brew
       # Homebrew taps
+    , Adembc-tap
     , alexstrnik-browserino
     , anomalyco-tap
     , crumbyte-noxdir
@@ -225,6 +230,7 @@
                 inherit user;
                 enable = true;
                 taps = {
+                  "Adembc/homebrew-tap" = Adembc-tap;
                   "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
                   "anomalyco/homebrew-tap" = anomalyco-tap;
                   "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
