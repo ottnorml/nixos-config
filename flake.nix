@@ -8,6 +8,7 @@
     # Core tools
     agenix = {
       url = "github:ryantm/agenix";
+      inputs.darwin.follows = "darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
