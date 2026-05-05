@@ -335,6 +335,22 @@
         "type": "github"
       }
     },
+    "matthart1983-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777980953,
+        "narHash": "sha256-ukBV1SaNzi72aFYCJSKqjFPgUyx3usYlHT9Fpku4H8M=",
+        "owner": "matthart1983",
+        "repo": "homebrew-tap",
+        "rev": "28ba82c244b59045c2eeea171dac94b3f535f6e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "matthart1983",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "nix-homebrew": {
       "inputs": {
         "brew-src": [
@@ -453,6 +469,7 @@
         "jetbrains-junie": "jetbrains-junie",
         "kdash-rs-kdash": "kdash-rs-kdash",
         "koekeishiya-formulae": "koekeishiya-formulae",
+        "matthart1983-tap": "matthart1983-tap",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",

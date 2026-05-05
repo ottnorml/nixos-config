@@ -87,6 +87,10 @@
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
     };
+    matthart1983-tap = {
+      url = "github:matthart1983/homebrew-tap";
+      flake = false;
+    };
     oven-sh-bun = {
       url = "github:oven-sh/homebrew-bun";
       flake = false;
@@ -141,6 +145,7 @@
     , jetbrains-junie
     , kdash-rs-kdash
     , koekeishiya-formulae
+    , matthart1983-tap
     , oven-sh-bun
     , ottnorml-mdns-browser
     , richard-fairthorne-tap
@@ -232,6 +237,7 @@
                   "jetbrains/homebrew-junie" = jetbrains-junie;
                   "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
+                  "matthart1983/homebrew-tap" = matthart1983-tap;
                   "oven-sh/homebrew-bun" = oven-sh-bun;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
                   "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
