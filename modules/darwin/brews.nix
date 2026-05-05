@@ -86,6 +86,7 @@ _:
   "htop"
   "hyperb1iss/tap/unifly"
   "iproute2mac"
+  "jordond/tap/jolt"
   "koekeishiya/formulae/yabai"
   "mas"
   "matthart1983/tap/netwatch"
