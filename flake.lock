@@ -303,6 +303,22 @@
         "type": "github"
       }
     },
+    "kdash-rs-kdash": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777067879,
+        "narHash": "sha256-XeJWVwFAS5yjAPtgI0dT+aPO003vxcWktUHtRduLVtQ=",
+        "owner": "kdash-rs",
+        "repo": "homebrew-kdash",
+        "rev": "366b2cd09d3f8f138c4e40f5263813110625befe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kdash-rs",
+        "repo": "homebrew-kdash",
+        "type": "github"
+      }
+    },
     "koekeishiya-formulae": {
       "flake": false,
       "locked": {
@@ -435,6 +451,7 @@
         "homebrew-core": "homebrew-core",
         "hyperb1iss-tap": "hyperb1iss-tap",
         "jetbrains-junie": "jetbrains-junie",
+        "kdash-rs-kdash": "kdash-rs-kdash",
         "koekeishiya-formulae": "koekeishiya-formulae",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",

@@ -79,6 +79,10 @@
       url = "github:jetbrains/homebrew-junie";
       flake = false;
     };
+    kdash-rs-kdash = {
+      url = "github:kdash-rs/homebrew-kdash";
+      flake = false;
+    };
     koekeishiya-formulae = {
       url = "github:koekeishiya/homebrew-formulae";
       flake = false;
@@ -135,6 +139,7 @@
     , homebrew-core
     , hyperb1iss-tap
     , jetbrains-junie
+    , kdash-rs-kdash
     , koekeishiya-formulae
     , oven-sh-bun
     , ottnorml-mdns-browser
@@ -225,6 +230,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
                   "jetbrains/homebrew-junie" = jetbrains-junie;
+                  "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
                   "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
                   "oven-sh/homebrew-bun" = oven-sh-bun;
                   "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
