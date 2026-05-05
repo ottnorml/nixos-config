@@ -48,6 +48,7 @@ jetbrainsIDEs ++
   "claudebar"
   "codex"
   "codex-app"
+  "espanso"
   "google-drive"
   "jan"
   "lm-studio"
