@@ -12,6 +12,7 @@ _:
   "k6"
   "k9s"
   "kind"
+  "kdash-rs/kdash/kdash"
   "kompose"
   "kor"
   "krew"
