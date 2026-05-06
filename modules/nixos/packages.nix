@@ -58,8 +58,8 @@ sharedPackages ++ [
   unixtools.netstat
   vivid
   xclip # For the org-download package in Emacs
-  xorg.xrandr
-  xorg.xwininfo # Provides a cursor to click and learn about windows
+  xrandr
+  xwininfo # Provides a cursor to click and learn about windows
   zoxide
 
   # File and system utilities
