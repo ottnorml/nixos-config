@@ -376,10 +376,11 @@ in
       {
         plugin = resurrect; # Used by tmux-continuum
 
-        # Use XDG data directory
+        # Use the Home Manager XDG state directory. This is written as an
+        # absolute path because tmux.conf is not evaluated by a shell.
         # https://github.com/tmux-plugins/tmux-resurrect/issues/348
         extraConfig = ''
-          set -g @resurrect-dir '''${HOME}/tmux/resurrect'
+          set -g @resurrect-dir '${config.xdg.stateHome}/tmux/resurrect'
           set -g @resurrect-capture-pane-contents 'on'
           set -g @resurrect-pane-contents-area 'visible'
         '';

@@ -36,52 +36,12 @@ in
   };
 
   environment = {
-    # You can configure your usual shell environment for homebrew here.
+    # You can configure your usual shell environment here.
     variables = {
       HOMEBREW_NO_ANALYTICS = "1";
       HOMEBREW_NO_INSECURE_REDIRECT = "1";
       HOMEBREW_NO_ENV_HINTS = "0";
       CLOUDSDK_PYTHON = "${pkgs.python313}/bin/python3";
-    };
-
-    # This is included so that the homebrew packages are available in the PATH.
-    systemPath = [ "${config.homebrew.prefix}/bin" ];
-  };
-
-  homebrew = {
-    enable = true;
-    brews = sortBrewfileEntries (pkgs.callPackage ./brews.nix { });
-    casks = sortBrewfileEntries (pkgs.callPackage ./casks.nix { });
-    greedyCasks = true;
-    onActivation = {
-      autoUpdate = true;
-      # cleanup = "zap"; # Uninstall packages/casks not in Brewfile
-      upgrade = true;
-      extraFlags = [ "--all" "--verbose" ];
-    };
-
-    global = {
-      brewfile = true;
-    };
-
-    # These app IDs are from using the mas CLI app
-    # mas = mac app store
-    # https://github.com/mas-cli/mas
-    #
-    # $ nix shell nixpkgs#mas
-    # $ mas search <app name>
-    #
-    # If you have previously added these apps to your Mac App Store profile (but not installed them on this system),
-    # you may receive an error message "Redownload Unavailable with This Apple ID".
-    # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
-
-    masApps = {
-      "AusweisApp" = 948660805;
-      "Draw Things" = 6444050820;
-      "eduVPN" = 1317704208;
-      "uBlock Origin Lite" = 6745342698;
-      "WireGuard" = 1451685025;
-      "Xcode" = 497799835;
     };
   };
 
@@ -99,10 +59,15 @@ in
           additionalFiles
         ];
 
-        # Add the user-local npm global bin directory to PATH so CLIs installed
-        # with `npm install -g` are available without sudo.
+        # Configure a user-local npm prefix so globally installed npm packages
+        # do not require sudo and are kept inside the Home Manager user's home.
+        # The matching bin directory is added to PATH so installed CLIs are available.
+        sessionVariables = {
+          NPM_CONFIG_PREFIX = "\${XDG_DATA_HOME:-$HOME/.local/share}/npm-global";
+        };
+
         sessionPath = [
-          "${config.xdg.dataHome}/npm-global/bin"
+          "\${XDG_DATA_HOME:-$HOME/.local/share}/npm-global/bin"
         ];
 
         stateVersion = "25.05";
@@ -112,9 +77,6 @@ in
         enable = true;
         settings = {
           color = true;
-          # Keep globally installed npm packages inside the Home Manager user's
-          # home directory so `npm install -g` does not need sudo.
-          prefix = "${config.xdg.dataHome}/npm-global";
         };
       };
 
