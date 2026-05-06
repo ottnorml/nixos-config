@@ -99,18 +99,23 @@ in
           additionalFiles
         ];
 
-        # Configure a user-local npm prefix so globally installed npm packages
-        # do not require sudo and are kept inside the Home Manager user's home.
-        # The matching bin directory is added to PATH so installed CLIs are available.
-        sessionVariables = {
-          NPM_CONFIG_PREFIX = "${config.xdg.dataHome}/npm-global";
-        };
-
+        # Add the user-local npm global bin directory to PATH so CLIs installed
+        # with `npm install -g` are available without sudo.
         sessionPath = [
           "${config.xdg.dataHome}/npm-global/bin"
         ];
 
         stateVersion = "25.05";
+      };
+
+      programs.npm = {
+        enable = true;
+        settings = {
+          color = true;
+          # Keep globally installed npm packages inside the Home Manager user's
+          # home directory so `npm install -g` does not need sudo.
+          prefix = "${config.xdg.dataHome}/npm-global";
+        };
       };
 
       # Extend the zsh configuration
