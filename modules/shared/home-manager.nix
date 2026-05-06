@@ -46,6 +46,7 @@ in
       ZINIT[COMPLETIONS_DIR]="$ZINIT_HOME/completions"
       ZINIT[COMPINIT_OPTS]="-C"
       ZINIT[ZCOMPDUMP_PATH]="''${ZDOTDIR:-$HOME}/.zcompdump"
+      ZINIT[NO_SELF_UPDATE]=1
 
       source "${pkgs.zinit}/share/zinit/zinit.zsh"
 
