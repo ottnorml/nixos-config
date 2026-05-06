@@ -9,6 +9,7 @@ in
   # Shared shell configuration
   zsh = {
     enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
     autocd = false;
     cdpath = [ "~/Projects" ];
     plugins = [
@@ -343,7 +344,7 @@ in
         # Use XDG data directory
         # https://github.com/tmux-plugins/tmux-resurrect/issues/348
         extraConfig = ''
-          set -g @resurrect-dir '$HOME/.cache/tmux/resurrect'
+          set -g @resurrect-dir '''${HOME}/tmux/resurrect'
           set -g @resurrect-capture-pane-contents 'on'
           set -g @resurrect-pane-contents-area 'visible'
         '';

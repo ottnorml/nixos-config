@@ -103,11 +103,11 @@ in
         # do not require sudo and are kept inside the Home Manager user's home.
         # The matching bin directory is added to PATH so installed CLIs are available.
         sessionVariables = {
-          NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.local/share/npm-global";
+          NPM_CONFIG_PREFIX = "${config.xdg.dataHome}/npm-global";
         };
 
         sessionPath = [
-          "${config.home.homeDirectory}/.local/share/npm-global/bin"
+          "${config.xdg.dataHome}/npm-global/bin"
         ];
 
         stateVersion = "25.05";

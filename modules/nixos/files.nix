@@ -1,14 +1,8 @@
-{ user, ... }:
+{ user, xdg, ... }:
 
-let
-  home = builtins.getEnv "HOME";
-  xdg_configHome = "${home}/.config";
-  xdg_dataHome = "${home}/.local/share";
-  xdg_stateHome = "${home}/.local/state";
-in
 {
 
-  "${xdg_configHome}/bspwm/bspwmrc" = {
+  xdg.configFile."bspwm/bspwmrc" = {
     executable = true;
     text = ''
       #! /bin/sh
@@ -61,7 +55,7 @@ in
     '';
   };
 
-  "${xdg_configHome}/sxhkd/sxhkdrc" = {
+  xdg.configFile."sxhkd/sxhkdrc" = {
     text = ''
       # Close window
       alt + F4
@@ -202,7 +196,7 @@ in
 
       # Take a screenshot with PrintSc
       Print
-           flameshot gui -c -p $HOME/.local/share/img/screenshots
+           flameshot gui -c -p ''$HOME/.local/share/img/screenshots
 
       # Lock the screen
       ctrl + alt + BackSpace
@@ -222,7 +216,7 @@ in
     '';
   };
 
-  "${xdg_configHome}/polybar/bin/popup-calendar.sh" = {
+  xdg.configFile."polybar/bin/popup-calendar.sh" = {
     executable = true;
     text = ''
       #!/bin/sh
@@ -244,7 +238,7 @@ in
     '';
   };
 
-  "${xdg_configHome}/polybar/bin/check-nixos-updates.sh" = {
+  xdg.configFile."polybar/bin/check-nixos-updates.sh" = {
     executable = true;
     text = ''
       #!/bin/sh
@@ -256,7 +250,7 @@ in
     '';
   };
 
-  "${xdg_configHome}/polybar/bin/search-nixos-updates.sh" = {
+  xdg.configFile."polybar/bin/search-nixos-updates.sh" = {
     executable = true;
     text = ''
       #!/bin/sh
@@ -265,105 +259,107 @@ in
     '';
   };
 
-  "${xdg_configHome}/rofi/colors.rasi".text = builtins.readFile ./config/rofi/colors.rasi;
-  "${xdg_configHome}/rofi/confirm.rasi".text = builtins.readFile ./config/rofi/confirm.rasi;
-  "${xdg_configHome}/rofi/launcher.rasi".text = builtins.readFile ./config/rofi/launcher.rasi;
-  "${xdg_configHome}/rofi/message.rasi".text = builtins.readFile ./config/rofi/message.rasi;
-  "${xdg_configHome}/rofi/networkmenu.rasi".text = builtins.readFile ./config/rofi/networkmenu.rasi;
-  "${xdg_configHome}/rofi/powermenu.rasi".text = builtins.readFile ./config/rofi/powermenu.rasi;
-  "${xdg_configHome}/rofi/styles.rasi".text = builtins.readFile ./config/rofi/styles.rasi;
+  xdg.configFile = {
+    "rofi/colors.rasi".text = builtins.readFile ./config/rofi/colors.rasi;
+    "rofi/confirm.rasi".text = builtins.readFile ./config/rofi/confirm.rasi;
+    "rofi/launcher.rasi".text = builtins.readFile ./config/rofi/launcher.rasi;
+    "rofi/message.rasi".text = builtins.readFile ./config/rofi/message.rasi;
+    "rofi/networkmenu.rasi".text = builtins.readFile ./config/rofi/networkmenu.rasi;
+    "rofi/powermenu.rasi".text = builtins.readFile ./config/rofi/powermenu.rasi;
+    "rofi/styles.rasi".text = builtins.readFile ./config/rofi/styles.rasi;
+  };
 
-  "${xdg_configHome}/rofi/bin/launcher.sh" = {
+  xdg.configFile."rofi/bin/launcher.sh" = {
     executable = true;
     text = ''
       #!/bin/sh
 
-      rofi -no-config -no-lazy-grab -show drun -modi drun -theme ${xdg_configHome}/rofi/launcher.rasi
+      rofi -no-config -no-lazy-grab -show drun -modi drun -theme ${xdg.configHome}/rofi/launcher.rasi
     '';
   };
 
   # @todo: Don't use hardcoded src paths
-  "${xdg_configHome}/rofi/bin/powermenu.sh" = {
+  xdg.configFile."rofi/bin/powermenu.sh" = {
     executable = true;
     text = ''
-            #!/bin/sh
+      #!/bin/sh
 
-            configDir="${xdg_configHome}/rofi"
-            uptime=$(uptime -p | sed -e 's/up //g')
-            rofi_command="rofi -no-config -theme $configDir/powermenu.rasi"
+      configDir="${xdg.configHome}/rofi"
+      uptime=$(uptime -p | sed -e 's/up //g')
+      rofi_command="rofi -no-config -theme $configDir/powermenu.rasi"
 
-            # Options
-            shutdown=" Shutdown"
-            reboot=" Restart"
-            lock=" Lock"
-            suspend=" Sleep"
-            logout=" Logout"
+      # Options
+      shutdown=" Shutdown"
+      reboot=" Restart"
+      lock=" Lock"
+      suspend=" Sleep"
+      logout=" Logout"
 
-            # Confirmation
-            confirm_exit() {
-      	      rofi -dmenu\
-                    -no-config\
-      		      -i\
-      		      -no-fixed-num-lines\
-      		      -p "Are You Sure? : "\
-      		      -theme $configDir/confirm.rasi
-            }
+      # Confirmation
+      confirm_exit() {
+        rofi -dmenu\
+              -no-config\
+          -i\
+          -no-fixed-num-lines\
+          -p "Are You Sure? : "\
+          -theme $configDir/confirm.rasi
+      }
 
-            # Message
-            msg() {
-      	      rofi -no-config -theme "$configDir/message.rasi" -e "Available Options  -  yes / y / no / n"
-            }
+      # Message
+      msg() {
+        rofi -no-config -theme "$configDir/message.rasi" -e "Available Options  -  yes / y / no / n"
+      }
 
-            # Variable passed to rofi
-            options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
-            chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
-            case $chosen in
-                $shutdown)
-      		      ans=$(confirm_exit &)
-      		      if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      			      systemctl poweroff
-      		      elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-      			      exit 0
-                    else
-      			      msg
-                    fi
-                    ;;
-                $reboot)
-      		      ans=$(confirm_exit &)
-      		      if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      			      systemctl reboot
-      		      elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-      			      exit 0
-                    else
-      			      msg
-                    fi
-                    ;;
-                $lock)
-                betterlockscreen -l
-                    ;;
-                $suspend)
-      		      ans=$(confirm_exit &)
-      		      if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      			      mpc -q pause
-      			      amixer set Master mute
-      			      systemctl suspend
-      		      elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-      			      exit 0
-                    else
-      			      msg
-                    fi
-                    ;;
-                $logout)
-      		      ans=$(confirm_exit &)
-      		      if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-      			      bspc quit
-      		      elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-      			      exit 0
-                    else
-      			      msg
-                    fi
-                    ;;
-            esac
+      # Variable passed to rofi
+      options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"
+      chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 0)"
+      case $chosen in
+          $shutdown)
+          ans=$(confirm_exit &)
+          if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+            systemctl poweroff
+          elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+            exit 0
+              else
+            msg
+              fi
+              ;;
+          $reboot)
+          ans=$(confirm_exit &)
+          if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+            systemctl reboot
+          elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+            exit 0
+              else
+            msg
+              fi
+              ;;
+          $lock)
+          betterlockscreen -l
+              ;;
+          $suspend)
+          ans=$(confirm_exit &)
+          if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+            mpc -q pause
+            amixer set Master mute
+            systemctl suspend
+          elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+            exit 0
+              else
+            msg
+              fi
+              ;;
+          $logout)
+          ans=$(confirm_exit &)
+          if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+            bspc quit
+          elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+            exit 0
+              else
+            msg
+              fi
+              ;;
+      esac
     '';
   };
 }

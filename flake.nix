@@ -283,6 +283,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = mkSpecialArgs system ;
               users.${user} = import ./modules/nixos/home-manager.nix;
             };
           }

@@ -1,8 +1,10 @@
-{ nixpkgs-master, pkgs }:
+{ nixpkgs-master, pkgs, ... }:
 
 with pkgs;
-let shared-packages = import ../shared/packages.nix { inherit nixpkgs-master pkgs; }; in
-shared-packages ++ [
+let
+  sharedPackages = pkgs.callPackage ../shared/packages.nix { inherit nixpkgs-master pkgs; };
+in
+sharedPackages ++ [
 
   # Security and authentication
   ausweisapp
