@@ -28,7 +28,6 @@ jetbrainsIDEs ++
   "docker-desktop"
   "iterm2"
   "kitty"
-  "postman"
 
   # Cloud & Infrastructure
   "freelens"
