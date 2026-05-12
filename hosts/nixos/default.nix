@@ -88,7 +88,12 @@ in
     dconf.enable = true;
 
     # My shell
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+
+      # Disable global completion init to speed up compinit in user zsh configs.
+      enableGlobalCompInit = false;
+    };
   };
 
   services = {

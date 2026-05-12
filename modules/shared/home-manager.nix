@@ -31,23 +31,7 @@ in
       fi
 
       # Configure and load Zinit from Nixpkgs.
-      #
-      # Zinit itself is managed by Nix via pkgs.zinit, while plugins,
-      # snippets, completions and annexes are kept in XDG data directories.
-      # Do not run `zinit self-update`; update Zinit through Nix instead.
-      typeset -gA ZINIT
-      export ZINIT_HOME="''${XDG_DATA_HOME:-$HOME/.local/share}/zinit"
-      export ZPFX="$ZINIT_HOME/polaris"
-
-      ZINIT[HOME_DIR]="$ZINIT_HOME"
-      ZINIT[BIN_DIR]="${pkgs.zinit}/share/zinit"
-      ZINIT[PLUGINS_DIR]="$ZINIT_HOME/plugins"
-      ZINIT[SNIPPETS_DIR]="$ZINIT_HOME/snippets"
-      ZINIT[COMPLETIONS_DIR]="$ZINIT_HOME/completions"
       ZINIT[COMPINIT_OPTS]="-C"
-      ZINIT[ZCOMPDUMP_PATH]="''${ZDOTDIR:-$HOME}/.zcompdump"
-      ZINIT[NO_SELF_UPDATE]=1
-
       source "${pkgs.zinit}/share/zinit/zinit.zsh"
 
       # Register Zinit completion when compinit has already been initialized.
