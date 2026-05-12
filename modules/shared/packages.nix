@@ -32,6 +32,7 @@ with pkgs; [
   hack-font
   jetbrains-mono
   meslo-lgs-nf
+  nerd-fonts.jetbrains-mono
   noto-fonts
   noto-fonts-color-emoji
 
