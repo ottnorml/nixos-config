@@ -53,7 +53,6 @@ in
       # Define variables for directories
       export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
       export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
-      export PATH=$HOME/.local/share/bin:$PATH
 
       # Remove history data we don't want to see
       export HISTIGNORE="pwd:ls:cd"
@@ -69,12 +68,6 @@ in
       e() {
           emacsclient -t "$@"
       }
-
-      # nix shortcuts
-      shell() {
-          nix-shell '<nixpkgs>' -A "$1"
-      }
-
       # pnpm is a javascript package manager
       alias pn=pnpm
       alias px=pnpx
@@ -82,9 +75,6 @@ in
       # Use difftastic, syntax-aware diffing
       alias diff=difft
 
-      # Always color ls and group directories
-      alias ls='ls --color=auto'
-      alias ll='ls -lisahF'
 
 
       # https://carapace-sh.github.io/carapace-bin/setup.html#zsh
@@ -101,20 +91,6 @@ in
       else
         echo 'zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
       fi
-
-      function mkcd {
-        mkdir --parents "''$1" && cd "''$1"
-      }
-
-      function reload {
-        # Delete current completion cache
-        command rm -f $_comp_dumpfile $ZSH_COMPDUMP
-
-        # Old zsh versions don't have ZSH_ARGZERO
-        local zsh="''${ZSH_ARGZERO:-''${functrace[-1]%:*}}"
-        # Check whether to run a login shell
-        [[ "$zsh" = -* || -o login ]] && exec -l "''${zsh#-}" || exec "$zsh"
-      }
     '';
   };
 
