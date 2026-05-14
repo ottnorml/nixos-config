@@ -38,6 +38,7 @@ _:
   "act"
   "bruno-cli"
   "git"
+  "git-flow-next"
   "gitlab-ci-local"
   "glab"
   "golangci-lint"
