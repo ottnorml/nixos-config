@@ -272,6 +272,10 @@
                 };
               };
             }
+            # Align homebrew taps config with nix-homebrew
+            ({ config, ... }: {
+              homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+            })
             ./hosts/darwin
           ];
         });
