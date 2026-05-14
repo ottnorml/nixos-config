@@ -29,15 +29,15 @@
     # Homebrew integration
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
-      # inputs.brew-src.follows = "homebrew-brew";
+      inputs.brew-src.follows = "homebrew-brew";
     };
 
-    # # Override Homebrew version to prevent nix-homebrew from using its pinned older version
-    # # (reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix)
-    # homebrew-brew = {
-    #   url = "github:Homebrew/brew/5.1.9";
-    #   flake = false;
-    # };
+    # Override Homebrew version to prevent nix-homebrew from using its pinned older version
+    # (reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix)
+    homebrew-brew = {
+      url = "github:Homebrew/brew/5.1.9";
+      flake = false;
+    };
 
     # Homebrew taps
     Adembc-tap = {
@@ -140,7 +140,7 @@
     , darwin
       # Homebrew integration
     , nix-homebrew
-      # , homebrew-brew
+    , homebrew-brew
       # Homebrew taps
     , Adembc-tap
     , alexstrnik-browserino
@@ -170,8 +170,8 @@
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
 
-      # flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
-      # brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
+      flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
+      brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
 
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
       devShell = system:
@@ -224,9 +224,8 @@
       devShells = forAllSystems devShell;
       apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
-      darwinConfigurations = nixpkgs.lib.genAttrs
-        darwinSystems
-        (system: darwin.lib.darwinSystem {
+      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
+        darwin.lib.darwinSystem {
           specialArgs = mkSpecialArgs system;
           modules = [
             { nixpkgs.hostPlatform = system; }
@@ -261,37 +260,35 @@
                 mutableTaps = false;
                 autoMigrate = true;
 
-                # # Uses the explicitly pinned Homebrew source instead of nix-homebrew’s default.
-                # # `name` and `version` here are only metadata for Nix/store naming; the actual
-                # # Homebrew version is determined by the `homebrew-brew` input above.
-                # package = homebrew-brew // {
-                #   name = "brew-${brewVersion}";
-                #   version = brewVersion;
-                # };
+                # Uses the explicitly pinned Homebrew source instead of nix-homebrew’s default.
+                # `name` and `version` here are only metadata for Nix/store naming; the actual
+                # Homebrew version is determined by the `homebrew-brew` input above.
+                package = homebrew-brew // {
+                  name = "brew-${brewVersion}";
+                  version = brewVersion;
+                };
               };
             }
             ./hosts/darwin
           ];
         });
 
-      nixosConfigurations = nixpkgs.lib.genAttrs
-        linuxSystems
-        (system: nixpkgs.lib.nixosSystem {
-          specialArgs = mkSpecialArgs system;
-          modules = [
-            { nixpkgs.hostPlatform = system; }
-            disko.nixosModules.disko
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = mkSpecialArgs system;
-                users.${user} = import ./modules/nixos/home-manager.nix;
-              };
-            }
-            ./hosts/nixos
-          ];
-        });
+      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
+        specialArgs = mkSpecialArgs system;
+        modules = [
+          { nixpkgs.hostPlatform = system; }
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = mkSpecialArgs system ;
+              users.${user} = import ./modules/nixos/home-manager.nix;
+            };
+          }
+          ./hosts/nixos
+        ];
+      });
     };
 }

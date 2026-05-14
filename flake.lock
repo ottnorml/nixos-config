@@ -89,23 +89,6 @@
         "type": "github"
       }
     },
-    "brew-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1778146321,
-        "narHash": "sha256-HeBwuJmuBioZHyZqDOcf7W/xsMFupSD583v6I5Cl7a8=",
-        "owner": "Homebrew",
-        "repo": "brew",
-        "rev": "af835384ac574f76025adb38b292b04cecee1f1f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Homebrew",
-        "ref": "5.1.10",
-        "repo": "brew",
-        "type": "github"
-      }
-    },
     "crumbyte-noxdir": {
       "flake": false,
       "locked": {
@@ -232,6 +215,23 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "homebrew-brew": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777880867,
+        "narHash": "sha256-zyX/EWy3o5tuvqFHSnIo1bFZcy0zsXpUBO9PcLrFrr4=",
+        "owner": "Homebrew",
+        "repo": "brew",
+        "rev": "c94270e54e7c1ab761c3287893a1381fee60533a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Homebrew",
+        "ref": "5.1.9",
+        "repo": "brew",
         "type": "github"
       }
     },
@@ -365,7 +365,9 @@
     },
     "nix-homebrew": {
       "inputs": {
-        "brew-src": "brew-src"
+        "brew-src": [
+          "homebrew-brew"
+        ]
       },
       "locked": {
         "lastModified": 1778332591,
@@ -473,6 +475,7 @@
         "disko": "disko",
         "fluxcd-tap": "fluxcd-tap",
         "home-manager": "home-manager_2",
+        "homebrew-brew": "homebrew-brew",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "hyperb1iss-tap": "hyperb1iss-tap",
