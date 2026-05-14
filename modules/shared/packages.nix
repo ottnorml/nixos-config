@@ -40,12 +40,15 @@ with pkgs; [
   nodejs_24
 
   # Text and terminal utilities
+  go-jsonnet
+  ijq
   jq
   ripgrep
   tmux
   tree
   unrar
   unzip
+  yq
   zsh-powerlevel10k
 
   # Development tools
