@@ -170,9 +170,6 @@
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
 
-      flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
-      brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
-
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
       devShell = system:
         let pkgs = nixpkgs.legacyPackages.${system}; in {
@@ -219,13 +216,40 @@
           config.allowUnfree = true;
         };
       };
+
+      flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
+      brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
+
+      homebrewTaps = {
+        "Adembc/homebrew-tap" = Adembc-tap;
+        "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
+        "anomalyco/homebrew-tap" = anomalyco-tap;
+        "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
+        "deskflow/homebrew-tap" = deskflow-tap;
+        "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
+        "fluxcd/homebrew-tap" = fluxcd-tap;
+        "homebrew/homebrew-cask" = homebrew-cask;
+        "homebrew/homebrew-core" = homebrew-core;
+        "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
+        "jetbrains/homebrew-junie" = jetbrains-junie;
+        "jordond/homebrew-tap" = jordond-tap;
+        "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
+        "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
+        "matthart1983/homebrew-tap" = matthart1983-tap;
+        "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
+        "oven-sh/homebrew-bun" = oven-sh-bun;
+        "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
+        "rtk-ai/homebrew-tap" = rtk-ai-tap;
+        "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
+      };
     in
     {
       devShells = forAllSystems devShell;
       apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
-      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
-        darwin.lib.darwinSystem {
+      darwinConfigurations = nixpkgs.lib.genAttrs
+        darwinSystems
+        (system: darwin.lib.darwinSystem {
           specialArgs = mkSpecialArgs system;
           modules = [
             { nixpkgs.hostPlatform = system; }
@@ -235,28 +259,7 @@
               nix-homebrew = {
                 inherit user;
                 enable = true;
-                taps = {
-                  "Adembc/homebrew-tap" = Adembc-tap;
-                  "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
-                  "anomalyco/homebrew-tap" = anomalyco-tap;
-                  "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
-                  "deskflow/homebrew-tap" = deskflow-tap;
-                  "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
-                  "fluxcd/homebrew-tap" = fluxcd-tap;
-                  "homebrew/homebrew-cask" = homebrew-cask;
-                  "homebrew/homebrew-core" = homebrew-core;
-                  "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
-                  "jetbrains/homebrew-junie" = jetbrains-junie;
-                  "jordond/homebrew-tap" = jordond-tap;
-                  "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
-                  "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
-                  "matthart1983/homebrew-tap" = matthart1983-tap;
-                  "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
-                  "oven-sh/homebrew-bun" = oven-sh-bun;
-                  "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
-                  "rtk-ai/homebrew-tap" = rtk-ai-tap;
-                  "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
-                };
+                taps = homebrewTaps;
                 mutableTaps = false;
                 autoMigrate = true;
 
@@ -283,7 +286,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = mkSpecialArgs system ;
+              extraSpecialArgs = mkSpecialArgs system;
               users.${user} = import ./modules/nixos/home-manager.nix;
             };
           }
