@@ -98,15 +98,12 @@ in
         # Always color ls and group directories
         ls = "ls --color=auto --group-directories-first";
         ll = "ls -lisahF";
+        which = "(alias; declare -f) | ${pkgs.which}/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot";
       };
-      
+
       siteFunctions = {
         mkcd = ''
           mkdir --parents "$1" && cd "$1"
-        '';
-        # nix shortcuts
-        shell = ''
-          nix-shell '<nixpkgs>' -A "$1"
         '';
         reload = ''
           # Delete current completion cache
@@ -116,6 +113,16 @@ in
           local zsh="''${ZSH_ARGZERO:-''${functrace[-1]%:*}}"
           # Check whether to run a login shell
           [[ "$zsh" = -* || -o login ]] && exec -l "''${zsh#-}" || exec "$zsh"
+        '';
+        # nix-shell shortcuts
+        shell = ''
+          if [[ $# -eq 0 || -z "$1" ]]; then
+            echo "usage: shell <nixpkgs-attribute>" >&2
+            echo "example: shell nodejs_24" >&2
+            return 2
+          fi
+
+          nix-shell '<nixpkgs>' -A "$1"
         '';
       };
     };
