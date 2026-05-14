@@ -45,6 +45,7 @@ in
       fi
 
       # Configure and load Zinit from Nixpkgs.
+      declare -A ZINIT
       ZINIT[COMPINIT_OPTS]="-C"
       source "${pkgs.zinit}/share/zinit/zinit.zsh"
 
