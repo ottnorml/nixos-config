@@ -6,18 +6,21 @@ let
   email = "2350859+ottnorml@users.noreply.github.com";
 in
 {
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.nix-your-shell.enable
   nix-your-shell = {
     enable = true;
     enableZshIntegration = true;
     nix-output-monitor.enable = true;
   };
 
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.nnn.enable
   nnn = {
     enable = true;
     enableZshIntegration = true;
   };
 
   # Shared shell configuration
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.enable
   zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -105,6 +108,7 @@ in
     '';
   };
 
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.git.enable
   #  git = {
   #    enable = true;
   #    ignores = [ "*.swp" ];
@@ -125,6 +129,7 @@ in
   #    };
   #  };
 
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.vim.enable
   vim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [ vim-airline vim-airline-themes vim-startify vim-tmux-navigator ];
@@ -301,6 +306,7 @@ in
     };
   };
 
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.ssh.enable
   #  ssh = {
   #    enable = true;
   #    enableDefaultConfig = false;
@@ -332,6 +338,7 @@ in
   #    };
   #  };
 
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.tmux.enable
   tmux = {
     enable = true;
     plugins = with pkgs.tmuxPlugins; [
