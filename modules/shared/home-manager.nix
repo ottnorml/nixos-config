@@ -38,6 +38,42 @@ in
         file = "p10k.zsh";
       }
     ];
+
+    # Disable global completion init to speed up compinit in user zsh configs.
+    enableCompletion = false;
+
+    shellAliases = {
+      # Always color ls and group directories
+      ls = "ls --color=auto --group-directories-first";
+      ll = "ls -lisahF";
+      which = "(alias; declare -f) | ${pkgs.which}/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot";
+    };
+
+    siteFunctions = {
+      mkcd = ''
+        mkdir --parents "$1" && cd "$1"
+      '';
+      reload = ''
+        # Delete current completion cache
+        command rm -f $_comp_dumpfile $ZSH_COMPDUMP
+
+        # Old zsh versions don't have ZSH_ARGZERO
+        local zsh="''${ZSH_ARGZERO:-''${functrace[-1]%:*}}"
+        # Check whether to run a login shell
+        [[ "$zsh" = -* || -o login ]] && exec -l "''${zsh#-}" || exec "$zsh"
+      '';
+      # nix-shell shortcuts
+      shell = ''
+        if [[ $# -eq 0 || -z "$1" ]]; then
+          echo "usage: shell <nixpkgs-attribute>" >&2
+          echo "example: shell nodejs_24" >&2
+          return 2
+        fi
+
+        nix-shell '<nixpkgs>' -A "$1"
+      '';
+    };
+
     initContent = lib.mkBefore ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
