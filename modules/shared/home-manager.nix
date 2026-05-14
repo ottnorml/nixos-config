@@ -6,6 +6,17 @@ let
   email = "2350859+ottnorml@users.noreply.github.com";
 in
 {
+  nix-your-shell = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-output-monitor.enable = true;
+  };
+
+  nnn = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   # Shared shell configuration
   zsh = {
     enable = true;
