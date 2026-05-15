@@ -29,7 +29,12 @@ in
   home-manager = {
     useGlobalPkgs = true;
     users.${user} = { pkgs, config, lib, ... }: {
-      xdg.enable = true;
+
+      # https://nix-community.github.io/home-manager/options.xhtml#opt-xdg.enable
+      xdg = {
+        enable = true;
+        localBinInPath = true;
+      };
 
       home = {
         enableNixpkgsReleaseCheck = false;
