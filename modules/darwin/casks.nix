@@ -72,7 +72,6 @@ jetbrainsIDEs ++
   "alexstrnik/browserino/browserino"
   "apache-directory-studio"
   "appcleaner"
-  "clipy"
   "crumbyte/noxdir/noxdir"
   "deskflow/tap/deskflow"
   "flux-app"
