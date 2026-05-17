@@ -67,6 +67,7 @@ _:
   "anomalyco/tap/opencode"
   "backlog-md"
   "beads"
+  "dolt" # beads dependency
   "gemini-cli"
   "mistral-vibe"
   "nono"
