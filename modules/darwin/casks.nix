@@ -93,6 +93,7 @@ jetbrainsIDEs ++
   # Entertainment & Media
   "jellyfin-media-player"
   "openttd"
+  "sozercan/repo/kaset" # The missing YouTube Music macOS app
   "steam"
   "vlc"
 ]
