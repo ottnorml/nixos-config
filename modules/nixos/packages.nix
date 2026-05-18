@@ -26,6 +26,9 @@ sharedPackages ++ [
   # Audio tools
   pavucontrol # Pulse audio controls
 
+  # AI tools
+  ast-grep
+
   # Testing and development tools
   libtool # for Emacs vterm
   rofi

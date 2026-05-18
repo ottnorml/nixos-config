@@ -65,6 +65,7 @@ _:
 
   # AI tools
   "anomalyco/tap/opencode"
+  "ast-grep"
   "backlog-md"
   "beads"
   "dolt" # beads dependency
