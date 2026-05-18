@@ -31,6 +31,7 @@ sharedPackages ++ [
 
   # Testing and development tools
   libtool # for Emacs vterm
+  pnpm
   rofi
   rofi-calc
 

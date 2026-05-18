@@ -38,7 +38,6 @@ with pkgs; [
 
   # Node.js development tools
   nodejs_24
-  pnpm_11
 
   # Text and terminal utilities
   go-jsonnet

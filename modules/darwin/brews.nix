@@ -54,6 +54,7 @@ _:
   "operator-sdk"
   "oven-sh/bun/bun"
   "plantuml"
+  "pnpm"
   "pre-commit"
   "prek"
   "richard-fairthorne/tap/pairqr"
