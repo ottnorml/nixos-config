@@ -492,6 +492,7 @@
         "richard-fairthorne-tap": "richard-fairthorne-tap",
         "rtk-ai-tap": "rtk-ai-tap",
         "secrets": "secrets",
+        "sozercan-repo": "sozercan-repo",
         "toobuntu-cask-tools": "toobuntu-cask-tools"
       }
     },
@@ -525,6 +526,22 @@
       "original": {
         "type": "git",
         "url": "ssh://git@github.com/OttNorml/nixos-config.git"
+      }
+    },
+    "sozercan-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779061294,
+        "narHash": "sha256-lFDzq6OmjQUbXITPaMlyK795+eCYpOumgi71QeGsJ68=",
+        "owner": "sozercan",
+        "repo": "homebrew-repo",
+        "rev": "ca977e3cd4e783ba9b57164a582f4f7d69af966c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sozercan",
+        "repo": "homebrew-repo",
+        "type": "github"
       }
     },
     "systems": {

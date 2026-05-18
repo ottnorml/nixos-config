@@ -116,6 +116,10 @@
       url = "github:rtk-ai/homebrew-tap";
       flake = false;
     };
+    sozercan-repo = {
+      url = "github:sozercan/homebrew-repo";
+      flake = false;
+    };
     toobuntu-cask-tools = {
       url = "github:toobuntu/homebrew-cask-tools";
       flake = false;
@@ -161,6 +165,7 @@
     , oven-sh-bun
     , richard-fairthorne-tap
     , rtk-ai-tap
+    , sozercan-repo
     , toobuntu-cask-tools
       # Private configurations
     , secrets
@@ -240,6 +245,7 @@
         "oven-sh/homebrew-bun" = oven-sh-bun;
         "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
         "rtk-ai/homebrew-tap" = rtk-ai-tap;
+        "sozercan/homebrew-repo" = sozercan-repo;
         "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
       };
     in
