@@ -88,6 +88,7 @@ jetbrainsIDEs ++
   "rectangle"
   "reminders-menubar"
   "rustdesk"
+  "stats"
   "thaw"
 
   # Entertainment & Media
