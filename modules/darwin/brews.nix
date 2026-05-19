@@ -92,6 +92,7 @@ _:
   "iproute2mac"
   "jordond/tap/jolt"
   "koekeishiya/formulae/yabai"
+  "macmon"
   "mas"
   "matthart1983/tap/netwatch"
   "matthart1983/tap/syswatch"
