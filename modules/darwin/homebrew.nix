@@ -71,7 +71,11 @@ in
       autoUpdate = true;
       # cleanup = "zap"; # Uninstall packages/casks not in Brewfile
       upgrade = true;
-      extraFlags = [ "--all" "--verbose" ];
+      extraFlags = [
+        "--all"
+        "--jobs=auto" # Parallel formula installations using available CPU cores (max 4)
+        "--verbose"
+      ];
     };
 
     global = {
