@@ -35,7 +35,7 @@
     # Override Homebrew version to prevent nix-homebrew from using its pinned older version
     # (reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix)
     homebrew-brew = {
-      url = "github:Homebrew/brew/5.1.11";
+      url = "github:Homebrew/brew/5.1.12";
       flake = false;
     };
 
