@@ -399,21 +399,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1779422715,
-        "narHash": "sha256-8+g6QfffimwwzDmRZJsvFYe7/4jlDwnesb+it+rR8AE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "14c39d3c62a7f0bfb2a3362a352de6edd2fa3903",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "ottnorml-mdns-browser": {
       "flake": false,
       "locked": {
@@ -486,7 +471,9 @@
         "matthart1983-tap": "matthart1983-tap",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-master": [
+          "nixpkgs"
+        ],
         "ottnorml-mdns-browser": "ottnorml-mdns-browser",
         "oven-sh-bun": "oven-sh-bun",
         "richard-fairthorne-tap": "richard-fairthorne-tap",
