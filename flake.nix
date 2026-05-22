@@ -3,7 +3,8 @@
   inputs = {
     # Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs";
+    # nixpkgs-master.url = "github:nixos/nixpkgs";
+    nixpkgs-master.follows = "nixpkgs";
 
     # Core tools
     agenix = {
