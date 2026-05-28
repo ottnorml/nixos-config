@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "TypeWhisper-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779354298,
+        "narHash": "sha256-DLwRY8thO4f3YUZZqtj3BfigtD0vbPd289fB78v/8VM=",
+        "owner": "TypeWhisper",
+        "repo": "homebrew-tap",
+        "rev": "46c2b5929134590c01e15da20f20bef0a2986b21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TypeWhisper",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "agenix": {
       "inputs": {
         "darwin": [
@@ -451,6 +467,7 @@
       "inputs": {
         "Adembc-tap": "Adembc-tap",
         "FelixKratz-formulae": "FelixKratz-formulae",
+        "TypeWhisper-tap": "TypeWhisper-tap",
         "agenix": "agenix",
         "alexstrnik-browserino": "alexstrnik-browserino",
         "anomalyco-tap": "anomalyco-tap",
