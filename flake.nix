@@ -41,7 +41,7 @@
     };
 
     # Homebrew taps
-    Adembc-tap = {
+    adembc-tap = {
       url = "github:Adembc/homebrew-tap";
       flake = false;
     };
@@ -61,7 +61,7 @@
       url = "github:deskflow/homebrew-tap";
       flake = false;
     };
-    FelixKratz-formulae = {
+    felixkratz-formulae = {
       url = "github:FelixKratz/homebrew-formulae";
       flake = false;
     };
@@ -125,7 +125,7 @@
       url = "github:toobuntu/homebrew-cask-tools";
       flake = false;
     };
-    TypeWhisper-tap = {
+    typewhisper-tap = {
       url = "github:TypeWhisper/homebrew-tap";
       flake = false;
     };
@@ -151,12 +151,12 @@
     , nix-homebrew
     , homebrew-brew
       # Homebrew taps
-    , Adembc-tap
+    , adembc-tap
     , alexstrnik-browserino
     , anomalyco-tap
     , crumbyte-noxdir
     , deskflow-tap
-    , FelixKratz-formulae
+    , felixkratz-formulae
     , fluxcd-tap
     , homebrew-cask
     , homebrew-core
@@ -172,7 +172,7 @@
     , rtk-ai-tap
     , sozercan-repo
     , toobuntu-cask-tools
-    , TypeWhisper-tap
+    , typewhisper-tap
       # Private configurations
     , secrets
     } @inputs:
@@ -232,12 +232,12 @@
       brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
 
       homebrewTaps = {
-        "Adembc/homebrew-tap" = Adembc-tap;
-        "AlexStrNik/homebrew-Browserino" = alexstrnik-browserino;
+        "adembc/homebrew-tap" = adembc-tap;
+        "alexstrnik/homebrew-browserino" = alexstrnik-browserino;
         "anomalyco/homebrew-tap" = anomalyco-tap;
         "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
         "deskflow/homebrew-tap" = deskflow-tap;
-        "FelixKratz/homebrew-formulae" = FelixKratz-formulae;
+        "felixkratz/homebrew-formulae" = felixkratz-formulae;
         "fluxcd/homebrew-tap" = fluxcd-tap;
         "homebrew/homebrew-cask" = homebrew-cask;
         "homebrew/homebrew-core" = homebrew-core;
@@ -253,7 +253,7 @@
         "rtk-ai/homebrew-tap" = rtk-ai-tap;
         "sozercan/homebrew-repo" = sozercan-repo;
         "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
-        "TypeWhisper/homebrew-tap" = TypeWhisper-tap;
+        "typewhisper/homebrew-tap" = typewhisper-tap;
       };
     in
     {
