@@ -137,9 +137,12 @@ in
       fi
       '')
       (lib.mkAfter ''
-      if [[ -z ''${ZSH_DISABLE_P10K:-} ]]; then
+      if [[ -n ''${ZSH_ENABLE_P10K:-} && -z ''${ZSH_DISABLE_P10K:-} ]]; then
         source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
         source "${p10kConfig}/p10k.zsh"
+      elif [[ -z ''${ZSH_DISABLE_P10K:-} && ( -z ''${PROMPT:-} || $PROMPT == '%m%# ' || $PROMPT == '%# ' ) ]]; then
+        PROMPT='%n@%m:%~ %# '
+        RPROMPT=
       fi
 
       if [[ -z ''${ZSH_DISABLE_NIX_YOUR_SHELL:-} ]]; then
