@@ -9,7 +9,7 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.nix-your-shell.enable
   nix-your-shell = {
     enable = true;
-    enableZshIntegration = true;
+    enableZshIntegration = false;
     nix-output-monitor.enable = true;
   };
 
@@ -74,29 +74,32 @@ in
       '';
     };
 
-    initContent = lib.mkBefore ''
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       fi
 
-      # Configure and load Zinit from Nixpkgs.
-      declare -A ZINIT
-      ZINIT[COMPINIT_OPTS]="-C"
-      source "${pkgs.zinit}/share/zinit/zinit.zsh"
+      if [[ -z ''${ZSH_DISABLE_ZINIT:-} ]]; then
+        # Configure and load Zinit from Nixpkgs.
+        declare -A ZINIT
+        ZINIT[COMPINIT_OPTS]="-C"
+        source "${pkgs.zinit}/share/zinit/zinit.zsh"
 
-      # Register Zinit completion when compinit has already been initialized.
-      autoload -Uz _zinit
-      (( ''${+_comps} )) && _comps[zinit]=_zinit
+        # Register Zinit completion when compinit has already been initialized.
+        autoload -Uz _zinit
+        (( ''${+_comps} )) && _comps[zinit]=_zinit
 
-      # Load useful Zinit annexes recommended by the installer.
-      # These extend Zinit with monitoring, binary/gem/node handling,
-      # patch/download helpers and Rust-related support.
-      zinit light-mode for \
-        zdharma-continuum/zinit-annex-as-monitor \
-        zdharma-continuum/zinit-annex-bin-gem-node \
-        zdharma-continuum/zinit-annex-patch-dl \
-        zdharma-continuum/zinit-annex-rust
+        # Load useful Zinit annexes recommended by the installer.
+        # These extend Zinit with monitoring, binary/gem/node handling,
+        # patch/download helpers and Rust-related support.
+        zinit light-mode for \
+          zdharma-continuum/zinit-annex-as-monitor \
+          zdharma-continuum/zinit-annex-bin-gem-node \
+          zdharma-continuum/zinit-annex-patch-dl \
+          zdharma-continuum/zinit-annex-rust
+      fi
 
 
       ### --- ###
@@ -129,7 +132,7 @@ in
 
 
       # https://carapace-sh.github.io/carapace-bin/setup.html#zsh
-      if (( $+commands[carapace] )); then
+      if [[ -z ''${ZSH_DISABLE_CARAPACE:-} ]] && (( $+commands[carapace] )); then
         # ''${UserConfigDir}/zsh/.zshrc
         export CARAPACE_BRIDGES='zsh' # optional
         zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
@@ -137,12 +140,20 @@ in
       fi
 
       # https://github.com/ohmyzsh/ohmyzsh/blob/a449c0247d69726fe4f3ca4fe88182bdb215a5d3/plugins/zoxide/zoxide.plugin.zsh
-      if (( $+commands[zoxide] )); then
+      if [[ -n ''${ZSH_DISABLE_ZOXIDE:-} ]]; then
+        :
+      elif (( $+commands[zoxide] )); then
         eval "$(zoxide init --cmd ''${ZOXIDE_CMD_OVERRIDE:-cd} zsh)"
       else
         echo 'zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
       fi
-    '';
+      '')
+      (lib.mkAfter ''
+      if [[ -z ''${ZSH_DISABLE_NIX_YOUR_SHELL:-} ]]; then
+        ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
+      fi
+      '')
+    ];
   };
 
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.git.enable

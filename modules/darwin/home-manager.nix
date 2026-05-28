@@ -86,7 +86,9 @@ in
           vim "$@"
         }
 
-        zinit snippet OMZP::brew
+        if [[ -z ''${ZSH_DISABLE_ZINIT:-} ]] && (( $+functions[zinit] )); then
+          zinit snippet OMZP::brew
+        fi
       '';
 
       # Import shared config. Assuming shared/home-manager.nix returns
