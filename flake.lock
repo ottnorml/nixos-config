@@ -1,6 +1,6 @@
 {
   "nodes": {
-    "Adembc-tap": {
+    "adembc-tap": {
       "flake": false,
       "locked": {
         "lastModified": 1759955810,
@@ -12,38 +12,6 @@
       },
       "original": {
         "owner": "Adembc",
-        "repo": "homebrew-tap",
-        "type": "github"
-      }
-    },
-    "FelixKratz-formulae": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1778761682,
-        "narHash": "sha256-7yF1zmBtNk5oWdI+4SMbhAa6ZlxvW9jZoCMPUFt9ytU=",
-        "owner": "FelixKratz",
-        "repo": "homebrew-formulae",
-        "rev": "c53e16d323fd427b3d348470dc99dc0bf0477514",
-        "type": "github"
-      },
-      "original": {
-        "owner": "FelixKratz",
-        "repo": "homebrew-formulae",
-        "type": "github"
-      }
-    },
-    "TypeWhisper-tap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1779354298,
-        "narHash": "sha256-DLwRY8thO4f3YUZZqtj3BfigtD0vbPd289fB78v/8VM=",
-        "owner": "TypeWhisper",
-        "repo": "homebrew-tap",
-        "rev": "46c2b5929134590c01e15da20f20bef0a2986b21",
-        "type": "github"
-      },
-      "original": {
-        "owner": "TypeWhisper",
         "repo": "homebrew-tap",
         "type": "github"
       }
@@ -177,6 +145,22 @@
         "type": "github"
       }
     },
+    "felixkratz-formulae": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778761682,
+        "narHash": "sha256-7yF1zmBtNk5oWdI+4SMbhAa6ZlxvW9jZoCMPUFt9ytU=",
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "rev": "c53e16d323fd427b3d348470dc99dc0bf0477514",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "homebrew-formulae",
+        "type": "github"
+      }
+    },
     "fluxcd-tap": {
       "flake": false,
       "locked": {
@@ -254,11 +238,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1779955944,
-        "narHash": "sha256-BH25fVgrizibC8bVjz/z59c6Q7SAwaLQX1vddQBlRVI=",
+        "lastModified": 1779959706,
+        "narHash": "sha256-4aikzGkB+wSajtrt77hzxpzrhUV0s72k+1lU3DytjVc=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "1c4eb69256ccf7cfcfc9fef84f6dd8f25d2aa9a6",
+        "rev": "719e4e0b72a2514db572d66a8ac4b84487bed046",
         "type": "github"
       },
       "original": {
@@ -270,11 +254,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1779948446,
-        "narHash": "sha256-d0r9ELwru9RenXqqFGjTgoMnfFXzUnA0YdLJi8j9dPs=",
+        "lastModified": 1779959833,
+        "narHash": "sha256-4CdPTUarrHVx34d6pGEMZ0UjhPOF2xUK/ksuAQj4ifM=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "8bc7973b7627c17a3b03f5096457bc2f05c0c6d8",
+        "rev": "ff9ebca8ebd570ad81fe4fb0919a021a93c74241",
         "type": "github"
       },
       "original": {
@@ -465,9 +449,7 @@
     },
     "root": {
       "inputs": {
-        "Adembc-tap": "Adembc-tap",
-        "FelixKratz-formulae": "FelixKratz-formulae",
-        "TypeWhisper-tap": "TypeWhisper-tap",
+        "adembc-tap": "adembc-tap",
         "agenix": "agenix",
         "alexstrnik-browserino": "alexstrnik-browserino",
         "anomalyco-tap": "anomalyco-tap",
@@ -475,6 +457,7 @@
         "darwin": "darwin",
         "deskflow-tap": "deskflow-tap",
         "disko": "disko",
+        "felixkratz-formulae": "felixkratz-formulae",
         "fluxcd-tap": "fluxcd-tap",
         "home-manager": "home-manager_2",
         "homebrew-brew": "homebrew-brew",
@@ -497,7 +480,8 @@
         "rtk-ai-tap": "rtk-ai-tap",
         "secrets": "secrets",
         "sozercan-repo": "sozercan-repo",
-        "toobuntu-cask-tools": "toobuntu-cask-tools"
+        "toobuntu-cask-tools": "toobuntu-cask-tools",
+        "typewhisper-tap": "typewhisper-tap"
       }
     },
     "rtk-ai-tap": {
@@ -576,6 +560,22 @@
       "original": {
         "owner": "toobuntu",
         "repo": "homebrew-cask-tools",
+        "type": "github"
+      }
+    },
+    "typewhisper-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779354298,
+        "narHash": "sha256-DLwRY8thO4f3YUZZqtj3BfigtD0vbPd289fB78v/8VM=",
+        "owner": "TypeWhisper",
+        "repo": "homebrew-tap",
+        "rev": "46c2b5929134590c01e15da20f20bef0a2986b21",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TypeWhisper",
+        "repo": "homebrew-tap",
         "type": "github"
       }
     }
