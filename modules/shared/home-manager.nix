@@ -4,6 +4,7 @@ let
   name = "Simon Potye";
   user = "spt";
   email = "2350859+ottnorml@users.noreply.github.com";
+  p10kConfig = lib.cleanSource ./config;
 in
 {
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.nix-your-shell.enable
@@ -26,19 +27,6 @@ in
     dotDir = "${config.xdg.configHome}/zsh";
     autocd = false;
     cdpath = [ "~/Projects" ];
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./config;
-        file = "p10k.zsh";
-      }
-    ];
-
     # Disable global completion init to speed up compinit in user zsh configs.
     enableCompletion = false;
 
@@ -149,6 +137,11 @@ in
       fi
       '')
       (lib.mkAfter ''
+      if [[ -z ''${ZSH_DISABLE_P10K:-} ]]; then
+        source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+        source "${p10kConfig}/p10k.zsh"
+      fi
+
       if [[ -z ''${ZSH_DISABLE_NIX_YOUR_SHELL:-} ]]; then
         ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
       fi
