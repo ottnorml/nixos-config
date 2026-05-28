@@ -52,6 +52,7 @@ jetbrainsIDEs ++
   "jan"
   "lm-studio"
   "raycast"
+  "typewhisper/tap/typewhisper"
   "zotero"
 
   # Browsers
