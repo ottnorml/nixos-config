@@ -125,6 +125,10 @@
       url = "github:toobuntu/homebrew-cask-tools";
       flake = false;
     };
+    TypeWhisper-tap = {
+      url = "github:TypeWhisper/homebrew-tap";
+      flake = false;
+    };
 
     # Private configurations
     secrets = {
@@ -168,6 +172,7 @@
     , rtk-ai-tap
     , sozercan-repo
     , toobuntu-cask-tools
+    , TypeWhisper-tap
       # Private configurations
     , secrets
     } @inputs:
@@ -248,6 +253,7 @@
         "rtk-ai/homebrew-tap" = rtk-ai-tap;
         "sozercan/homebrew-repo" = sozercan-repo;
         "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
+        "TypeWhisper/homebrew-tap" = TypeWhisper-tap;
       };
     in
     {
