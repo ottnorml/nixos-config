@@ -20,6 +20,163 @@ in
     enableZshIntegration = true;
   };
 
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.starship.enable
+  starship = {
+    enable = true;
+
+    # Important: Do not let Home Manager automatically write the integration into .zshrc.
+    # We initialize Starship manually below via ZSH_PROMPT_ENGINE.
+    enableZshIntegration = false;
+
+    settings = {
+      add_newline = true;
+      command_timeout = 500;
+      scan_timeout = 30;
+
+      format = ''
+        $os$directory$git_branch$git_status$git_state
+        $character'';
+
+      right_format = "$status$cmd_duration$jobs$direnv$nix_shell$python$nodejs$golang$rust$terraform$kubernetes$aws$gcloud";
+
+      os = {
+        disabled = false;
+        format = "[$symbol]($style) ";
+        style = "bg:bright-white fg:black";
+      };
+
+      directory = {
+        format = "[ $path ]($style)";
+        style = "bg:blue fg:white bold";
+        truncation_length = 5;
+        truncate_to_repo = false;
+        fish_style_pwd_dir_length = 1;
+        read_only = " ";
+      };
+
+      git_branch = {
+        symbol = " ";
+        format = "[ $symbol$branch(:$remote_branch) ]($style)";
+        style = "bg:green fg:black";
+        truncation_length = 32;
+      };
+
+      git_status = {
+        format = "([ $all_status$ahead_behind ]($style))";
+        style = "bg:yellow fg:black";
+        conflicted = "~$count";
+        ahead = "⇡$count";
+        behind = "⇣$count";
+        diverged = "⇕⇡$ahead_count⇣$behind_count";
+        stashed = "*$count";
+        modified = "!$count";
+        staged = "+$count";
+        renamed = "»$count";
+        deleted = "✘$count";
+        untracked = "?$count";
+      };
+
+      git_state = {
+        format = "[ $state( $progress_current/$progress_total) ]($style)";
+        style = "bg:red fg:white";
+      };
+
+      character = {
+        success_symbol = "[❯](green)";
+        error_symbol = "[❯](red)";
+        vicmd_symbol = "[❮](green)";
+      };
+
+      status = {
+        disabled = false;
+        format = "[$symbol$status]($style) ";
+        style = "red";
+        pipestatus = true;
+      };
+
+      cmd_duration = {
+        min_time = 3000;
+        format = "took [$duration]($style) ";
+      };
+
+      jobs = {
+        disabled = false;
+        symbol = "✦";
+        number_threshold = 1;
+        format = "[$symbol$number]($style) ";
+      };
+
+      direnv = {
+        disabled = false;
+        format = "[$symbol$loaded/$allowed]($style) ";
+      };
+
+      nix_shell = {
+        disabled = false;
+        symbol = "❄ ";
+        format = "[$symbol$state( \\($name\\))]($style) ";
+      };
+
+      python = {
+        symbol = " ";
+        format = "[$symbol$version( \\($virtualenv\\))]($style) ";
+        detect_extensions = [ "py" ];
+        detect_files = [ "pyproject.toml" "requirements.txt" ".python-version" ];
+      };
+
+      nodejs = {
+        symbol = " ";
+        format = "[$symbol$version]($style) ";
+        detect_files = [ "package.json" ".node-version" ".nvmrc" ];
+      };
+
+      golang = {
+        symbol = " ";
+        format = "[$symbol$version]($style) ";
+        detect_files = [ "go.mod" ];
+      };
+
+      rust = {
+        symbol = " ";
+        format = "[$symbol$version]($style) ";
+        detect_files = [ "Cargo.toml" ];
+      };
+
+      terraform = {
+        symbol = "󱁢 ";
+        format = "[$symbol$workspace]($style) ";
+      };
+
+      kubernetes = {
+        disabled = false;
+        symbol = "☸ ";
+        format = "[$symbol$context( \\($namespace\\))]($style) ";
+      };
+
+      aws = {
+        disabled = false;
+        symbol = " ";
+        format = "[$symbol$profile( \\($region\\))]($style) ";
+      };
+
+      gcloud = {
+        disabled = false;
+        symbol = "☁ ";
+        format = "[$symbol$project]($style) ";
+      };
+    };
+  };
+
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.oh-my-posh.enable
+  oh-my-posh = {
+    enable = true;
+    # Also here: no automatic .zshrc injection.
+    enableZshIntegration = false;
+
+    # For the initial test: as close as possible to p10k.
+    useTheme = "powerlevel10k_rainbow";
+  };
+
   # Shared shell configuration
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.zsh.enable
   zsh = {
@@ -148,6 +305,32 @@ in
         if [[ -z ''${ZSH_DISABLE_NIX_YOUR_SHELL:-} ]]; then
           ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
         fi
+
+        __minimal_prompt() {
+          PROMPT='%n@%m:%~ %# '
+          RPROMPT=
+        }
+
+        case "''${ZSH_PROMPT_ENGINE:-starship}" in
+          starship)
+            eval "$(${pkgs.starship}/bin/starship init zsh)"
+            ;;
+
+          ohmyposh|oh-my-posh|omp)
+            eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${pkgs.oh-my-posh}/share/oh-my-posh/themes/powerlevel10k_rainbow.omp.json)"
+            ;;
+
+          minimal|none|off)
+            __minimal_prompt
+            ;;
+
+          *)
+            print -u2 "Unknown ZSH_PROMPT_ENGINE=''${ZSH_PROMPT_ENGINE}; using minimal prompt."
+            __minimal_prompt
+            ;;
+        esac
+
+        unset -f __minimal_prompt
       '')
     ];
   };
