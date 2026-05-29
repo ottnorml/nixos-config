@@ -64,90 +64,90 @@ in
 
     initContent = lib.mkMerge [
       (lib.mkBefore ''
-      if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-        . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-      fi
+        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fi
 
-      if [[ -z ''${ZSH_DISABLE_ZINIT:-} ]]; then
-        # Configure and load Zinit from Nixpkgs.
-        declare -A ZINIT
-        ZINIT[COMPINIT_OPTS]="-C"
-        source "${pkgs.zinit}/share/zinit/zinit.zsh"
+        if [[ -z ''${ZSH_DISABLE_ZINIT:-} ]]; then
+          # Configure and load Zinit from Nixpkgs.
+          declare -A ZINIT
+          ZINIT[COMPINIT_OPTS]="-C"
+          source "${pkgs.zinit}/share/zinit/zinit.zsh"
 
-        # Register Zinit completion when compinit has already been initialized.
-        autoload -Uz _zinit
-        (( ''${+_comps} )) && _comps[zinit]=_zinit
+          # Register Zinit completion when compinit has already been initialized.
+          autoload -Uz _zinit
+          (( ''${+_comps} )) && _comps[zinit]=_zinit
 
-        # Load useful Zinit annexes recommended by the installer.
-        # These extend Zinit with monitoring, binary/gem/node handling,
-        # patch/download helpers and Rust-related support.
-        zinit light-mode for \
-          zdharma-continuum/zinit-annex-as-monitor \
-          zdharma-continuum/zinit-annex-bin-gem-node \
-          zdharma-continuum/zinit-annex-patch-dl \
-          zdharma-continuum/zinit-annex-rust
-      fi
-
-
-      ### --- ###
-
-      # Define variables for directories
-      export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
-      export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
-
-      # Remove history data we don't want to see
-      export HISTIGNORE="pwd:ls:cd"
-
-      # Ripgrep alias
-      alias search=rg -p --glob '!node_modules/*'  $@
-
-      # Emacs is my editor
-      export ALTERNATE_EDITOR=""
-      export EDITOR="emacsclient -t"
-      export VISUAL="emacsclient -c -a emacs"
-
-      e() {
-          emacsclient -t "$@"
-      }
-      # pnpm is a javascript package manager
-      alias pn=pnpm
-      alias px=pnpx
-
-      # Use difftastic, syntax-aware diffing
-      alias diff=difft
+          # Load useful Zinit annexes recommended by the installer.
+          # These extend Zinit with monitoring, binary/gem/node handling,
+          # patch/download helpers and Rust-related support.
+          zinit light-mode for \
+            zdharma-continuum/zinit-annex-as-monitor \
+            zdharma-continuum/zinit-annex-bin-gem-node \
+            zdharma-continuum/zinit-annex-patch-dl \
+            zdharma-continuum/zinit-annex-rust
+        fi
 
 
+        ### --- ###
 
-      # https://carapace-sh.github.io/carapace-bin/setup.html#zsh
-      if [[ -z ''${ZSH_DISABLE_CARAPACE:-} ]] && (( $+commands[carapace] )); then
-        # ''${UserConfigDir}/zsh/.zshrc
-        export CARAPACE_BRIDGES='zsh' # optional
-        zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-        source <(carapace _carapace)
-      fi
+        # Define variables for directories
+        export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
+        export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
 
-      # https://github.com/ohmyzsh/ohmyzsh/blob/a449c0247d69726fe4f3ca4fe88182bdb215a5d3/plugins/zoxide/zoxide.plugin.zsh
-      if [[ -n ''${ZSH_DISABLE_ZOXIDE:-} ]]; then
-        :
-      elif (( $+commands[zoxide] )); then
-        eval "$(zoxide init --cmd ''${ZOXIDE_CMD_OVERRIDE:-cd} zsh)"
-      else
-        echo 'zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
-      fi
+        # Remove history data we don't want to see
+        export HISTIGNORE="pwd:ls:cd"
+
+        # Ripgrep alias
+        alias search=rg -p --glob '!node_modules/*'  $@
+
+        # Emacs is my editor
+        export ALTERNATE_EDITOR=""
+        export EDITOR="emacsclient -t"
+        export VISUAL="emacsclient -c -a emacs"
+
+        e() {
+            emacsclient -t "$@"
+        }
+        # pnpm is a javascript package manager
+        alias pn=pnpm
+        alias px=pnpx
+
+        # Use difftastic, syntax-aware diffing
+        alias diff=difft
+
+
+
+        # https://carapace-sh.github.io/carapace-bin/setup.html#zsh
+        if [[ -z ''${ZSH_DISABLE_CARAPACE:-} ]] && (( $+commands[carapace] )); then
+          # ''${UserConfigDir}/zsh/.zshrc
+          export CARAPACE_BRIDGES='zsh' # optional
+          zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+          source <(carapace _carapace)
+        fi
+
+        # https://github.com/ohmyzsh/ohmyzsh/blob/a449c0247d69726fe4f3ca4fe88182bdb215a5d3/plugins/zoxide/zoxide.plugin.zsh
+        if [[ -n ''${ZSH_DISABLE_ZOXIDE:-} ]]; then
+          :
+        elif (( $+commands[zoxide] )); then
+          eval "$(zoxide init --cmd ''${ZOXIDE_CMD_OVERRIDE:-cd} zsh)"
+        else
+          echo 'zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
+        fi
       '')
       (lib.mkAfter ''
-      if [[ -n ''${ZSH_ENABLE_P10K:-} && -z ''${ZSH_DISABLE_P10K:-} ]]; then
-        source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-        source "${p10kConfig}/p10k.zsh"
-      elif [[ -z ''${ZSH_DISABLE_P10K:-} && ( -z ''${PROMPT:-} || $PROMPT == '%m%# ' || $PROMPT == '%# ' ) ]]; then
-        PROMPT='%n@%m:%~ %# '
-        RPROMPT=
-      fi
+        if [[ -n ''${ZSH_ENABLE_P10K:-} && -z ''${ZSH_DISABLE_P10K:-} ]]; then
+          source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+          source "${p10kConfig}/p10k.zsh"
+        elif [[ -z ''${ZSH_DISABLE_P10K:-} && ( -z ''${PROMPT:-} || $PROMPT == '%m%# ' || $PROMPT == '%# ' ) ]]; then
+          PROMPT='%n@%m:%~ %# '
+          RPROMPT=
+        fi
 
-      if [[ -z ''${ZSH_DISABLE_NIX_YOUR_SHELL:-} ]]; then
-        ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
-      fi
+        if [[ -z ''${ZSH_DISABLE_NIX_YOUR_SHELL:-} ]]; then
+          ${pkgs.nix-your-shell}/bin/nix-your-shell --nom zsh | source /dev/stdin
+        fi
       '')
     ];
   };
