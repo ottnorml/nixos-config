@@ -238,11 +238,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1780068122,
-        "narHash": "sha256-VW9EdGsMkkauybUoSx3ekgIOqFnL5sgjJjcySd5FsUE=",
+        "lastModified": 1780089802,
+        "narHash": "sha256-sMO8ksBkad0WJUiIsOCgHGGqH4+fJIfdBLOLAG1Lp5k=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "57bbe9f5bc0137d7d42978d2c355b4fa5f2e920e",
+        "rev": "0dbbbfb7938bd0b89311c83448a6ba21b2e1fb87",
         "type": "github"
       },
       "original": {
@@ -254,11 +254,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1780072097,
-        "narHash": "sha256-riCkKTQlmn/krZPfDIT9ZmJ0nWPOkRLELL8ZJqZznkg=",
+        "lastModified": 1780090336,
+        "narHash": "sha256-NcFnXig7WrvXQJrPIrlBQ+ycx3qnioCx/E+4jigB/ik=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "e99d4b33317d6e35c1aa2ee9b3fd70fcd1c4fc76",
+        "rev": "54a49eff1d882a9e8441726a35cdbc4bbbb2d647",
         "type": "github"
       },
       "original": {
@@ -519,11 +519,11 @@
     "sozercan-repo": {
       "flake": false,
       "locked": {
-        "lastModified": 1779944383,
-        "narHash": "sha256-476y/bQB/XBuNYOS51NOMEeuYiAFpPH4PL3C7aT6khU=",
+        "lastModified": 1780077379,
+        "narHash": "sha256-U0cESZdB9749DXMCW/LaBFsnfinToTQOqSxgR5zGVtc=",
         "owner": "sozercan",
         "repo": "homebrew-repo",
-        "rev": "4926a09c4c751da2ec11862769b57a5d41cf30ec",
+        "rev": "49a852291e91296f6d94da6d78311b99fa7a9ee9",
         "type": "github"
       },
       "original": {
