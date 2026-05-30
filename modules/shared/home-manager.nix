@@ -28,6 +28,8 @@ in
     # We initialize Starship manually below via ZSH_PROMPT_ENGINE.
     enableZshIntegration = false;
 
+    configPath = "${config.xdg.configHome}/starship/starship.toml";
+
     # settings = {
     #   add_newline = true;
     #   command_timeout = 500;
