@@ -28,143 +28,143 @@ in
     # We initialize Starship manually below via ZSH_PROMPT_ENGINE.
     enableZshIntegration = false;
 
-    settings = {
-      add_newline = true;
-      command_timeout = 500;
-      scan_timeout = 30;
-
-      format = ''
-        $os$directory$git_branch$git_status$git_state
-        $character'';
-
-      right_format = "$status$cmd_duration$jobs$direnv$nix_shell$python$nodejs$golang$rust$terraform$kubernetes$aws$gcloud";
-
-      os = {
-        disabled = false;
-        format = "[$symbol]($style) ";
-        style = "bg:bright-white fg:black";
-      };
-
-      directory = {
-        format = "[ $path ]($style)";
-        style = "bg:blue fg:white bold";
-        truncation_length = 5;
-        truncate_to_repo = false;
-        fish_style_pwd_dir_length = 1;
-        read_only = " ";
-      };
-
-      git_branch = {
-        symbol = " ";
-        format = "[ $symbol$branch(:$remote_branch) ]($style)";
-        style = "bg:green fg:black";
-        truncation_length = 32;
-      };
-
-      git_status = {
-        format = "([ $all_status$ahead_behind ]($style))";
-        style = "bg:yellow fg:black";
-        conflicted = "~$count";
-        ahead = "⇡$count";
-        behind = "⇣$count";
-        diverged = "⇕⇡$ahead_count⇣$behind_count";
-        stashed = "*$count";
-        modified = "!$count";
-        staged = "+$count";
-        renamed = "»$count";
-        deleted = "✘$count";
-        untracked = "?$count";
-      };
-
-      git_state = {
-        format = "[ $state( $progress_current/$progress_total) ]($style)";
-        style = "bg:red fg:white";
-      };
-
-      character = {
-        success_symbol = "[❯](green)";
-        error_symbol = "[❯](red)";
-        vicmd_symbol = "[❮](green)";
-      };
-
-      status = {
-        disabled = false;
-        format = "[$symbol$status]($style) ";
-        style = "red";
-        pipestatus = true;
-      };
-
-      cmd_duration = {
-        min_time = 3000;
-        format = "took [$duration]($style) ";
-      };
-
-      jobs = {
-        disabled = false;
-        symbol = "✦";
-        number_threshold = 1;
-        format = "[$symbol$number]($style) ";
-      };
-
-      direnv = {
-        disabled = false;
-        format = "[$symbol$loaded/$allowed]($style) ";
-      };
-
-      nix_shell = {
-        disabled = false;
-        symbol = "❄ ";
-        format = "[$symbol$state( \\($name\\))]($style) ";
-      };
-
-      python = {
-        symbol = " ";
-        format = "[$symbol$version( \\($virtualenv\\))]($style) ";
-        detect_extensions = [ "py" ];
-        detect_files = [ "pyproject.toml" "requirements.txt" ".python-version" ];
-      };
-
-      nodejs = {
-        symbol = " ";
-        format = "[$symbol$version]($style) ";
-        detect_files = [ "package.json" ".node-version" ".nvmrc" ];
-      };
-
-      golang = {
-        symbol = " ";
-        format = "[$symbol$version]($style) ";
-        detect_files = [ "go.mod" ];
-      };
-
-      rust = {
-        symbol = " ";
-        format = "[$symbol$version]($style) ";
-        detect_files = [ "Cargo.toml" ];
-      };
-
-      terraform = {
-        symbol = "󱁢 ";
-        format = "[$symbol$workspace]($style) ";
-      };
-
-      kubernetes = {
-        disabled = false;
-        symbol = "☸ ";
-        format = "[$symbol$context( \\($namespace\\))]($style) ";
-      };
-
-      aws = {
-        disabled = false;
-        symbol = " ";
-        format = "[$symbol$profile( \\($region\\))]($style) ";
-      };
-
-      gcloud = {
-        disabled = false;
-        symbol = "☁ ";
-        format = "[$symbol$project]($style) ";
-      };
-    };
+    # settings = {
+    #   add_newline = true;
+    #   command_timeout = 500;
+    #   scan_timeout = 30;
+    #
+    #   format = ''
+    #     $os$directory$git_branch$git_status$git_state
+    #     $character'';
+    #
+    #   right_format = "$status$cmd_duration$jobs$direnv$nix_shell$python$nodejs$golang$rust$terraform$kubernetes$aws$gcloud";
+    #
+    #   os = {
+    #     disabled = false;
+    #     format = "[$symbol]($style) ";
+    #     style = "bg:bright-white fg:black";
+    #   };
+    #
+    #   directory = {
+    #     format = "[ $path ]($style)";
+    #     style = "bg:blue fg:white bold";
+    #     truncation_length = 5;
+    #     truncate_to_repo = false;
+    #     fish_style_pwd_dir_length = 1;
+    #     read_only = " ";
+    #   };
+    #
+    #   git_branch = {
+    #     symbol = " ";
+    #     format = "[ $symbol$branch(:$remote_branch) ]($style)";
+    #     style = "bg:green fg:black";
+    #     truncation_length = 32;
+    #   };
+    #
+    #   git_status = {
+    #     format = "([ $all_status$ahead_behind ]($style))";
+    #     style = "bg:yellow fg:black";
+    #     conflicted = "~$count";
+    #     ahead = "⇡$count";
+    #     behind = "⇣$count";
+    #     diverged = "⇕⇡$ahead_count⇣$behind_count";
+    #     stashed = "*$count";
+    #     modified = "!$count";
+    #     staged = "+$count";
+    #     renamed = "»$count";
+    #     deleted = "✘$count";
+    #     untracked = "?$count";
+    #   };
+    #
+    #   git_state = {
+    #     format = "[ $state( $progress_current/$progress_total) ]($style)";
+    #     style = "bg:red fg:white";
+    #   };
+    #
+    #   character = {
+    #     success_symbol = "[❯](green)";
+    #     error_symbol = "[❯](red)";
+    #     vicmd_symbol = "[❮](green)";
+    #   };
+    #
+    #   status = {
+    #     disabled = false;
+    #     format = "[$symbol$status]($style) ";
+    #     style = "red";
+    #     pipestatus = true;
+    #   };
+    #
+    #   cmd_duration = {
+    #     min_time = 3000;
+    #     format = "took [$duration]($style) ";
+    #   };
+    #
+    #   jobs = {
+    #     disabled = false;
+    #     symbol = "✦";
+    #     number_threshold = 1;
+    #     format = "[$symbol$number]($style) ";
+    #   };
+    #
+    #   direnv = {
+    #     disabled = false;
+    #     format = "[$symbol$loaded/$allowed]($style) ";
+    #   };
+    #
+    #   nix_shell = {
+    #     disabled = false;
+    #     symbol = "❄ ";
+    #     format = "[$symbol$state( \\($name\\))]($style) ";
+    #   };
+    #
+    #   python = {
+    #     symbol = " ";
+    #     format = "[$symbol$version( \\($virtualenv\\))]($style) ";
+    #     detect_extensions = [ "py" ];
+    #     detect_files = [ "pyproject.toml" "requirements.txt" ".python-version" ];
+    #   };
+    #
+    #   nodejs = {
+    #     symbol = " ";
+    #     format = "[$symbol$version]($style) ";
+    #     detect_files = [ "package.json" ".node-version" ".nvmrc" ];
+    #   };
+    #
+    #   golang = {
+    #     symbol = " ";
+    #     format = "[$symbol$version]($style) ";
+    #     detect_files = [ "go.mod" ];
+    #   };
+    #
+    #   rust = {
+    #     symbol = " ";
+    #     format = "[$symbol$version]($style) ";
+    #     detect_files = [ "Cargo.toml" ];
+    #   };
+    #
+    #   terraform = {
+    #     symbol = "󱁢 ";
+    #     format = "[$symbol$workspace]($style) ";
+    #   };
+    #
+    #   kubernetes = {
+    #     disabled = false;
+    #     symbol = "☸ ";
+    #     format = "[$symbol$context( \\($namespace\\))]($style) ";
+    #   };
+    #
+    #   aws = {
+    #     disabled = false;
+    #     symbol = " ";
+    #     format = "[$symbol$profile( \\($region\\))]($style) ";
+    #   };
+    #
+    #   gcloud = {
+    #     disabled = false;
+    #     symbol = "☁ ";
+    #     format = "[$symbol$project]($style) ";
+    #   };
+    # };
   };
 
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.oh-my-posh.enable
