@@ -174,7 +174,7 @@ in
     enableZshIntegration = false;
 
     # For the initial test: as close as possible to p10k.
-    useTheme = "powerlevel10k_rainbow";
+    # useTheme = "powerlevel10k_rainbow";
   };
 
   # Shared shell configuration
