@@ -8,6 +8,7 @@ let user = "spt"; in
     # ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
     ../../modules/darwin/homebrew.nix
+    ../../modules/darwin/launchd-environment.nix
     ../../modules/shared
     # agenix.darwinModules.default
   ];
