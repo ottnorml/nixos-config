@@ -53,6 +53,10 @@
       url = "github:anomalyco/homebrew-tap";
       flake = false;
     };
+    aprilnea-tap = {
+      url = "github:AprilNEA/homebrew-tap";
+      flake = false;
+    };
     crumbyte-noxdir = {
       url = "github:crumbyte/homebrew-noxdir";
       flake = false;
@@ -154,6 +158,7 @@
     , adembc-tap
     , alexstrnik-browserino
     , anomalyco-tap
+    , aprilnea-tap
     , crumbyte-noxdir
     , deskflow-tap
     , felixkratz-formulae
@@ -235,6 +240,7 @@
         "adembc/homebrew-tap" = adembc-tap;
         "alexstrnik/homebrew-browserino" = alexstrnik-browserino;
         "anomalyco/homebrew-tap" = anomalyco-tap;
+        "aprilnea/homebrew-tap" = aprilnea-tap;
         "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
         "deskflow/homebrew-tap" = deskflow-tap;
         "felixkratz/homebrew-formulae" = felixkratz-formulae;
