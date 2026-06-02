@@ -73,6 +73,7 @@ jetbrainsIDEs ++
   "alexstrnik/browserino/browserino"
   "apache-directory-studio"
   "appcleaner"
+  "aprilnea/tap/openlogi" # Logitech Options+ alternative
   "crumbyte/noxdir/noxdir"
   "deskflow/tap/deskflow"
   "flux-app"
