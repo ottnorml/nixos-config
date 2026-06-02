@@ -73,6 +73,22 @@
         "type": "github"
       }
     },
+    "aprilnea-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780416539,
+        "narHash": "sha256-sbwODLpuFaq+34acPCmtSbQMrs1PzW9YCXrcuG4c7/E=",
+        "owner": "AprilNEA",
+        "repo": "homebrew-tap",
+        "rev": "99c93792cbc74f01b941f858708e69a598b86d29",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AprilNEA",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "crumbyte-noxdir": {
       "flake": false,
       "locked": {
@@ -453,6 +469,7 @@
         "agenix": "agenix",
         "alexstrnik-browserino": "alexstrnik-browserino",
         "anomalyco-tap": "anomalyco-tap",
+        "aprilnea-tap": "aprilnea-tap",
         "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin",
         "deskflow-tap": "deskflow-tap",
