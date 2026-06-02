@@ -91,7 +91,7 @@ _:
   "hyperb1iss/tap/unifly"
   "iproute2mac"
   "jordond/tap/jolt"
-  "koekeishiya/formulae/yabai"
+#  "koekeishiya/formulae/yabai"
   "macmon"
   "mas"
   "matthart1983/tap/netwatch"
