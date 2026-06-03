@@ -89,6 +89,22 @@
         "type": "github"
       }
     },
+    "arcboxlabs-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779815620,
+        "narHash": "sha256-ojY2wNZO1KWDIdDF6XiFYhkrQwgamgyPLuqp48XSgHg=",
+        "owner": "arcboxlabs",
+        "repo": "homebrew-tap",
+        "rev": "d67531ff60d090afd18e2915cc1caf876d3c1807",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arcboxlabs",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "crumbyte-noxdir": {
       "flake": false,
       "locked": {
@@ -470,6 +486,7 @@
         "alexstrnik-browserino": "alexstrnik-browserino",
         "anomalyco-tap": "anomalyco-tap",
         "aprilnea-tap": "aprilnea-tap",
+        "arcboxlabs-tap": "arcboxlabs-tap",
         "crumbyte-noxdir": "crumbyte-noxdir",
         "darwin": "darwin",
         "deskflow-tap": "deskflow-tap",
