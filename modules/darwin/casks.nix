@@ -96,6 +96,7 @@ jetbrainsIDEs ++
   "thaw"
 
   # Entertainment & Media
+  "audacity"
   "blackhole-16ch" # Virtual Audio Driver
   "jellyfin-media-player"
   "openttd"
