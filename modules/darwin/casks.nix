@@ -95,7 +95,7 @@ jetbrainsIDEs ++
   "thaw"
 
   # Entertainment & Media
-  "blackhole-2ch" # Virtual Audio Driver
+  "blackhole-16ch" # Virtual Audio Driver
   "jellyfin-media-player"
   "openttd"
   "sozercan/repo/kaset" # The missing YouTube Music macOS app
