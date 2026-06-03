@@ -101,6 +101,7 @@ _:
   "nmap"
   "pandoc"
   "pv"
+  "virustotal-cli"
   "vivid"
   "zoxide"
 ]
