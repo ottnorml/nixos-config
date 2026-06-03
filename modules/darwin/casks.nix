@@ -28,6 +28,7 @@ jetbrainsIDEs ++
   "bruno"
   "docker-desktop"
   "iterm2"
+  "ghostty"
   "kitty"
 
   # Cloud & Infrastructure
