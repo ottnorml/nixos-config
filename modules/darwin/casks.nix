@@ -75,7 +75,6 @@ jetbrainsIDEs ++
   "alexstrnik/browserino/browserino"
   "apache-directory-studio"
   "appcleaner"
-  "aprilnea/tap/openlogi" # Logitech Options+ alternative
   "crumbyte/noxdir/noxdir"
   "deskflow/tap/deskflow"
   "flux-app"
@@ -88,6 +87,7 @@ jetbrainsIDEs ++
   "macfuse"
   "menumeters"
   "nextcloud"
+  "openlogi" # Logitech Options+ alternative
   "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
   "reminders-menubar"
