@@ -62,6 +62,31 @@ in
   homebrew = {
     enable = true;
 
+    taps = [
+      "adembc/tap"
+      "alexstrnik/browserino"
+      "anomalyco/tap"
+      "aprilnea/tap"
+      "arcboxlabs/tap"
+      "crumbyte/noxdir"
+      "deskflow/tap"
+      "felixkratz/formulae"
+      "fluxcd/tap"
+      "hyperb1iss/tap"
+      "jetbrains/junie"
+      "jordond/tap"
+      "kdash-rs/kdash"
+      "koekeishiya/formulae"
+      "matthart1983/tap"
+      "ottnorml/mdns-browser"
+      "oven-sh/bun"
+      "richard-fairthorne/tap"
+      "rtk-ai/tap"
+      "sozercan/repo"
+      "toobuntu/cask-tools"
+      "typewhisper/tap"
+    ];
+
     brews = sortBrewfileEntries (pkgs.callPackage ./brews.nix { });
     casks = sortBrewfileEntries (pkgs.callPackage ./casks.nix { });
 

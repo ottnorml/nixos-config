@@ -40,96 +40,6 @@
       flake = false;
     };
 
-    # Homebrew taps
-    adembc-tap = {
-      url = "github:Adembc/homebrew-tap";
-      flake = false;
-    };
-    alexstrnik-browserino = {
-      url = "github:AlexStrNik/homebrew-Browserino";
-      flake = false;
-    };
-    anomalyco-tap = {
-      url = "github:anomalyco/homebrew-tap";
-      flake = false;
-    };
-    aprilnea-tap = {
-      url = "github:AprilNEA/homebrew-tap";
-      flake = false;
-    };
-    arcboxlabs-tap = {
-      url = "github:arcboxlabs/homebrew-tap";
-      flake = false;
-    };
-    crumbyte-noxdir = {
-      url = "github:crumbyte/homebrew-noxdir";
-      flake = false;
-    };
-    deskflow-tap = {
-      url = "github:deskflow/homebrew-tap";
-      flake = false;
-    };
-    felixkratz-formulae = {
-      url = "github:FelixKratz/homebrew-formulae";
-      flake = false;
-    };
-    fluxcd-tap = {
-      url = "github:fluxcd/homebrew-tap";
-      flake = false;
-    };
-    hyperb1iss-tap = {
-      url = "github:hyperb1iss/homebrew-tap";
-      flake = false;
-    };
-    jetbrains-junie = {
-      url = "github:jetbrains/homebrew-junie";
-      flake = false;
-    };
-    jordond-tap = {
-      url = "github:jordond/homebrew-tap";
-      flake = false;
-    };
-    kdash-rs-kdash = {
-      url = "github:kdash-rs/homebrew-kdash";
-      flake = false;
-    };
-    koekeishiya-formulae = {
-      url = "github:koekeishiya/homebrew-formulae";
-      flake = false;
-    };
-    matthart1983-tap = {
-      url = "github:matthart1983/homebrew-tap";
-      flake = false;
-    };
-    ottnorml-mdns-browser = {
-      url = "github:ottnorml/homebrew-mdns-browser";
-      flake = false;
-    };
-    oven-sh-bun = {
-      url = "github:oven-sh/homebrew-bun";
-      flake = false;
-    };
-    richard-fairthorne-tap = {
-      url = "github:richard-fairthorne/homebrew-tap";
-      flake = false;
-    };
-    rtk-ai-tap = {
-      url = "github:rtk-ai/homebrew-tap";
-      flake = false;
-    };
-    sozercan-repo = {
-      url = "github:sozercan/homebrew-repo";
-      flake = false;
-    };
-    toobuntu-cask-tools = {
-      url = "github:toobuntu/homebrew-cask-tools";
-      flake = false;
-    };
-    typewhisper-tap = {
-      url = "github:TypeWhisper/homebrew-tap";
-      flake = false;
-    };
-
     # Private configurations
     secrets = {
       url = "git+ssh://git@github.com/OttNorml/nixos-config.git";
@@ -150,29 +60,6 @@
       # Homebrew integration
     , nix-homebrew
     , homebrew-brew
-      # Homebrew taps
-    , adembc-tap
-    , alexstrnik-browserino
-    , anomalyco-tap
-    , aprilnea-tap
-    , arcboxlabs-tap
-    , crumbyte-noxdir
-    , deskflow-tap
-    , felixkratz-formulae
-    , fluxcd-tap
-    , hyperb1iss-tap
-    , jetbrains-junie
-    , jordond-tap
-    , kdash-rs-kdash
-    , koekeishiya-formulae
-    , matthart1983-tap
-    , ottnorml-mdns-browser
-    , oven-sh-bun
-    , richard-fairthorne-tap
-    , rtk-ai-tap
-    , sozercan-repo
-    , toobuntu-cask-tools
-    , typewhisper-tap
       # Private configurations
     , secrets
     } @inputs:
@@ -230,31 +117,6 @@
 
       flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
       brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
-
-      homebrewTaps = {
-        "adembc/homebrew-tap" = adembc-tap;
-        "alexstrnik/homebrew-browserino" = alexstrnik-browserino;
-        "anomalyco/homebrew-tap" = anomalyco-tap;
-        "aprilnea/homebrew-tap" = aprilnea-tap;
-        "arcboxlabs/homebrew-tap" = arcboxlabs-tap;
-        "crumbyte/homebrew-noxdir" = crumbyte-noxdir;
-        "deskflow/homebrew-tap" = deskflow-tap;
-        "felixkratz/homebrew-formulae" = felixkratz-formulae;
-        "fluxcd/homebrew-tap" = fluxcd-tap;
-        "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
-        "jetbrains/homebrew-junie" = jetbrains-junie;
-        "jordond/homebrew-tap" = jordond-tap;
-        "kdash-rs/homebrew-kdash" = kdash-rs-kdash;
-        "koekeishiya/homebrew-formulae" = koekeishiya-formulae;
-        "matthart1983/homebrew-tap" = matthart1983-tap;
-        "ottnorml/homebrew-mdns-browser" = ottnorml-mdns-browser;
-        "oven-sh/homebrew-bun" = oven-sh-bun;
-        "richard-fairthorne/homebrew-tap" = richard-fairthorne-tap;
-        "rtk-ai/homebrew-tap" = rtk-ai-tap;
-        "sozercan/homebrew-repo" = sozercan-repo;
-        "toobuntu/homebrew-cask-tools" = toobuntu-cask-tools;
-        "typewhisper/homebrew-tap" = typewhisper-tap;
-      };
     in
     {
       devShells = forAllSystems devShell;
@@ -272,7 +134,6 @@
               nix-homebrew = {
                 inherit user;
                 enable = true;
-                taps = homebrewTaps;
                 mutableTaps = true;
                 autoMigrate = true;
 
