@@ -267,38 +267,6 @@
         "type": "github"
       }
     },
-    "homebrew-cask": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780614737,
-        "narHash": "sha256-uEBfB4GuxtjfRyHM0lDE4rtRAigVCOwyTNjCmLk7XD0=",
-        "owner": "homebrew",
-        "repo": "homebrew-cask",
-        "rev": "f3bf096db0854d378d2800c7b67303df5d074d83",
-        "type": "github"
-      },
-      "original": {
-        "owner": "homebrew",
-        "repo": "homebrew-cask",
-        "type": "github"
-      }
-    },
-    "homebrew-core": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780614703,
-        "narHash": "sha256-taAF/FN3KCbdMIpJcfOzKmAATdyTTC7QvNQDEcO5Zzs=",
-        "owner": "homebrew",
-        "repo": "homebrew-core",
-        "rev": "f7ccbb273e1aeb76f4e1ba7d363286043e8c296f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "homebrew",
-        "repo": "homebrew-core",
-        "type": "github"
-      }
-    },
     "hyperb1iss-tap": {
       "flake": false,
       "locked": {
@@ -495,8 +463,6 @@
         "fluxcd-tap": "fluxcd-tap",
         "home-manager": "home-manager_2",
         "homebrew-brew": "homebrew-brew",
-        "homebrew-cask": "homebrew-cask",
-        "homebrew-core": "homebrew-core",
         "hyperb1iss-tap": "hyperb1iss-tap",
         "jetbrains-junie": "jetbrains-junie",
         "jordond-tap": "jordond-tap",
