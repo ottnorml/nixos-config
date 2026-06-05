@@ -96,11 +96,13 @@ _:
   "mas"
   "matthart1983/tap/netwatch"
   "matthart1983/tap/syswatch"
+  "navi"
   "ncdu"
   "netfetch"
   "nmap"
   "pandoc"
   "pv"
+  "sk" # skim-fuzzy-finder
   "virustotal-cli"
   "vivid"
   "zoxide"
