@@ -77,14 +77,6 @@
       url = "github:fluxcd/homebrew-tap";
       flake = false;
     };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
     hyperb1iss-tap = {
       url = "github:hyperb1iss/homebrew-tap";
       flake = false;
@@ -168,8 +160,6 @@
     , deskflow-tap
     , felixkratz-formulae
     , fluxcd-tap
-    , homebrew-cask
-    , homebrew-core
     , hyperb1iss-tap
     , jetbrains-junie
     , jordond-tap
@@ -251,8 +241,6 @@
         "deskflow/homebrew-tap" = deskflow-tap;
         "felixkratz/homebrew-formulae" = felixkratz-formulae;
         "fluxcd/homebrew-tap" = fluxcd-tap;
-        "homebrew/homebrew-cask" = homebrew-cask;
-        "homebrew/homebrew-core" = homebrew-core;
         "hyperb1iss/homebrew-tap" = hyperb1iss-tap;
         "jetbrains/homebrew-junie" = jetbrains-junie;
         "jordond/homebrew-tap" = jordond-tap;
