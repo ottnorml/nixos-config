@@ -79,6 +79,7 @@ jetbrainsIDEs ++
   "deskflow/tap/deskflow"
   "flux-app"
   "home-assistant"
+  "hrzlgnm/tap/mdns-browser"
   "keka"
   "kekaexternalhelper"
   "localsend"
@@ -88,7 +89,6 @@ jetbrainsIDEs ++
   "menumeters"
   "nextcloud"
   "openlogi" # Logitech Options+ alternative
-  "ottnorml/mdns-browser/mdns-browser"
   "rectangle"
   "reminders-menubar"
   "rustdesk"
