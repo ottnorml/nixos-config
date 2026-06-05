@@ -273,7 +273,7 @@
                 inherit user;
                 enable = true;
                 taps = homebrewTaps;
-                mutableTaps = false;
+                mutableTaps = true;
                 autoMigrate = true;
 
                 # Uses the explicitly pinned Homebrew source instead of nix-homebrew’s default.
