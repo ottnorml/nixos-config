@@ -89,6 +89,7 @@ in
         if [[ -z ''${ZSH_DISABLE_ZINIT:-} ]] && (( $+functions[zinit] )); then
           zinit snippet OMZP::brew
         fi
+        eval "$(navi widget zsh)"
       '';
 
       # Import shared config. Assuming shared/home-manager.nix returns
