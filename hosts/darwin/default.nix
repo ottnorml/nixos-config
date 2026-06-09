@@ -61,7 +61,7 @@ let user = "spt"; in
     };
 
     extraOptions = ''
-      experimental-features = flakes git-hashing nix-command no-url-literals
+      experimental-features = flakes nix-command
     '';
   };
 
