@@ -51,6 +51,7 @@ in
 
     settings = {
       allowed-users = [ "${user}" ];
+      sandbox = true;
       # trusted-users = [ "root" "@wheel" "${user}" ];
       trusted-users = [ "@admin" "${user}" ];
 

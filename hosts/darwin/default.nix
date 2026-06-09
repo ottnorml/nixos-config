@@ -25,6 +25,8 @@ let user = "spt"; in
     settings = {
       trusted-users = [ "@admin" "${user}" ];
 
+      sandbox = true;
+
       substituters = [
         "https://cache.lix.systems"
         "https://cache.nixos.org"
