@@ -117,14 +117,17 @@ in
     # If you have previously added these apps to your Mac App Store profile (but not installed them on this system),
     # you may receive an error message "Redownload Unavailable with This Apple ID".
     # This message is safe to ignore. (https://github.com/dustinlyons/nixos-config/issues/83)
-    masApps = {
-      "AusweisApp" = 948660805;
-      "Draw Things" = 6444050820;
-      "eduVPN" = 1317704208;
-      "Moonfin" = 6761283970;
-      "uBlock Origin Lite" = 6745342698;
-      "WireGuard" = 1451685025;
-      "Xcode" = 497799835;
-    };
+
+    # NOTE: masApps disabled due to compatibility issues with brew bundle and mas CLI.
+    # TODO: Re-enable after nixpkgs mas version 7+ is available.
+    # masApps = {
+    #   "AusweisApp" = 948660805;
+    #   "Draw Things" = 6444050820;
+    #   "eduVPN" = 1317704208;
+    #   "Moonfin" = 6761283970;
+    #   "uBlock Origin Lite" = 6745342698;
+    #   "WireGuard" = 1451685025;
+    #   "Xcode" = 497799835;
+    # };
   };
 }
