@@ -51,6 +51,8 @@ in
 
     settings = {
       allowed-users = [ "${user}" ];
+      auto-optimise-store = true;
+      max-jobs = "auto"; # Default: 1
       sandbox = true;
       # trusted-users = [ "root" "@wheel" "${user}" ];
       trusted-users = [ "@admin" "${user}" ];
