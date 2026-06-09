@@ -79,7 +79,7 @@ in
     };
 
     extraOptions = ''
-      experimental-features = nix-command flakes
+      experimental-features = flakes git-hashing nix-command no-url-literals
     '';
   };
 
