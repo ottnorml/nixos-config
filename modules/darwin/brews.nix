@@ -63,6 +63,7 @@ _:
   "tig"
   "trivy"
   "uv"
+  "yq"
 
   # AI tools
   "anomalyco/tap/opencode"
