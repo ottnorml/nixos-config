@@ -44,6 +44,7 @@ jetbrainsIDEs ++
   }
 
   # Productivity
+  "agentsview"
   "chatgpt"
   "claude-code"
   "claudebar"
