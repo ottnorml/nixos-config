@@ -83,6 +83,7 @@ _:
   "carapace"
   "chezmoi"
   "coreutils"
+  "darrylmorley/whatcable/whatcable-cli"
   "difftastic"
   "direnv"
   "dockutil"

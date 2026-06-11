@@ -70,6 +70,7 @@ in
       "arcboxlabs/tap"
       "brettdavies/tap"
       "crumbyte/noxdir"
+      "darrylmorley/whatcable"
       "deskflow/tap"
       "felixkratz/formulae"
       "fluxcd/tap"
