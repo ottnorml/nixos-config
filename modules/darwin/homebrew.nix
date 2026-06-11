@@ -68,6 +68,7 @@ in
       "anomalyco/tap"
       "aprilnea/tap"
       "arcboxlabs/tap"
+      "brettdavies/tap"
       "crumbyte/noxdir"
       "deskflow/tap"
       "felixkratz/formulae"

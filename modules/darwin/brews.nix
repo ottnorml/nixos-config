@@ -67,6 +67,7 @@ _:
 
   # AI tools
   "anomalyco/tap/opencode"
+  "brettdavies/tap/agentnative"
   "ast-grep"
   "backlog-md"
   "beads"
