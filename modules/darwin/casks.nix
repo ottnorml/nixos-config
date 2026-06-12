@@ -91,6 +91,7 @@ jetbrainsIDEs ++
   "menumeters"
   "nextcloud"
   "openlogi" # Logitech Options+ alternative
+  "owenthereal/upterm/upterm"
   "rectangle"
   "reminders-menubar"
   "rustdesk"

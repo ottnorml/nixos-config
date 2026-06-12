@@ -85,6 +85,7 @@ in
       "koekeishiya/formulae"
       "matthart1983/tap"
       "oven-sh/bun"
+      "owenthereal/upterm"
       "richard-fairthorne/tap"
       "rtk-ai/tap"
       "sozercan/repo"
