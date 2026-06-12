@@ -89,6 +89,7 @@ jetbrainsIDEs ++
   "maccy" # Clipy alternative
   "macfuse"
   "menumeters"
+  "monitorcontrol"
   "nextcloud"
   "openlogi" # Logitech Options+ alternative
   "owenthereal/upterm/upterm"
