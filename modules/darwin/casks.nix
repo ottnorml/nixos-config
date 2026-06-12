@@ -77,7 +77,7 @@ jetbrainsIDEs ++
   "apache-directory-studio"
   "appcleaner"
   "crumbyte/noxdir/noxdir"
-  "darrylmorley/whatcable/whatcable"
+  "whatcable"
   "deskflow/tap/deskflow"
   "flux-app"
   "home-assistant"
