@@ -55,6 +55,7 @@ in
   environment.etc."homebrew/brew.env".text = ''
     HOMEBREW_NO_ANALYTICS=1
     HOMEBREW_NO_INSECURE_REDIRECT=1
+    HOMEBREW_NO_INSTALL_FROM_API=1
     HOMEBREW_NO_REQUIRE_TAP_TRUST=1
   '';
 
