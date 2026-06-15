@@ -77,8 +77,8 @@ jetbrainsIDEs ++
   "apache-directory-studio"
   "appcleaner"
   "crumbyte/noxdir/noxdir"
-  "whatcable"
   "deskflow/tap/deskflow"
+  "finetune"
   "flux-app"
   "home-assistant"
   "hrzlgnm/tap/mdns-browser"
@@ -98,6 +98,7 @@ jetbrainsIDEs ++
   "rustdesk"
   "stats"
   "thaw"
+  "whatcable"
 
   # Entertainment & Media
   "audacity"
