@@ -266,10 +266,6 @@ in
 
         ### --- ###
 
-        # Define variables for directories
-        export PATH=$PATH:${config.home.homeDirectory}/.pnpm-packages/bin:${config.home.homeDirectory}/.pnpm-packages
-        export PATH=$PATH:${config.home.homeDirectory}/.npm-packages/bin:${config.home.homeDirectory}/bin
-
         # Remove history data we don't want to see
         export HISTIGNORE="pwd:ls:cd"
 

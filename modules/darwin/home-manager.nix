@@ -52,6 +52,7 @@ in
         };
 
         sessionPath = [
+          "${config.home.homeDirectory}/bin"
           "\${XDG_DATA_HOME:-$HOME/.local/share}/npm-global/bin"
         ];
 
