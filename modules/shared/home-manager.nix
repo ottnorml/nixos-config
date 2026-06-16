@@ -228,6 +228,16 @@ in
           . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
         fi
 
+        # Hook: Load local pre-init configuration
+        if [[ -f "${config.xdg.configHome}/zsh/zshrc.pre" ]]; then
+          source "${config.xdg.configHome}/zsh/zshrc.pre"
+        fi
+
+        # Hook: Load local environment configuration
+        if [[ -f "${config.xdg.configHome}/zsh/zshrc.env" ]]; then
+          source "${config.xdg.configHome}/zsh/zshrc.env"
+        fi
+
         if [[ -z ''${ZSH_DISABLE_ZINIT:-} ]]; then
           # Configure and load Zinit from Nixpkgs.
           declare -A ZINIT
@@ -246,14 +256,19 @@ in
             zdharma-continuum/zinit-annex-bin-gem-node \
             zdharma-continuum/zinit-annex-patch-dl \
             zdharma-continuum/zinit-annex-rust
+
+          # Hook: Load local zinit configuration
+          if [[ -f "${config.xdg.configHome}/zsh/zshrc.zinit" ]]; then
+            source "${config.xdg.configHome}/zsh/zshrc.zinit"
+          fi
         fi
 
 
         ### --- ###
 
         # Define variables for directories
-        export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
-        export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
+        export PATH=$PATH:${config.home.homeDirectory}/.pnpm-packages/bin:${config.home.homeDirectory}/.pnpm-packages
+        export PATH=$PATH:${config.home.homeDirectory}/.npm-packages/bin:${config.home.homeDirectory}/bin
 
         # Remove history data we don't want to see
         export HISTIGNORE="pwd:ls:cd"
@@ -275,6 +290,11 @@ in
 
         # Use difftastic, syntax-aware diffing
         alias diff=difft
+
+        # Hook: Load local aliases configuration
+        if [[ -f "${config.xdg.configHome}/zsh/zshrc.aliases" ]]; then
+          source "${config.xdg.configHome}/zsh/zshrc.aliases"
+        fi
 
 
 
@@ -333,6 +353,18 @@ in
         esac
 
         unset -f __minimal_prompt
+
+        # Hook: Load local post-init configuration
+        if [[ -f "${config.xdg.configHome}/zsh/zshrc.local" ]]; then
+          source "${config.xdg.configHome}/zsh/zshrc.local"
+        fi
+
+        # Hook: Load all scripts from a local directory
+        if [[ -d "${config.xdg.configHome}/zsh/zshrc.d" ]]; then
+          for file in "${config.xdg.configHome}/zsh/zshrc.d"/*.zsh(N); do
+            source "$file"
+          done
+        fi
       '')
     ];
   };
@@ -388,8 +420,8 @@ in
       set nobackup
       set nowritebackup
       set noswapfile
-      set backupdir=~/.config/vim/backups
-      set directory=~/.config/vim/swap
+      set backupdir=${config.xdg.configHome}/vim/backups
+      set directory=${config.xdg.configHome}/vim/swap
 
       " Relative line numbers for easy movement
       set relativenumber
