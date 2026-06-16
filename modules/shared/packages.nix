@@ -7,6 +7,8 @@ with pkgs; [
   bat
   btop
   coreutils
+  dig
+  doggo
   killall
   openssh
   sqlite
@@ -40,6 +42,8 @@ with pkgs; [
   nodejs_24
 
   # Text and terminal utilities
+  bat-extras.core
+  delta
   go-jsonnet
   ijq
   jq
