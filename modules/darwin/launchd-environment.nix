@@ -15,9 +15,9 @@ in
 {
   launchd.user.agents.xdg-environment = {
     script = lib.concatStringsSep "\n" (
-      lib.mapAttrsToList
-        (name: value: "/bin/launchctl setenv ${name} ${lib.escapeShellArg value}")
-        xdgEnvironment
+      lib.mapAttrsToList (
+        name: value: "/bin/launchctl setenv ${name} ${lib.escapeShellArg value}"
+      ) xdgEnvironment
     );
 
     serviceConfig = {

@@ -47,45 +47,65 @@
     };
   };
   outputs =
-    { self
+    {
+      self,
       # Core
-    , nixpkgs
-    , nixpkgs-master
+      nixpkgs,
+      nixpkgs-master,
       # Core tools
-    , agenix
-    , disko
-    , home-manager
+      agenix,
+      disko,
+      home-manager,
       # Darwin-specific
-    , darwin
+      darwin,
       # Homebrew integration
-    , nix-homebrew
-    , homebrew-brew
+      nix-homebrew,
+      homebrew-brew,
       # Private configurations
-    , secrets
-    } @inputs:
+      secrets,
+    }@inputs:
     let
       user = "spt";
-      linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
-      darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
+      linuxSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      darwinSystems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
 
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
-      devShell = system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in {
-          default = with pkgs; mkShell {
-            nativeBuildInputs = with pkgs; [ bashInteractive git age age-plugin-yubikey ];
-            shellHook = with pkgs; ''
-              export EDITOR=vim
-            '';
-          };
+      devShell =
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default =
+            with pkgs;
+            mkShell {
+              nativeBuildInputs = with pkgs; [
+                bashInteractive
+                git
+                age
+                age-plugin-yubikey
+              ];
+              shellHook = with pkgs; ''
+                export EDITOR=vim
+              '';
+            };
         };
       mkApp = scriptName: system: {
         type = "app";
-        program = "${(nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
-          #!/usr/bin/env bash
-          PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
-          echo "Running ${scriptName} for ${system}"
-          exec ${self}/apps/${system}/${scriptName} "$@"
-        '')}/bin/${scriptName}";
+        program = "${
+          (nixpkgs.legacyPackages.${system}.writeScriptBin scriptName ''
+            #!/usr/bin/env bash
+            PATH=${nixpkgs.legacyPackages.${system}.git}/bin:$PATH
+            echo "Running ${scriptName} for ${system}"
+            exec ${self}/apps/${system}/${scriptName} "$@"
+          '')
+        }/bin/${scriptName}";
       };
       mkLinuxApps = system: {
         "apply" = mkApp "apply" system;
@@ -108,23 +128,27 @@
         "rollback" = mkApp "rollback" system;
       };
 
-      mkSpecialArgs = system: inputs // {
-        nixpkgs-master = import nixpkgs-master {
-          inherit system;
-          config.allowUnfree = true;
+      mkSpecialArgs =
+        system:
+        inputs
+        // {
+          nixpkgs-master = import nixpkgs-master {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
-      };
 
       flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
       brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
     in
     {
       devShells = forAllSystems devShell;
-      apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
+      apps =
+        nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
-      darwinConfigurations = nixpkgs.lib.genAttrs
-        darwinSystems
-        (system: darwin.lib.darwinSystem {
+      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (
+        system:
+        darwin.lib.darwinSystem {
           specialArgs = mkSpecialArgs system;
           modules = [
             { nixpkgs.hostPlatform = system; }
@@ -152,24 +176,28 @@
             })
             ./hosts/darwin
           ];
-        });
+        }
+      );
 
-      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
-        specialArgs = mkSpecialArgs system;
-        modules = [
-          { nixpkgs.hostPlatform = system; }
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = mkSpecialArgs system;
-              users.${user} = import ./modules/nixos/home-manager.nix;
-            };
-          }
-          ./hosts/nixos
-        ];
-      });
+      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (
+        system:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = mkSpecialArgs system;
+          modules = [
+            { nixpkgs.hostPlatform = system; }
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = mkSpecialArgs system;
+                users.${user} = import ./modules/nixos/home-manager.nix;
+              };
+            }
+            ./hosts/nixos
+          ];
+        }
+      );
     };
 }

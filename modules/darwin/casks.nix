@@ -4,7 +4,9 @@ let
   mkNoBinaries = name: {
     inherit name;
     # ` brew install --cask --no-binaries`
-    args = { no_binaries = true; };
+    args = {
+      no_binaries = true;
+    };
   };
 
   jetbrainsIDEs = map mkNoBinaries [
@@ -16,8 +18,8 @@ let
     "rustrover"
   ];
 in
-jetbrainsIDEs ++
-[
+jetbrainsIDEs
+++ [
   # IDEs & Editors
   "jetbrains-toolbox"
   "visual-studio-code"
@@ -40,7 +42,9 @@ jetbrainsIDEs ++
     # Headlamp's desktop app is unsigned. For more information about running unsigned apps, see:
     # - https://headlamp.dev/docs/latest/installation/desktop/
     # - https://headlamp.dev/docs/latest/installation/desktop/mac-installation/
-    args = { no_quarantine = true; };
+    args = {
+      no_quarantine = true;
+    };
   }
 
   # Productivity

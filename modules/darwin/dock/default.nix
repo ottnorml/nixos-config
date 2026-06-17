@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }:
 
 # Original source: https://gist.github.com/antifuchs/10138c4d838a63c0a05e725ccd7bccdd
@@ -89,12 +90,10 @@ in
         );
       wantURIs = concatMapStrings (entry: "${entryURI entry.path}\n") cfg.entries;
       dockutilCmd = lib.escapeShellArg cfg.dockutilPath;
-      createEntries = concatMapStrings
-        (
-          entry:
-          "${dockutilCmd} --no-restart --add '${entry.path}' --section ${entry.section} ${entry.options}\n"
-        )
-        cfg.entries;
+      createEntries = concatMapStrings (
+        entry:
+        "${dockutilCmd} --no-restart --add '${entry.path}' --section ${entry.section} ${entry.options}\n"
+      ) cfg.entries;
     in
     {
       system.activationScripts.postActivation.text = ''

@@ -1,6 +1,14 @@
-{ agenix, config, nixpkgs-master, pkgs, ... }:
+{
+  agenix,
+  config,
+  nixpkgs-master,
+  pkgs,
+  ...
+}:
 
-let user = "spt"; in
+let
+  user = "spt";
+in
 
 {
 
@@ -23,7 +31,10 @@ let user = "spt"; in
     package = pkgs.lix;
 
     settings = {
-      trusted-users = [ "@admin" "${user}" ];
+      trusted-users = [
+        "@admin"
+        "${user}"
+      ];
       auto-optimise-store = true;
       max-jobs = "auto"; # Default: 1
       sandbox = true;
@@ -56,7 +67,11 @@ let user = "spt"; in
 
     gc = {
       automatic = true;
-      interval = { Weekday = 0; Hour = 2; Minute = 0; };
+      interval = {
+        Weekday = 0;
+        Hour = 2;
+        Minute = 0;
+      };
       options = "--delete-older-than 30d";
     };
 
@@ -68,9 +83,12 @@ let user = "spt"; in
   # Turn off NIX_PATH warnings now that we're using flakes
 
   # Load configuration that is shared across systems
-  environment.systemPackages = with pkgs; [
-    agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
-  ] ++ (import ../../modules/shared/packages.nix { inherit nixpkgs-master pkgs; });
+  environment.systemPackages =
+    with pkgs;
+    [
+      agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
+    ]
+    ++ (import ../../modules/shared/packages.nix { inherit nixpkgs-master pkgs; });
 
   system = {
     checks.verifyNixPath = false;

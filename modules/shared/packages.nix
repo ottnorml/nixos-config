@@ -1,6 +1,7 @@
 { nixpkgs-master, pkgs }:
 
-with pkgs; [
+with pkgs;
+[
   # General packages for development and system management
   alacritty
   bash-completion

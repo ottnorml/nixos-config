@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   name = "Simon Potye";
@@ -389,8 +394,15 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.vim.enable
   vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-airline vim-airline-themes vim-startify vim-tmux-navigator ];
-    settings = { ignorecase = true; };
+    plugins = with pkgs.vimPlugins; [
+      vim-airline
+      vim-airline-themes
+      vim-startify
+      vim-tmux-navigator
+    ];
+    settings = {
+      ignorecase = true;
+    };
     extraConfig = ''
       "" General
       set number
@@ -530,7 +542,6 @@ in
           (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin 14)
         ];
       };
-
 
       colors = {
         primary = {

@@ -13,7 +13,10 @@ self: super: with super; {
       };
 
       buildInputs = [ unzip ];
-      phases = [ "unpackPhase" "installPhase" ];
+      phases = [
+        "unpackPhase"
+        "installPhase"
+      ];
 
       installPhase = ''
         mkdir -p $out/share/fonts/truetype
@@ -25,7 +28,10 @@ self: super: with super; {
         description = "Set of font icons from the open source collection Feather Icons";
         license = licenses.mit;
         maintainers = [ maintainers.dlyons ];
-        platforms = [ platforms.x86_64-linux platforms.x86_64-darwin ];
+        platforms = [
+          platforms.x86_64-linux
+          platforms.x86_64-darwin
+        ];
       };
     };
 }

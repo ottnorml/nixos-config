@@ -1,4 +1,10 @@
-{ config, nixpkgs-master, pkgs, lib, ... }:
+{
+  config,
+  nixpkgs-master,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   user = "spt";
@@ -10,22 +16,23 @@ let
   shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
   shared-files = import ../shared/files.nix { inherit config pkgs; };
 
-  polybar-user_modules = builtins.replaceStrings
-    [
-      "@packages@"
-      "@searchpkgs@"
-      "@launcher@"
-      "@powermenu@"
-      "@calendar@"
-    ]
-    [
-      "${xdgConfigHome}/polybar/bin/check-nixos-updates.sh"
-      "${xdgConfigHome}/polybar/bin/search-nixos-updates.sh"
-      "${xdgConfigHome}/polybar/bin/launcher.sh"
-      "${xdgConfigHome}/rofi/bin/powermenu.sh"
-      "${xdgConfigHome}/polybar/bin/popup-calendar.sh"
-    ]
-    (builtins.readFile ./config/polybar/user_modules.ini);
+  polybar-user_modules =
+    builtins.replaceStrings
+      [
+        "@packages@"
+        "@searchpkgs@"
+        "@launcher@"
+        "@powermenu@"
+        "@calendar@"
+      ]
+      [
+        "${xdgConfigHome}/polybar/bin/check-nixos-updates.sh"
+        "${xdgConfigHome}/polybar/bin/search-nixos-updates.sh"
+        "${xdgConfigHome}/polybar/bin/launcher.sh"
+        "${xdgConfigHome}/rofi/bin/powermenu.sh"
+        "${xdgConfigHome}/polybar/bin/popup-calendar.sh"
+      ]
+      (builtins.readFile ./config/polybar/user_modules.ini);
 
   polybar-config = pkgs.replaceVars ./config/polybar/config.ini {
     font0 = "DejaVu Sans:size=12;3";
@@ -139,6 +146,8 @@ in
     };
   };
 
-  programs = shared-programs // { gpg.enable = true; };
+  programs = shared-programs // {
+    gpg.enable = true;
+  };
 
 }

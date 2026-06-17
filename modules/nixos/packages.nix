@@ -4,7 +4,8 @@ with pkgs;
 let
   sharedPackages = pkgs.callPackage ../shared/packages.nix { inherit nixpkgs-master pkgs; };
 in
-sharedPackages ++ [
+sharedPackages
+++ [
 
   # Security and authentication
   ausweisapp

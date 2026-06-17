@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   # Resolve the package/cask name used for sorting Homebrew entries.
@@ -16,15 +21,13 @@ let
   #
   # Always compare by the effective Homebrew name so both forms sort
   # consistently.
-  brewEntryName = entry:
-    if builtins.isAttrs entry
-    then entry.name
-    else entry;
+  brewEntryName = entry: if builtins.isAttrs entry then entry.name else entry;
 
   # Match the ordering produced by `brew bundle dump`: regular Homebrew entries
   # first, tapped entries such as `owner/tap/name` second, and alphabetical order
   # within each group.
-  brewEntrySortKey = entry:
+  brewEntrySortKey =
+    entry:
     let
       name = brewEntryName entry;
     in
@@ -33,14 +36,13 @@ let
       isTapped = lib.hasInfix "/" name;
     };
 
-  sortBrewfileEntries = lib.sort (a: b:
+  sortBrewfileEntries = lib.sort (
+    a: b:
     let
       aKey = brewEntrySortKey a;
       bKey = brewEntrySortKey b;
     in
-    if aKey.isTapped == bKey.isTapped
-    then aKey.name < bKey.name
-    else !aKey.isTapped && bKey.isTapped
+    if aKey.isTapped == bKey.isTapped then aKey.name < bKey.name else !aKey.isTapped && bKey.isTapped
   );
 in
 {

@@ -14,9 +14,7 @@ in
   # Inspired-by: https://github.com/yu-sz/dotfiles/commit/c18062a2547b82a5e4ba5ede76c048c38fb2afff
   direnv =
     assert prev.lib.assertMsg (prev.direnv.version == "2.37.1" && doCheck)
-      "Overlay overlays/20-direnv.nix may no longer be needed: direnv=${prev.direnv.version}, doCheck=${
-        prev.lib.boolToString doCheck
-      }. Try removing the overlay.";
+      "Overlay overlays/20-direnv.nix may no longer be needed: direnv=${prev.direnv.version}, doCheck=${prev.lib.boolToString doCheck}. Try removing the overlay.";
     prev.direnv.overrideAttrs (_old: {
       doCheck = false;
     });
