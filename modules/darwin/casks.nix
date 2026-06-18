@@ -70,6 +70,7 @@ jetbrainsIDEs
   "discord"
   "slack"
   "telegram"
+  "thunderbird"
   "whatsapp"
 
   # Security & Password Managers
