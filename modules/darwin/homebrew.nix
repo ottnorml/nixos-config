@@ -53,12 +53,10 @@ in
   # Note: Homebrew treats these variables as detected when they have a value.
   # For boolean-style `HOMEBREW_NO_*` variables, do not use `0` to mean false;
   # leave the variable unset instead.
-  # TODO: Undo HOMEBREW_NO_REQUIRE_TAP_TRUST=1
   environment.etc."homebrew/brew.env".text = ''
     HOMEBREW_NO_ANALYTICS=1
     HOMEBREW_NO_INSECURE_REDIRECT=1
     HOMEBREW_NO_INSTALL_FROM_API=1
-    HOMEBREW_NO_REQUIRE_TAP_TRUST=1
   '';
 
   # This is included so that the Homebrew packages are available in the PATH.
