@@ -54,6 +54,10 @@ in
   # For boolean-style `HOMEBREW_NO_*` variables, do not use `0` to mean false;
   # leave the variable unset instead.
   environment.etc."homebrew/brew.env".text = ''
+    HOMEBREW_BAT=1
+    HOMEBREW_CLEANUP_MAX_AGE_DAYS=30
+    HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=30
+    HOMEBREW_LOGS=''${XDG_CACHE_HOME}/Homebrew/Logs
     HOMEBREW_NO_ANALYTICS=1
     HOMEBREW_NO_INSECURE_REDIRECT=1
     HOMEBREW_NO_INSTALL_FROM_API=1
