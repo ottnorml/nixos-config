@@ -137,7 +137,17 @@
         system:
         inputs
         // {
-          nix-auth = nix-auth.packages.${system}.default;
+          nix-auth = nix-auth.packages.${system}.default.overrideAttrs (old: {
+            # nix-auth's integration test starts a local httptest server.
+            # In the Darwin Nix sandbox, binding localhost sockets can fail with
+            # "listen tcp6 [::1]:0: bind: operation not permitted", so skip only
+            # that test on Darwin while keeping the rest of the checks enabled.
+            checkFlags =
+              (old.checkFlags or [ ])
+              ++ nixpkgs.lib.optionals (builtins.elem system darwinSystems) [
+                "-skip=TestDetect_Integration"
+              ];
+          });
           nixpkgs-master = import nixpkgs-master {
             inherit system;
             config.allowUnfree = true;
