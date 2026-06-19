@@ -1,4 +1,8 @@
-{ nixpkgs-master, pkgs }:
+{
+  nix-auth,
+  nixpkgs-master,
+  pkgs,
+}:
 
 with pkgs;
 [
@@ -11,6 +15,7 @@ with pkgs;
   dig
   doggo
   killall
+  nix-auth
   openssh
   sqlite
   wget

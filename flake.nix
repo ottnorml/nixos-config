@@ -20,6 +20,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-auth = {
+      url = "github:numtide/nix-auth";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Darwin-specific
     darwin = {
@@ -56,6 +60,7 @@
       agenix,
       disko,
       home-manager,
+      nix-auth,
       # Darwin-specific
       darwin,
       # Homebrew integration
@@ -132,6 +137,7 @@
         system:
         inputs
         // {
+          nix-auth = nix-auth.packages.${system}.default;
           nixpkgs-master = import nixpkgs-master {
             inherit system;
             config.allowUnfree = true;

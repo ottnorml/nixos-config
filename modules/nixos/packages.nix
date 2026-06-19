@@ -1,10 +1,14 @@
-{ nixpkgs-master, pkgs, ... }:
+{
+  nix-auth,
+  nixpkgs-master,
+  pkgs,
+}:
 
 with pkgs;
 let
-  sharedPackages = pkgs.callPackage ../shared/packages.nix { inherit nixpkgs-master pkgs; };
+  shared-packages = import ../shared/packages.nix { inherit nix-auth nixpkgs-master pkgs; };
 in
-sharedPackages
+shared-packages
 ++ [
 
   # Security and authentication

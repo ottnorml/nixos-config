@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  nix-auth,
   nixpkgs-master,
   pkgs,
   ...
@@ -51,7 +52,7 @@ in
 
         home = {
           enableNixpkgsReleaseCheck = false;
-          packages = pkgs.callPackage ./packages.nix { inherit nixpkgs-master; };
+          packages = pkgs.callPackage ./packages.nix { inherit nix-auth nixpkgs-master; };
           file = lib.mkMerge [
             sharedFiles
             additionalFiles

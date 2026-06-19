@@ -1,6 +1,7 @@
 {
   agenix,
   config,
+  nix-auth,
   nixpkgs-master,
   pkgs,
   ...
@@ -88,7 +89,7 @@ in
     [
       agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
     ]
-    ++ (import ../../modules/shared/packages.nix { inherit nixpkgs-master pkgs; });
+    ++ (import ../../modules/shared/packages.nix { inherit nix-auth nixpkgs-master pkgs; });
 
   system = {
     checks.verifyNixPath = false;
