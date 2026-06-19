@@ -57,6 +57,7 @@ jetbrainsIDEs
   "espanso"
   "google-drive"
   "jan"
+  "kde-mac/kde/kdeconnect"
   "lm-studio"
   "raycast"
   "typewhisper/tap/typewhisper"
