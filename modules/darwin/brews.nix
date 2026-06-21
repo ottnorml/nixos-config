@@ -62,6 +62,8 @@ _:
   "ssh-audit"
   "tig"
   "trivy"
+  "typst"
+  "typstyle"
   "uv"
   "yq"
 
