@@ -92,11 +92,6 @@ in
       "jetbrains/junie"
       "jordond/tap"
       "kdash-rs/kdash"
-      {
-        name = "kde-mac/kde";
-        clone_target = "https://invent.kde.org/packaging/homebrew-kde.git";
-        force_auto_update = true;
-      }
       "koekeishiya/formulae"
       "matthart1983/tap"
       "oven-sh/bun"
