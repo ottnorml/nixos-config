@@ -93,6 +93,7 @@ in
       "jordond/tap"
       "kdash-rs/kdash"
       "koekeishiya/formulae"
+      "masawada/tap"
       "matthart1983/tap"
       "oven-sh/bun"
       "owenthereal/upterm"

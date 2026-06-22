@@ -100,6 +100,7 @@ _:
   # "koekeishiya/formulae/yabai"
   "macmon"
   "mas"
+  "masawada/tap/macos-hid-inspector"
   "matthart1983/tap/netwatch"
   "matthart1983/tap/syswatch"
   "navi"
