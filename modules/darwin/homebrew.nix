@@ -54,8 +54,6 @@ in
   # For boolean-style `HOMEBREW_NO_*` variables, do not use `0` to mean false;
   # leave the variable unset instead.
   environment.etc."homebrew/brew.env".text = ''
-    HOMEBREW_API_AUTO_UPDATE_SECS=3600
-    HOMEBREW_AUTO_UPDATE_SECS=3600
     HOMEBREW_BAT=1
     HOMEBREW_CLEANUP_MAX_AGE_DAYS=30
     HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=30
@@ -122,6 +120,7 @@ in
 
     global = {
       brewfile = true;
+      autoUpdate = false;
     };
 
     # These app IDs are from using the mas CLI app
