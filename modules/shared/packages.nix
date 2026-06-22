@@ -13,6 +13,7 @@ with pkgs;
   btop
   coreutils
   dig
+  devenv
   doggo
   killall
   nix-auth
