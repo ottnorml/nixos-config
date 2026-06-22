@@ -74,7 +74,6 @@ _:
   "backlog-md"
   "beads"
   "dolt" # beads dependency
-  "gemini-cli"
   "mistral-vibe"
   "nono"
   "rtk"

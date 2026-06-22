@@ -49,6 +49,7 @@ jetbrainsIDEs
 
   # Productivity
   "agentsview"
+  "antigravity-cli"
   "chatgpt"
   "claude-code"
   "claudebar"
