@@ -127,16 +127,16 @@
     "homebrew-brew": {
       "flake": false,
       "locked": {
-        "lastModified": 1782115694,
-        "narHash": "sha256-33tXoAuBD1zR7ZnVZnqRLvD3uBoVU2QNmUmmtrUbyEo=",
+        "lastModified": 1782377538,
+        "narHash": "sha256-RzMNS6gF0o6eRSEwgUHb/ijNDc+PdTwX3bzZQ2pj8aI=",
         "owner": "Homebrew",
         "repo": "brew",
-        "rev": "5c38c6b3fc42281af432cda526dd0509172f681b",
+        "rev": "b6075b34f375c0087e1ce67e136441c256323546",
         "type": "github"
       },
       "original": {
         "owner": "Homebrew",
-        "ref": "6.0.3",
+        "ref": "6.0.4",
         "repo": "brew",
         "type": "github"
       }
