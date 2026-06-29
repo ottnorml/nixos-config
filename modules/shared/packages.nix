@@ -39,11 +39,20 @@ with pkgs;
   ffmpeg
   font-awesome
   hack-font
-  jetbrains-mono
+  # FIXME(nixpkgs#535868): Use the master-side font packages while
+  # nixpkgs-unstable still builds their AFDKO-based font-tool chain with the
+  # failing configuration. Remove these overrides once the fix from
+  # NixOS/nixpkgs#535882 reaches the pinned nixpkgs-unstable revision.
+  #
+  # Issue: https://github.com/NixOS/nixpkgs/issues/535868
+  # Fix:   https://github.com/NixOS/nixpkgs/pull/535882
+  nixpkgs-master.jetbrains-mono
   meslo-lgs-nf
   nerd-fonts.jetbrains-mono
   noto-fonts
-  noto-fonts-color-emoji
+  # Kept alongside JetBrains Mono because both packages independently pull the
+  # affected font-tool dependency closure.
+  nixpkgs-master.noto-fonts-color-emoji
 
   # Node.js development tools
   nodejs_24
