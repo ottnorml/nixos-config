@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   nix-auth,
   nixpkgs-master,
   pkgs,
@@ -29,6 +30,15 @@ in
     # You can configure your usual shell environment here.
     variables = {
       CLOUDSDK_PYTHON = "${pkgs.python313}/bin/python3";
+
+      TERMINFO = "/run/current-system/sw/share/terminfo";
+      # Nur existierende Verzeichnisse:
+      # - Nix-Terminfo für Ghostty, tmux, WezTerm usw.
+      # - macOS-Terminfo für Standard-Terminaltypen wie xterm-256color
+      TERMINFO_DIRS = lib.mkForce [
+        "/run/current-system/sw/share/terminfo"
+        "/usr/share/terminfo"
+      ];
     };
   };
 
