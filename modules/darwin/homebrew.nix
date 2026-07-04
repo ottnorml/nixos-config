@@ -55,8 +55,8 @@ in
   # leave the variable unset instead.
   environment.etc."homebrew/brew.env".text = ''
     HOMEBREW_BAT=1
-    HOMEBREW_CLEANUP_MAX_AGE_DAYS=30
-    HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=30
+    HOMEBREW_CLEANUP_MAX_AGE_DAYS=7
+    HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=7
     HOMEBREW_LOGS=~/.cache/Homebrew/Logs
     HOMEBREW_NO_ANALYTICS=1
     HOMEBREW_NO_INSECURE_REDIRECT=1

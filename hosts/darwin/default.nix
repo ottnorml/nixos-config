@@ -74,7 +74,7 @@ in
         Minute = 15;
         Weekday = 7; # Sunday
       };
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 7d";
     };
 
     extraOptions = ''
