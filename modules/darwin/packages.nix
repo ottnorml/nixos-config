@@ -9,5 +9,4 @@ let
 in
 shared-packages
 ++ [
-  pkgs.ghostty-bin.terminfo
 ]
