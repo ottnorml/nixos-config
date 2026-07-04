@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   nix-auth,
   nixpkgs-master,
   pkgs,
@@ -26,6 +25,7 @@ in
   };
 
   environment = {
+    enableAllTerminfo = true;
     # You can configure your usual shell environment here.
     variables = {
       CLOUDSDK_PYTHON = "${pkgs.python313}/bin/python3";
