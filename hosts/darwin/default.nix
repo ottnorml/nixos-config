@@ -1,5 +1,6 @@
 {
   agenix,
+  config,
   nix-auth,
   nixpkgs-master,
   pkgs,
@@ -88,7 +89,6 @@ in
     with pkgs;
     [
       agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
-      ghostty-bin.terminfo
     ]
     ++ (import ../../modules/shared/packages.nix { inherit nix-auth nixpkgs-master pkgs; });
 
