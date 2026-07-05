@@ -61,7 +61,7 @@ jetbrainsIDEs
   "kde-connect"
   "lm-studio"
   "raycast"
-  "typewhisper/tap/typewhisper"
+  "typewhisper"
   "zotero"
 
   # Browsers

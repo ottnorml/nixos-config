@@ -100,7 +100,6 @@ in
       "rtk-ai/tap"
       "sozercan/repo"
       "toobuntu/cask-tools"
-      "typewhisper/tap"
     ];
 
     brews = sortBrewfileEntries (pkgs.callPackage ./brews.nix { });
