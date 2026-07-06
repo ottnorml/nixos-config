@@ -98,8 +98,7 @@
                 age-plugin-yubikey
                 bashInteractive
                 git
-                nixfmt
-                treefmt
+                nixfmt-tree
               ];
               shellHook = with pkgs; ''
                 export EDITOR=vim
@@ -164,7 +163,7 @@
     in
     {
       devShells = forAllSystems devShell;
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       apps =
         nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
