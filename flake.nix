@@ -94,10 +94,12 @@
             with pkgs;
             mkShell {
               nativeBuildInputs = with pkgs; [
-                bashInteractive
-                git
                 age
                 age-plugin-yubikey
+                bashInteractive
+                git
+                nixfmt
+                treefmt
               ];
               shellHook = with pkgs; ''
                 export EDITOR=vim
@@ -162,6 +164,7 @@
     in
     {
       devShells = forAllSystems devShell;
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
       apps =
         nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
 
