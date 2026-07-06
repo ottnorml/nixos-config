@@ -26,8 +26,8 @@ repos:
     hooks:
       - id: nix-format
         name: format nix files
-        description: Format Nix files with nixpkgs-nixfmt
-        entry: nix run nixpkgs#nixfmt --
+        description: Format Nix files with the formatter defined by flake.nix
+        entry: nix fmt
         language: unsupported
         types: &nix_file_types
           - file
@@ -40,8 +40,8 @@ repos:
 
       - id: nix-format-check
         name: check nix formatting
-        description: Check Nix formatting with nixpkgs-nixfmt without modifying files
-        entry: nix run nixpkgs#nixfmt -- --check
+        description: Format Nix files and fail if any formatting changes were applied
+        entry: nix fmt -- --fail-on-change
         language: unsupported
         types: *nix_file_types
         require_serial: true
