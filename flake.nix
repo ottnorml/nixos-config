@@ -28,9 +28,7 @@
 
     # Darwin-specific
     darwin = {
-      # FIXME: Needed until https://github.com/nix-darwin/nix-darwin/pull/1818 is merged
-      url = "github:stepbrobd/nix-darwin/man";
-      # url = "github:nix-darwin/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
