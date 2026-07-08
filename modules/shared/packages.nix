@@ -35,6 +35,7 @@ with pkgs;
   # Media-related packages
   dejavu_fonts
   emacs-all-the-icons-fonts
+  exiftool
   fd
   ffmpeg
   font-awesome
