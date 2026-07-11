@@ -56,6 +56,7 @@ with pkgs;
   ijq
   jq
   ripgrep
+  nixpkgs-master.starship
   tmux
   tree
   unrar
