@@ -4,8 +4,8 @@
     # Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     # Temporary source for packages whose fixes have merged but not yet reached unstable.
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    # nixpkgs-master.follows = "nixpkgs";
+    # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-master.follows = "nixpkgs";
 
     # Core tools
     agenix = {
