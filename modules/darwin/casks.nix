@@ -54,7 +54,6 @@ jetbrainsIDEs
   "claude-code"
   "claudebar"
   "codex"
-  "codex-app"
   "espanso"
   "google-drive"
   "jan"
