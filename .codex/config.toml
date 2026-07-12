@@ -1,0 +1,11 @@
+[features]
+hooks = true
+
+[mcp_servers.homebrew]
+enabled = true
+
+[mcp_servers.nixos]
+enabled = true
+
+[mcp_servers.rulesync-mcp]
+enabled = true
