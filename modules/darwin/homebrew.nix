@@ -79,7 +79,6 @@ in
       "anomalyco/tap"
       "aprilnea/tap"
       "arcboxlabs/tap"
-      "brettdavies/tap"
       "crumbyte/noxdir"
       "darrylmorley/whatcable"
       "deskflow/tap"
