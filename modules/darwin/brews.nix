@@ -37,6 +37,7 @@ _:
   # Development tools
   "act"
   "bruno-cli"
+  "gh" # GitHub CLI
   "git"
   "git-flow-next"
   "gitlab-ci-local"
