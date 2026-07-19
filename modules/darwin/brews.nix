@@ -92,7 +92,6 @@ _:
   "duf"
   "dust"
   "felixkratz/formulae/sketchybar"
-  "homebrew/brew-vulns/brew-vulns"
   "htop"
   "hyperb1iss/tap/unifly"
   "iproute2mac"

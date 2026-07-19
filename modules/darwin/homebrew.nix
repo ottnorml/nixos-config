@@ -84,7 +84,6 @@ in
       "deskflow/tap"
       "felixkratz/formulae"
       "fluxcd/tap"
-      "homebrew/brew-vulns"
       "hrzlgnm/tap"
       "hyperb1iss/tap"
       "jetbrains/junie"
