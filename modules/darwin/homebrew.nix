@@ -44,6 +44,14 @@ let
     in
     if aKey.isTapped == bKey.isTapped then aKey.name < bKey.name else !aKey.isTapped && bKey.isTapped
   );
+
+  homebrewTelemetryVariables = lib.filterAttrs (
+    name: _: lib.hasPrefix "HOMEBREW_" name
+  ) config.privacy.telemetry.effectiveVariables;
+
+  homebrewTelemetryEnvironment = lib.concatStringsSep "\n" (
+    lib.mapAttrsToList (name: value: "${name}=${value}") homebrewTelemetryVariables
+  );
 in
 {
   # Homebrew-specific environment. Prefer Homebrew's own env file over global
@@ -58,13 +66,13 @@ in
     HOMEBREW_CLEANUP_MAX_AGE_DAYS=7
     HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=7
     HOMEBREW_LOGS=~/.cache/Homebrew/Logs
-    HOMEBREW_NO_ANALYTICS=1
     HOMEBREW_NO_AUTO_UPDATE=1
     HOMEBREW_NO_INSECURE_REDIRECT=1
     HOMEBREW_NO_INSTALL_FROM_API=1
     HOMEBREW_SBOM=1
     HOMEBREW_VERBOSE_USING_DOTS=1
     HOMEBREW_VERIFY_ATTESTATIONS=1
+    ${homebrewTelemetryEnvironment}
   '';
 
   # This is included so that the Homebrew packages are available in the PATH.

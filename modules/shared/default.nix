@@ -4,6 +4,10 @@ let
   emacsOverlaySha256 = "11p1c1l04zrn8dd5w8zyzlv172z05dwi9avbckav4d5fk043m754";
 in
 {
+  imports = [
+    ./telemetry.nix
+  ];
+
   # Shared ssh client configration
   programs.ssh.extraConfig = lib.mkAfter ''
     Host *
