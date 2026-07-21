@@ -97,6 +97,7 @@ _:
   "iproute2mac"
   "jordond/tap/jolt"
   # "koekeishiya/formulae/yabai"
+  "lablup/tap/all-smi"
   "macmon"
   "mas"
   "masawada/tap/macos-hid-inspector"

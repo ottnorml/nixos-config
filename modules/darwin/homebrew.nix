@@ -90,6 +90,7 @@ in
       "jordond/tap"
       "kdash-rs/kdash"
       "koekeishiya/formulae"
+      "lablup/tap"
       "masawada/tap"
       "matthart1983/tap"
       "oven-sh/bun"
