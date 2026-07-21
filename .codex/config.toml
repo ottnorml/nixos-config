@@ -1,11 +1,11 @@
 [features]
 hooks = true
 
+[mcp_servers.goland]
+url = "http://127.0.0.1:64422/stream"
+
 [mcp_servers.homebrew]
 enabled = true
 
 [mcp_servers.nixos]
-enabled = true
-
-[mcp_servers.rulesync-mcp]
 enabled = true
