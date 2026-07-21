@@ -14,13 +14,13 @@ It was initialized with `nix flake --extra-experimental-features 'nix-command fl
 
 ## Code Style
 
-- Format Nix files with `nixpkgs-fmt`.
+- Format Nix files with the formatter defined by the flake: `nix fmt`.
 - Follow the formatting style already present in nearby Nix files.
 
 ## Nix Commands
 
-- Format Nix files with `nix run nixpkgs#nixpkgs-fmt -- <files>`
-- Check Nix formatting without writing changes with `nix run nixpkgs#nixpkgs-fmt -- --check <files>`
+- Format all Nix files with `nix fmt`.
+- Check Nix formatting without writing changes with `nix fmt -- --fail-on-change`.
 - Build the current Darwin/macOS system with `nix run .#build -L --show-trace -- --show-trace`. This app is not currently defined for Linux systems.
 - Build and switch the current system with `nix run .#build-switch -L --show-trace -- --show-trace`
 - Use nix-output-monitor (`nom`) for more detailed Nix output when building or running other Nix tasks.
