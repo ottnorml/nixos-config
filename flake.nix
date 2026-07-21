@@ -25,6 +25,10 @@
       url = "github:numtide/nix-auth";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-search-cli = {
+      url = "github:peterldowns/nix-search-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Darwin-specific
     darwin = {
@@ -62,6 +66,7 @@
       disko,
       home-manager,
       nix-auth,
+      nix-search-cli,
       # Darwin-specific
       darwin,
       # Homebrew integration
