@@ -119,6 +119,28 @@
           '')
         }/bin/${scriptName}";
       };
+      mkUpdateTelemetryApp =
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          type = "app";
+          program = "${
+            pkgs.writeShellApplication {
+              name = "update-telemetry";
+              runtimeInputs = with pkgs; [
+                coreutils
+                curl
+                diffutils
+                git
+                gnugrep
+                gawk
+              ];
+              text = builtins.readFile ./apps/update-telemetry;
+            }
+          }/bin/update-telemetry";
+        };
       mkLinuxApps = system: {
         "apply" = mkApp "apply" system;
         "build-switch" = mkApp "build-switch" system;
@@ -128,6 +150,7 @@
         "check-keys" = mkApp "check-keys" system;
         "install" = mkApp "install" system;
         "install-with-secrets" = mkApp "install-with-secrets" system;
+        "update-telemetry" = mkUpdateTelemetryApp system;
       };
       mkDarwinApps = system: {
         "apply" = mkApp "apply" system;
@@ -138,6 +161,7 @@
         "create-keys" = mkApp "create-keys" system;
         "check-keys" = mkApp "check-keys" system;
         "rollback" = mkApp "rollback" system;
+        "update-telemetry" = mkUpdateTelemetryApp system;
       };
 
       mkSpecialArgs =
