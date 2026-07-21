@@ -2,6 +2,7 @@
   config,
   lib,
   nix-auth,
+  nix-search-cli,
   nixpkgs-master,
   pkgs,
   ...
@@ -62,7 +63,9 @@ in
 
         home = {
           enableNixpkgsReleaseCheck = false;
-          packages = pkgs.callPackage ./packages.nix { inherit nix-auth nixpkgs-master; };
+          packages = pkgs.callPackage ./packages.nix {
+            inherit nix-auth nix-search-cli nixpkgs-master;
+          };
           file = lib.mkMerge [
             sharedFiles
             additionalFiles

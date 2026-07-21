@@ -1,5 +1,6 @@
 {
   nix-auth,
+  nix-search-cli,
   nixpkgs-master,
   pkgs,
 }:
@@ -17,6 +18,7 @@ with pkgs;
   doggo
   killall
   nix-auth
+  nix-search-cli.packages.${pkgs.system}.default
   openssh
   sqlite
   wget

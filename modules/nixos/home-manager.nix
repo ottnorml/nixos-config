@@ -1,6 +1,7 @@
 {
   config,
   nix-auth,
+  nix-search-cli,
   nixpkgs-master,
   pkgs,
   lib,
@@ -64,7 +65,9 @@ in
     enableNixpkgsReleaseCheck = false;
     username = "${user}";
     homeDirectory = homeDirectory;
-    packages = pkgs.callPackage ./packages.nix { inherit nix-auth nixpkgs-master; };
+    packages = pkgs.callPackage ./packages.nix {
+      inherit nix-auth nix-search-cli nixpkgs-master;
+    };
     file = shared-files;
     stateVersion = "25.05";
   };
