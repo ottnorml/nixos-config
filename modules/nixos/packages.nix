@@ -1,6 +1,5 @@
 {
   nix-auth,
-  nix-search-cli,
   nixpkgs-master,
   pkgs,
 }:
@@ -8,7 +7,7 @@
 with pkgs;
 let
   shared-packages = import ../shared/packages.nix {
-    inherit nix-auth nix-search-cli nixpkgs-master pkgs;
+    inherit nix-auth nixpkgs-master pkgs;
   };
 in
 shared-packages

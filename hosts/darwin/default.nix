@@ -2,7 +2,6 @@
   agenix,
   config,
   nix-auth,
-  nix-search-cli,
   nixpkgs-master,
   pkgs,
   ...
@@ -92,7 +91,7 @@ in
       agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
     ]
     ++ (import ../../modules/shared/packages.nix {
-      inherit nix-auth nix-search-cli nixpkgs-master pkgs;
+      inherit nix-auth nixpkgs-master pkgs;
     });
 
   system = {
