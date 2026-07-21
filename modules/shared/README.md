@@ -48,7 +48,7 @@ revision. `--write` is the only mode that changes the working tree. The
 snapshot header records the resolved commit and the UTC import time, so every
 update can be reviewed and reproduced.
 
-OpenSpec and CocoIndex are local additions. They are surrounded by
+OpenSpec, CocoIndex, and Serena are local additions. They are surrounded by
 `nixos-config local telemetry additions` markers and are carried forward when
 the upstream snapshot is refreshed.
 

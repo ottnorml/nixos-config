@@ -40,6 +40,7 @@ assert upstream.HOMEBREW_NO_ANALYTICS_THIS_RUN == "1";
 assert upstream.GOTELEMETRY == "off";
 assert upstream.COCOINDEX_DISABLE_USAGE_TRACKING == "1";
 assert upstream.OPENSPEC_TELEMETRY == "0";
+assert upstream.SERENA_USAGE_REPORTING == "false";
 assert !(upstream ? HF_HUB_OFFLINE);
 assert builtins.length (builtins.attrNames upstream) > 100;
 effective
