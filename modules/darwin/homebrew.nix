@@ -66,7 +66,6 @@ in
     HOMEBREW_CLEANUP_MAX_AGE_DAYS=7
     HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=7
     HOMEBREW_LOGS=~/.cache/Homebrew/Logs
-    HOMEBREW_NO_AUTO_UPDATE=1
     HOMEBREW_NO_INSECURE_REDIRECT=1
     HOMEBREW_NO_INSTALL_FROM_API=1
     HOMEBREW_SBOM=1
@@ -114,6 +113,7 @@ in
     greedyCasks = true;
 
     onActivation = {
+      # Update Homebrew only when nix-darwin runs brew bundle during activation.
       autoUpdate = true;
       # cleanup = "zap"; # Uninstall packages/casks not in Brewfile
       upgrade = true;
@@ -126,6 +126,7 @@ in
 
     global = {
       brewfile = true;
+      # Keep automatic updates disabled for manually invoked brew commands.
       autoUpdate = false;
     };
 
