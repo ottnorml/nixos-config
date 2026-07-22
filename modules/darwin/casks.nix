@@ -26,7 +26,7 @@ jetbrainsIDEs
 
   # Development Tools
   "android-platform-tools"
-  "arcboxlabs/tap/arcbox" # Docker Desktop alternative
+  "arcbox" # Docker Desktop alternative
   "bruno"
   "docker-desktop"
   "iterm2"
