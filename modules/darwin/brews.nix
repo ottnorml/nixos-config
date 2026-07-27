@@ -82,6 +82,7 @@ _:
   "rulesync"
 
   # System / shell / general utilities
+  # "asmvik/formulae/yabai"
   "carapace"
   "chezmoi"
   "coreutils"
@@ -96,7 +97,6 @@ _:
   "hyperb1iss/tap/unifly"
   "iproute2mac"
   "jordond/tap/jolt"
-  # "koekeishiya/formulae/yabai"
   "lablup/tap/all-smi"
   "macmon"
   "mas"
