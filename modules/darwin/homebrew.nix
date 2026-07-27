@@ -86,7 +86,7 @@ in
       "adembc/tap"
       "alexstrnik/browserino"
       "anomalyco/tap"
-      "aprilnea/tap"
+      # "aprilnea/tap"
       # "asmvik/formulae"
       "crumbyte/noxdir"
       "darrylmorley/whatcable"
