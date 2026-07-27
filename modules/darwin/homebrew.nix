@@ -87,7 +87,7 @@ in
       "alexstrnik/browserino"
       "anomalyco/tap"
       "aprilnea/tap"
-      "asmvik/formulae"
+      # "asmvik/formulae"
       "crumbyte/noxdir"
       "darrylmorley/whatcable"
       "deskflow/tap"
