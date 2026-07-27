@@ -62,6 +62,7 @@ in
   # For boolean-style `HOMEBREW_NO_*` variables, do not use `0` to mean false;
   # leave the variable unset instead.
   environment.etc."homebrew/brew.env".text = ''
+    HOMEBREW_AUTO_UPDATE_SECS=300
     HOMEBREW_BAT=1
     HOMEBREW_CLEANUP_MAX_AGE_DAYS=7
     HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=7
