@@ -102,6 +102,7 @@ jetbrainsIDEs
   "rectangle"
   "reminders-menubar"
   "rustdesk"
+  "santosh7017/androidfilesync/androidfilesync"
   "stats"
   "thaw"
   "whatcable"

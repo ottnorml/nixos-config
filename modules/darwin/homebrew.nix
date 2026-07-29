@@ -105,6 +105,7 @@ in
       "owenthereal/upterm"
       "richard-fairthorne/tap"
       "rtk-ai/tap"
+      "santosh7017/androidfilesync"
       "sozercan/repo"
       "toobuntu/cask-tools"
     ];
