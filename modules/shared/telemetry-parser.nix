@@ -24,10 +24,14 @@ in
   applyOptions =
     {
       upstreamVariables,
+      localVariables ? { },
       extraVariables ? { },
       overrides ? { },
       disabled ? [ ],
       enable ? true,
     }:
-    if enable then removeDisabled (upstreamVariables // extraVariables // overrides) disabled else { };
+    if enable then
+      removeDisabled (upstreamVariables // localVariables // extraVariables // overrides) disabled
+    else
+      { };
 }

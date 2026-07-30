@@ -6,11 +6,13 @@
 
 let
   parser = import ./telemetry-parser.nix { inherit lib; };
+  localVariables = import ./telemetry-local.nix;
   upstreamVariables = parser.parse (builtins.readFile ./config/do-not-track.env);
   cfg = config.privacy.telemetry;
 
   effectiveVariables = parser.applyOptions {
     inherit upstreamVariables;
+    inherit localVariables;
     inherit (cfg)
       enable
       extraVariables
@@ -30,13 +32,13 @@ in
     extraVariables = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
       default = { };
-      description = "Additional telemetry opt-out environment variables.";
+      description = "Additional host-specific telemetry opt-out environment variables.";
     };
 
     overrides = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
       default = { };
-      description = "Values overriding variables from the upstream catalog or extraVariables.";
+      description = "Values overriding variables from the upstream catalog, local values, or extraVariables.";
     };
 
     disabled = lib.mkOption {
@@ -49,7 +51,7 @@ in
       type = lib.types.attrsOf lib.types.str;
       internal = true;
       readOnly = true;
-      description = "The effective telemetry variables after overrides and disabling.";
+      description = "The effective telemetry variables after local values, overrides, and disabling.";
     };
   };
 
