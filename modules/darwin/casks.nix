@@ -58,6 +58,7 @@ jetbrainsIDEs
   "google-drive"
   "jan"
   "kde-connect"
+  "linear"
   "lm-studio"
   "raycast"
   "typewhisper"
