@@ -106,6 +106,7 @@ in
       "richard-fairthorne/tap"
       "rtk-ai/tap"
       "santosh7017/androidfilesync"
+      "schpet/tap"
       "sozercan/repo"
       "toobuntu/cask-tools"
     ];
