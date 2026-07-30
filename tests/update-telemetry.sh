@@ -10,27 +10,12 @@ cat > "$fixture/modules/shared/config/do-not-track.env" <<'EOF'
 # do_not_track.env
 # upstream old value
 EXAMPLE_TELEMETRY=old
-
-# nixos-config local telemetry additions: begin
-# Local tool
-LOCAL_TELEMETRY=0
-# nixos-config local telemetry additions: end
-
-# Serverless & FaaS
-# BLOCK_NETWORK=1
-
-# Aggressive / Opt-in
 EOF
 
 cat > "$fixture/upstream.env" <<'EOF'
 # do_not_track.env
 # upstream new value
 EXAMPLE_TELEMETRY=new
-
-# Serverless & FaaS
-# BLOCK_NETWORK=1
-
-# Aggressive / Opt-in
 EOF
 
 before=$(<"$fixture/modules/shared/config/do-not-track.env")
@@ -46,10 +31,35 @@ TELEMETRY_UPDATE_ROOT="$fixture" \
 
 grep -Fx '# upstream new value' "$fixture/modules/shared/config/do-not-track.env"
 grep -Fx 'EXAMPLE_TELEMETRY=new' "$fixture/modules/shared/config/do-not-track.env"
-grep -Fx 'LOCAL_TELEMETRY=0' "$fixture/modules/shared/config/do-not-track.env"
-grep -Fx '# BLOCK_NETWORK=1' "$fixture/modules/shared/config/do-not-track.env"
+
+if grep -Fq 'nixos-config local telemetry additions' "$fixture/modules/shared/config/do-not-track.env" ||
+  grep -Fq 'LOCAL_TELEMETRY' "$fixture/modules/shared/config/do-not-track.env"; then
+  echo "local telemetry block survived upstream-only update" >&2
+  exit 1
+fi
 
 if grep -Fx 'EXAMPLE_TELEMETRY=old' "$fixture/modules/shared/config/do-not-track.env"; then
   echo "old upstream value survived update" >&2
   exit 1
 fi
+
+after_write=$(<"$fixture/modules/shared/config/do-not-track.env")
+second_run=$(TELEMETRY_UPDATE_ROOT="$fixture" \
+  TELEMETRY_UPDATE_SOURCE="$fixture/upstream.env" \
+  "$script_dir/apps/update-telemetry")
+test "$second_run" = "Telemetry snapshot is already up to date."
+test "$after_write" = "$(<"$fixture/modules/shared/config/do-not-track.env")"
+
+cat > "$fixture/invalid-upstream.env" <<'EOF'
+# unexpected.env
+EXAMPLE_TELEMETRY=invalid
+EOF
+
+before_invalid=$(<"$fixture/modules/shared/config/do-not-track.env")
+if TELEMETRY_UPDATE_ROOT="$fixture" \
+  TELEMETRY_UPDATE_SOURCE="$fixture/invalid-upstream.env" \
+  "$script_dir/apps/update-telemetry" --write >/dev/null 2>&1; then
+  echo "invalid upstream identity was accepted" >&2
+  exit 1
+fi
+test "$before_invalid" = "$(<"$fixture/modules/shared/config/do-not-track.env")"

@@ -13,17 +13,22 @@ This configuration gets imported by both modules. Some configuration examples in
 ├── files.nix          # Non-Nix, static configuration files
 ├── home-manager.nix   # Shared Home Manager configuration
 ├── packages.nix       # Shared package list
-├── telemetry.nix      # Shared telemetry environment module
+├── telemetry-local.nix  # Repository-local telemetry opt-outs
+├── telemetry.nix        # Shared telemetry environment module
 └── telemetry-parser.nix # Parser and composition of telemetry variables
 
 ```
 
 ## Telemetry opt-outs
 
-The shared telemetry module imports the active entries from
+The shared telemetry module imports the active upstream entries from
 [`config/do-not-track.env`](./config/do-not-track.env) and exposes them through
 `environment.variables` on both Darwin and NixOS. Commented entries remain
 available in the snapshot but are not enabled.
+
+Repository-local opt-outs are defined in
+[`telemetry-local.nix`](./telemetry-local.nix). This keeps local policy separate
+from the upstream snapshot while preserving the same effective environment.
 
 The file is a versioned snapshot of the active entries from
 [`alloydwhitlock/do-not-track-cli`](https://github.com/alloydwhitlock/do-not-track-cli).
@@ -48,16 +53,13 @@ revision. `--write` is the only mode that changes the working tree. The
 snapshot header records the resolved commit and the UTC import time, so every
 update can be reviewed and reproduced.
 
-OpenSpec, CocoIndex, and Serena are local additions. They are surrounded by
-`nixos-config local telemetry additions` markers and are carried forward when
-the upstream snapshot is refreshed.
-
 Values are composed in this order:
 
 1. the upstream catalog
-2. `privacy.telemetry.extraVariables`
-3. `privacy.telemetry.overrides`
-4. names listed in `privacy.telemetry.disabled` are removed
+2. repository-local values from `telemetry-local.nix`
+3. `privacy.telemetry.extraVariables`
+4. `privacy.telemetry.overrides`
+5. names listed in `privacy.telemetry.disabled` are removed
 
 Example:
 

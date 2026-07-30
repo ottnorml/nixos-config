@@ -29,18 +29,10 @@ if [[ ! -f "$target" ]]; then
   exit 1
 fi
 
-if ! grep -Fq '# nixos-config local telemetry additions: begin' "$target" ||
-  ! grep -Fq '# nixos-config local telemetry additions: end' "$target"; then
-  echo "local telemetry addition markers are missing from $target" >&2
-  exit 1
-fi
-
 tmp_dir=$(mktemp -d)
 trap 'rm -rf "$tmp_dir"' EXIT
 upstream="$tmp_dir/upstream.env"
-local_block="$tmp_dir/local.env"
 candidate="$tmp_dir/candidate.env"
-merged="$tmp_dir/merged.env"
 metadata_file="$tmp_dir/metadata.env"
 
 if [[ -z "$upstream_commit" && -z "${TELEMETRY_UPDATE_SOURCE:-}" ]]; then
@@ -63,17 +55,12 @@ else
   cp "$source" "$upstream"
 fi
 
-if ! grep -Fq '# do_not_track.env' "$upstream" ||
-  ! grep -Fq '# Aggressive / Opt-in' "$upstream"; then
+first_line=
+IFS= read -r first_line <"$upstream" || true
+if [[ "$first_line" != "# do_not_track.env" ]]; then
   echo "upstream file has an unexpected format: $source" >&2
   exit 1
 fi
-
-awk '
-  /# nixos-config local telemetry additions: begin/ { capture = 1 }
-  capture { print }
-  /# nixos-config local telemetry additions: end/ { exit }
-' "$target" >"$local_block"
 
 imported_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 cat >"$metadata_file" <<EOF
@@ -84,34 +71,15 @@ cat >"$metadata_file" <<EOF
 # End snapshot metadata
 EOF
 
-awk -v local_file="$local_block" '
-  {
-    if ($0 == "# Serverless & FaaS") {
-      while ((getline line < local_file) > 0) print line
-      close(local_file)
-      print ""
-      print previous
-      print
-      previous = ""
-      have_previous = 0
-      next
-    }
-    if (have_previous) print previous
-    previous = $0
-    have_previous = 1
+awk -v metadata_file="$metadata_file" '
+  NR == 1 {
+    print
+    while ((getline line < metadata_file) > 0) print line
+    close(metadata_file)
+    next
   }
-  END { if (have_previous) print previous }
-' "$upstream" >"$merged"
-
-{
-  awk -v metadata_file="$metadata_file" '
-    { print }
-    /^# Contributing: see README\.md$/ {
-      while ((getline line < metadata_file) > 0) print line
-      close(metadata_file)
-    }
-  ' "$merged"
-} >"$candidate"
+  { print }
+' "$upstream" >"$candidate"
 
 strip_metadata() {
   sed '/^# Snapshot metadata /,/^# End snapshot metadata$/d' "$1"
