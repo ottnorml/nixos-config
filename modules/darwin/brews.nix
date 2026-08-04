@@ -80,6 +80,14 @@ _:
   "act"
   # CLI for exploring and testing APIs.
   "bruno-cli"
+  # Conventional Commits toolbox.
+  "cocogitto"
+  # Conventional commits, changelog, versioning, and validation.
+  "convco"
+  # Python-based fake data generator.
+  "faker"
+  # CLI for interacting with Forgejo.
+  "forgejo-cli"
   # GitHub command-line tool (GitHub CLI).
   "gh"
   # Distributed revision control system.
@@ -90,6 +98,12 @@ _:
   "gitlab-ci-local"
   # Open-source GitLab command-line tool.
   "glab"
+  # Syntax-highlighting pager for Git and diff output.
+  "git-delta"
+  # Show clear Git graphs arranged for your branching model.
+  "git-graph"
+  # Git LFS plugin using the Xet protocol.
+  "git-xet"
   # Fast runner for Go linters.
   "golangci-lint"
   # Interactive jq.
@@ -104,6 +118,8 @@ _:
   "lnav"
   # CLI for Node.js Markdown linting.
   "markdownlint-cli"
+  # Fast, flexible CLI for linting Markdown/CommonMark files.
+  "markdownlint-cli2"
   # Polyglot runtime manager.
   "mise"
   # JavaScript runtime, bundler, transpiler, and package manager.
@@ -120,14 +136,22 @@ _:
   "richard-fairthorne/tap/pairqr"
   # CLI for Linear that opens issues and team pages.
   "schpet/tap/linear"
+  # Run commands in parallel with Rust's Tokio framework.
+  "rust-parallel"
   # Text interface for Git repositories.
   "tig"
+  # Count code quickly.
+  "tokei"
   # Markup-based typesetting system.
   "typst"
   # Reliable Typst code formatter.
   "typstyle"
+  # Source code spell checker.
+  "typos-cli"
   # Extremely fast Python package installer and resolver.
   "uv"
+  # Command-line interface to the WakaTime API.
+  "wakatime-cli"
   # YAML, JSON, XML, CSV, and properties processor.
   "yq"
 
