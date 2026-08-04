@@ -6,6 +6,8 @@ _:
   "adembc/tap/lazyssh"
   # Cloud provider for KIND clusters.
   "cloud-provider-kind"
+  # Tool for testing and debugging Dependabot update jobs.
+  "dependabot"
   # Flux CLI.
   "fluxcd/tap/flux"
   # Command-line interface for Hetzner Cloud.
@@ -44,8 +46,12 @@ _:
   "kustomize"
   # Run a Kubernetes cluster locally.
   "minikube"
+  # Generate clients, servers, and documentation from an OpenAPI spec.
+  "openapi-generator"
   # Drop-in replacement for Terraform.
   "opentofu"
+  # Pin GitHub Actions to full hashes and versions.
+  "pinact"
   # Kubernetes cluster resource sanitizer.
   "popeye"
   # Work with remote image registries.
