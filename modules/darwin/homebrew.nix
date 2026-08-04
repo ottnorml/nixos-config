@@ -91,6 +91,7 @@ in
       "crumbyte/noxdir"
       "darrylmorley/whatbattery"
       "darrylmorley/whatcable"
+      "darrylmorley/whatport"
       "deskflow/tap"
       "felixkratz/formulae"
       "fluxcd/tap"

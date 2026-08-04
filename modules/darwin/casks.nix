@@ -171,6 +171,8 @@ jetbrainsIDEs
   "whatcable"
   # Battery health and live power menu bar app.
   "darrylmorley/whatbattery/whatbattery"
+  # Real-time USB-C port status menu bar app.
+  "darrylmorley/whatport/whatport"
 
   # Office, Documents & Finance
   # Client for Google Drive storage.
