@@ -111,6 +111,8 @@ jetbrainsIDEs
   "google-chrome"
   # Browse mDNS services on the network.
   "hrzlgnm/tap/mdns-browser"
+  # Terminal UI for mDNS service discovery.
+  "hrzlgnm/tap/mdns-tui-browser"
 
   # Security & Credentials
   # Password manager.
