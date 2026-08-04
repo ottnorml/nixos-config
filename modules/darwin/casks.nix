@@ -32,6 +32,18 @@ jetbrainsIDEs
   "jetbrains-toolbox"
   # Open-source code editor.
   "visual-studio-code"
+  # Command-line tools for building and debugging Android apps.
+  "android-commandlinetools"
+  # Git client for simultaneous branches.
+  "gitbutler"
+  # Agentic development environment.
+  "jetbrains-air"
+  # Application for generating k6 test scripts.
+  "k6-studio"
+  # Graphical client for Git version control.
+  "sourcetree"
+  # Multiplayer code editor.
+  "zed"
   # Android SDK component.
   "android-platform-tools"
   # Open-source IDE for exploring and testing APIs.
@@ -65,12 +77,18 @@ jetbrainsIDEs
   }
   # Desktop sync client for Nextcloud software products.
   "nextcloud"
+  # Virtual machines UI using QEMU.
+  "utm"
 
   # AI & Knowledge Work
+  # Time tracker.
+  "activitywatch@beta"
   # Browse, search, and analyze past AI coding sessions.
   "agentsview"
   # Terminal interface for Antigravity agents.
   "antigravity-cli"
+  # Autonomous multi-session AI coding.
+  "auto-claude"
   # OpenAI's official ChatGPT desktop app.
   "chatgpt"
   # Terminal-based AI coding assistant.
@@ -83,8 +101,20 @@ jetbrainsIDEs
   "jan"
   # Discover, download, and run local LLMs.
   "lm-studio"
+  # Local-first dictation and meeting transcription.
+  "muesli"
+  # Private desktop AI chat application.
+  "anythingllm"
+  # Desktop application for Open WebUI.
+  "open-webui"
+  # AI coding agent desktop client.
+  "opencode-desktop"
+  # Knowledge base built on local Markdown files.
+  "obsidian"
   # Speech-to-text and AI text processing.
   "typewhisper"
+  # Open-source Markdown editor.
+  "zettlr"
 
   # Communication & Collaboration
   # Communicate with handheld devices.
@@ -105,10 +135,14 @@ jetbrainsIDEs
   # Browsers & Internet
   # Browser selector for macOS.
   "alexstrnik/browserino/browserino"
+  # Server and cloud storage browser.
+  "cyberduck"
   # Web browser.
   "firefox"
   # Web browser.
   "google-chrome"
+  # Download manager.
+  "jdownloader"
   # Browse mDNS services on the network.
   "hrzlgnm/tap/mdns-browser"
   # Terminal UI for mDNS service discovery.
@@ -119,12 +153,18 @@ jetbrainsIDEs
   "1password"
   # Password manager app.
   "keepassxc"
+  # Open-source firewall for unknown outgoing connections.
+  "lulu"
+  # Full-featured YubiKey companion app.
+  "yubico-authenticator"
 
   # System, Device & File Utilities
   # Application uninstaller.
   "appcleaner"
   # LDAP browser and directory client.
   "apache-directory-studio"
+  # Keep the computer awake while AI coding agents work.
+  "adrafinil"
   # Mouse and keyboard sharing utility.
   "deskflow/tap/deskflow"
   # Per-application volume mixer and audio router.
@@ -133,6 +173,8 @@ jetbrainsIDEs
   "flux-app"
   # Home Assistant companion app.
   "home-assistant"
+  # Open-source keystroke visualizer.
+  "keycastr"
   # File archiver.
   "keka"
   # Open-source cross-platform AirDrop alternative.
@@ -169,6 +211,8 @@ jetbrainsIDEs
   "stats"
   # Menu bar manager.
   "thaw"
+  # Command-line tool for pstree-like output.
+  "truetree"
   # USB-C cable diagnostics menu bar app.
   "whatcable"
   # Battery health and live power menu bar app.
@@ -179,6 +223,20 @@ jetbrainsIDEs
   # Office, Documents & Finance
   # Client for Google Drive storage.
   "google-drive"
+  # Java application platform with an SWT UI.
+  "jameica"
+  # Free cross-platform office suite.
+  "libreoffice"
+  # Alternate language collection for LibreOffice.
+  "libreoffice-language-pack"
+  # Tax declaration for fiscal year 2022.
+  "wiso-steuer-2023"
+  # Tax declaration for fiscal year 2023.
+  "wiso-steuer-2024"
+  # Tax declaration for fiscal year 2024.
+  "wiso-steuer-2025"
+  # Tax declaration for fiscal year 2025.
+  "wiso-steuer-2026"
   # Research source collection and citation manager.
   "zotero"
 
@@ -189,6 +247,8 @@ jetbrainsIDEs
   "blackhole-16ch"
   # Jellyfin desktop client.
   "jellyfin-media-player"
+  # Open-source live streaming and screen recording software.
+  "obs"
   # Open-source transport simulation game.
   "openttd"
   # Native YouTube Music client; the missing YouTube Music macOS app.
