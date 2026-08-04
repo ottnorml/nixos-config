@@ -58,6 +58,10 @@ _:
   "tilt"
   # Fully functional virtual Kubernetes cluster.
   "vcluster"
+  # Flux Operator CLI.
+  "controlplaneio-fluxcd/tap/flux-operator"
+  # Flux MCP Server.
+  "controlplaneio-fluxcd/tap/flux-operator-mcp"
   # SDK for building Kubernetes APIs using CRDs.
   "kubebuilder"
   # SDK for building Kubernetes applications.
