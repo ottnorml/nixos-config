@@ -169,6 +169,8 @@ jetbrainsIDEs
   "thaw"
   # USB-C cable diagnostics menu bar app.
   "whatcable"
+  # Battery health and live power menu bar app.
+  "darrylmorley/whatbattery/whatbattery"
 
   # Office, Documents & Finance
   # Client for Google Drive storage.

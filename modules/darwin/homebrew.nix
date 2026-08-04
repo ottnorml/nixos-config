@@ -89,6 +89,7 @@ in
       "brettdavies/tap"
       "controlplaneio-fluxcd/tap"
       "crumbyte/noxdir"
+      "darrylmorley/whatbattery"
       "darrylmorley/whatcable"
       "deskflow/tap"
       "felixkratz/formulae"
