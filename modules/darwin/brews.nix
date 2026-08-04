@@ -124,14 +124,14 @@ _:
   # AI & Agent Tooling
   # The AI coding agent for the terminal.
   "anomalyco/tap/opencode"
-  # Linter checking CLI tools for agent-readiness principles.
-  "brettdavies/tap/agentnative"
   # Code searching, linting, and rewriting.
   "ast-grep"
   # Markdown-native task manager and Kanban visualizer.
   "backlog-md"
   # Memory upgrade for coding agents.
   "beads"
+  # Linter checking CLI tools for agent-readiness principles.
+  "brettdavies/tap/agentnative"
   # Junie CLI.
   "jetbrains/junie/junie"
   # Minimal CLI coding agent.

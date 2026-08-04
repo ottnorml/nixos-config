@@ -86,6 +86,7 @@ in
       "adembc/tap"
       "alexstrnik/browserino"
       "anomalyco/tap"
+      "brettdavies/tap"
       "crumbyte/noxdir"
       "darrylmorley/whatcable"
       "deskflow/tap"
