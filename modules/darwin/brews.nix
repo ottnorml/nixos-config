@@ -188,14 +188,24 @@ _:
   # Security, Compliance & Secrets
   # Container signing.
   "cosign"
+  # Slightly more awesome Unix password manager for teams.
+  "gopass"
+  # Security and system auditing tool.
+  "lynis"
   # Editor of encrypted files.
   "sops"
+  # Security health metrics for open source.
+  "scorecard"
   # SSH server and client auditing.
   "ssh-audit"
   # Vulnerability scanner for containers, filesystems, and Git repositories.
   "trivy"
   # Command-line interface for VirusTotal.
   "virustotal-cli"
+  # Tool for managing YubiKey configuration.
+  "ykman"
+  # Find security issues in GitHub Actions setups.
+  "zizmor"
 
   # Shell & Filesystem
   # Multi-shell, multi-command argument completer.
