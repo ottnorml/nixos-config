@@ -166,12 +166,18 @@ _:
   "beads"
   # Linter checking CLI tools for agent-readiness principles.
   "brettdavies/tap/agentnative"
+  # Open-source framework for augmenting humans using AI.
+  "fabric-ai"
+  # CLI for interacting with Google Gemini AI models.
+  "gemini-cli"
   # Junie CLI.
   "jetbrains/junie/junie"
   # Minimal CLI coding agent.
   "mistral-vibe"
   # Capability-based sandbox shell for AI agents.
   "nono"
+  # Spec-driven development for AI coding assistants.
+  "openspec"
   # CLI proxy to minimize LLM token consumption.
   "rtk"
   # Permanent memory MCP server with hybrid search.
