@@ -151,6 +151,8 @@ jetbrainsIDEs
   # Security & Credentials
   # Password manager.
   "1password"
+  # Official eID client of the Federal Government of Germany.
+  "ausweisapp"
   # Password manager app.
   "keepassxc"
   # Open-source firewall for unknown outgoing connections.
