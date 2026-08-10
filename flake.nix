@@ -33,17 +33,19 @@
     };
 
     # Homebrew integration
+    # Legacy workaround disabled: nix-homebrew now pins Homebrew 6.0.15 itself.
+    # Keep the lines commented for rollback if the upstream pin regresses.
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
-      inputs.brew-src.follows = "homebrew-brew";
+      # inputs.brew-src.follows = "homebrew-brew";
     };
 
-    # Override Homebrew version to prevent nix-homebrew from using its pinned older version
-    # (reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix)
-    homebrew-brew = {
-      url = "github:Homebrew/brew/6.0.15";
-      flake = false;
-    };
+    # Legacy rollback input; not active while nix-homebrew provides Homebrew 6.0.15.
+    # Reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix
+    # homebrew-brew = {
+    #   url = "github:Homebrew/brew/6.0.15";
+    #   flake = false;
+    # };
 
     # Private configurations
     secrets = {
@@ -66,7 +68,8 @@
       darwin,
       # Homebrew integration
       nix-homebrew,
-      homebrew-brew,
+      # Legacy rollback input, intentionally inactive.
+      # homebrew-brew,
       # Private configurations
       secrets,
     }@inputs:
@@ -179,8 +182,9 @@
           };
         };
 
-      flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
-      brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
+      # Legacy rollback metadata, intentionally inactive.
+      # flakeLock = builtins.fromJSON (builtins.readFile ./flake.lock);
+      # brewVersion = flakeLock.nodes.homebrew-brew.original.ref;
     in
     {
       devShells = forAllSystems devShell;
@@ -203,13 +207,12 @@
                 mutableTaps = true;
                 autoMigrate = true;
 
-                # Uses the explicitly pinned Homebrew source instead of nix-homebrew’s default.
-                # `name` and `version` here are only metadata for Nix/store naming; the actual
-                # Homebrew version is determined by the `homebrew-brew` input above.
-                package = homebrew-brew // {
-                  name = "brew-${brewVersion}";
-                  version = brewVersion;
-                };
+                # Legacy rollback package override, intentionally inactive because the upstream
+                # nix-homebrew lock graph now provides Homebrew 6.0.15.
+                # package = homebrew-brew // {
+                #   name = "brew-${brewVersion}";
+                #   version = brewVersion;
+                # };
               };
             }
             # Align homebrew taps config with nix-homebrew
