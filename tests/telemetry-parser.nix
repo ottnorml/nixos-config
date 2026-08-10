@@ -68,6 +68,7 @@ assert local.COCOINDEX_DISABLE_USAGE_TRACKING == "1";
 assert local.OPENSPEC_TELEMETRY == "0";
 assert local.SEMGREP_SEND_METRICS == "off";
 assert local.SERENA_USAGE_REPORTING == "false";
+assert telemetryModule.config.environment.variables.SEMGREP_SEND_METRICS == "off";
 assert
   telemetryModule.config.privacy.telemetry.effectiveVariables.COCOINDEX_DISABLE_USAGE_TRACKING == "1";
 assert telemetryModule.config.privacy.telemetry.effectiveVariables.SEMGREP_SEND_METRICS == "off";
