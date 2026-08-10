@@ -206,6 +206,8 @@ _:
   "ykman"
   # Find security issues in GitHub Actions setups.
   "zizmor"
+  # Manage LuLu macOS firewall rules from the command line.
+  "woop/tap/lulu-cli"
 
   # Shell & Filesystem
   # Multi-shell, multi-command argument completer.

@@ -111,6 +111,7 @@ in
       "schpet/tap"
       "sozercan/repo"
       "toobuntu/cask-tools"
+      "woop/tap"
     ];
 
     brews = sortBrewfileEntries (pkgs.callPackage ./brews.nix { });
