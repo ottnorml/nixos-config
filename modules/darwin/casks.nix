@@ -211,6 +211,8 @@ jetbrainsIDEs
   "santosh7017/androidfilesync/androidfilesync"
   # System monitor for the menu bar.
   "stats"
+  # Network protocol analyzer.
+  "wireshark-app"
   # Menu bar manager.
   "thaw"
   # Command-line tool for pstree-like output.
