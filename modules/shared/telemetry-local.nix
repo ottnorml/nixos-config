@@ -7,6 +7,10 @@
   # Source: https://github.com/Fission-AI/OpenSpec/blob/main/src/telemetry/index.ts
   OPENSPEC_TELEMETRY = "0";
 
+  # Semgrep: disable automatic metrics collection.
+  # Source: https://docs.semgrep.dev/metrics/#automatic-collection-opt-in-and-opt-out
+  SEMGREP_SEND_METRICS = "off";
+
   # Serena: disable usage reporting from the coding assistant.
   # Source: https://oraios.github.io/serena/02-usage/050_configuration.html#usage-reporting
   SERENA_USAGE_REPORTING = "false";
