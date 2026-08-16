@@ -2,10 +2,8 @@
   description = "Starter Configuration with secrets for MacOS and NixOS";
   inputs = {
     # Core
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # Temporary source for packages whose fixes have merged but not yet reached `nixpkgs-unstable`.
-    # see https://github.com/NixOS/nixpkgs/pull/552075
-    nixpkgs.url = "github:NixOS/nixpkgs/c764dbf55f420383b33c42ce8d5e740c3e7697c5";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Optional fallback to master for fixes not yet available in `nixpkgs-unstable`.
     # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-master.follows = "nixpkgs";
 
