@@ -181,8 +181,6 @@ jetbrainsIDEs
   "keka"
   # Open-source cross-platform AirDrop alternative.
   "localsend"
-  # Support for Logitech G gear.
-  "logitech-g-hub"
   # Cross-platform text expander written in Rust.
   "espanso"
   # Clipboard manager; Clipy alternative.

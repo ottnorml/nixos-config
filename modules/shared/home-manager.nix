@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  nixpkgs-master,
   lib,
   ...
 }:
@@ -609,6 +610,7 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.tmux.enable
   tmux = {
     enable = true;
+    package = nixpkgs-master.tmux;
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       sensible
