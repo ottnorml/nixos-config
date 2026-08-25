@@ -57,7 +57,7 @@ with pkgs;
   ijq
   jq
   ripgrep
-  tmux
+  nixpkgs-master.tmux # Workaround until https://github.com/NixOS/nixpkgs/pull/555604 is included in nixpkgs-unstable
   tree
   unrar
   unzip
