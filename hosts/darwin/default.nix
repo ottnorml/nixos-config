@@ -29,7 +29,7 @@ in
 
   # Setup user, packages, programs
   nix = {
-    package = pkgs.lix;
+    package = pkgs.lixPackageSets.stable.lix;
 
     settings = {
       trusted-users = [

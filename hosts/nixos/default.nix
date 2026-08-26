@@ -58,7 +58,7 @@ in
   };
 
   nix = {
-    package = pkgs.lix;
+    package = pkgs.lixPackageSets.stable.lix;
 
     nixPath = [ "nixos-config=${xdgDataHome}/src/nixos-config:/etc/nixos" ];
 
