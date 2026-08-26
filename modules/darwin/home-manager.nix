@@ -123,7 +123,14 @@ in
         # attributes for 'programs' (like { zsh = ...; git = ...; })
         imports = [
           ({ ... }: {
-            programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
+            programs = import ../shared/home-manager.nix {
+              inherit
+                config
+                lib
+                nixpkgs-master
+                pkgs
+                ;
+            };
           })
         ];
 

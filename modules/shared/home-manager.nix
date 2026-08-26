@@ -1,8 +1,8 @@
 {
   config,
-  pkgs,
-  nixpkgs-master,
   lib,
+  nixpkgs-master,
+  pkgs,
   ...
 }:
 
@@ -395,7 +395,7 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.vim.enable
   vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [
+    plugins = with nixpkgs-master.vimPlugins; [
       vim-airline
       vim-airline-themes
       vim-startify
@@ -611,7 +611,7 @@ in
   tmux = {
     enable = true;
     package = nixpkgs-master.tmux;
-    plugins = with pkgs.tmuxPlugins; [
+    plugins = with nixpkgs-master.tmuxPlugins; [
       vim-tmux-navigator
       sensible
       yank

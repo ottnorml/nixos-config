@@ -14,7 +14,14 @@ let
   xdgDataHome = "${homeDirectory}/.local/share";
   xdgStateHome = "${homeDirectory}/.local/state";
 
-  shared-programs = import ../shared/home-manager.nix { inherit config pkgs lib; };
+  shared-programs = import ../shared/home-manager.nix {
+    inherit
+      config
+      lib
+      nixpkgs-master
+      pkgs
+      ;
+  };
   shared-files = import ../shared/files.nix { inherit config pkgs; };
 
   polybar-user_modules =
