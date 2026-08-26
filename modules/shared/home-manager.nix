@@ -610,8 +610,8 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.tmux.enable
   tmux = {
     enable = true;
-    package = nixpkgs-master.tmux;
-    plugins = with nixpkgs-master.tmuxPlugins; [
+    package = pkgs.tmux;
+    plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       sensible
       yank

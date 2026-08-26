@@ -4,8 +4,8 @@
     # Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     # Optional fallback to master for fixes not yet available in `nixpkgs-unstable`.
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    # nixpkgs-master.follows = "nixpkgs";
+    # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-master.follows = "nixpkgs";
 
     # Core tools
     agenix = {

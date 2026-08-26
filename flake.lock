@@ -214,22 +214,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1787660459,
-        "narHash": "sha256-Fe6BvFX2n5L20mMBEG6syixxngHJNNPEBAYMEHAaqSY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "957ed31cfaeaf3a5a03ce8345d277db415ae5fa8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1787631388,
@@ -256,7 +240,9 @@
         "nix-auth": "nix-auth",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-master": [
+          "nixpkgs"
+        ],
         "secrets": "secrets"
       }
     },
