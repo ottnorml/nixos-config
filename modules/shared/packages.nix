@@ -60,6 +60,7 @@ with pkgs; [
   gopls # Go language server
 
   # H
+  herdr # Terminal agent multiplexer
   htop # Interactive process viewer
   hunspell # Spell checker
 

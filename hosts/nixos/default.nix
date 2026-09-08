@@ -230,6 +230,7 @@ in
     lm_sensors       # Hardware monitoring sensors
     btop             # Modern resource monitor with temp display
     bun              # JS runtime for the atlas devenv service (migrated from garfield)
+    bubblewrap       # Unprivileged sandboxing tool
   ];
 
   # Don't require password for users in `wheel` group for these commands

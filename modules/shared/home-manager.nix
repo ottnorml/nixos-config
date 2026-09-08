@@ -37,19 +37,6 @@ let name = "Dustin Lyons";
     };
   };
 
-  # Side-by-side, syntax-highlighted `git diff`/`show`/`blame`/`add -p`.
-  # `diff` on the command line stays difftastic (aliased in zsh below).
-  # Note: enableGitIntegration defaults to false, so it has to be set.
-  delta = {
-    enable = true;
-    enableGitIntegration = true;
-    options = {
-      navigate = true;
-      line-numbers = true;
-      side-by-side = true;
-    };
-  };
-
   # `z conductly` jumps to the directory from anywhere, ranked by how often
   # and how recently it has been visited.
   zoxide = {
