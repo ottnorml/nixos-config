@@ -87,7 +87,13 @@ in
       enable = true;
       enable32Bit = true;
     };
-    
+
+    # Xbox One / Series X|S controllers, incl. the Xbox Wireless Adapter dongle.
+    # Pulls in the xone modules for the running kernel + the dongle firmware, and
+    # blacklists mt76x2u, which otherwise claims the dongle (045e:02fe is an
+    # MT7612U) and exposes it as a useless wifi interface.
+    xone.enable = true;
+
     # Custom EDID firmware for ASUS PG278Q ROG Swift
     firmware = with pkgs; [ 
       (runCommand "pg278q-edid" {} ''
@@ -271,6 +277,25 @@ in
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    # Collect garbage weekly. This trims what the Nix store holds; the boot
+    # menu is a separate limit (configurationLimit above, capped by the 96M
+    # ESP), so this governs how far back `nixos-rebuild --rollback` can reach,
+    # not how many entries appear at boot. The running generation is never
+    # deleted.
+    gc = {
+      automatic = true;
+      dates     = "weekly";
+      options   = "--delete-older-than 30d";
+    };
+
+    # Hard-link identical files across generations. Run as a weekly job rather
+    # than settings.auto-optimise-store, which hashes every path as it is
+    # written and would slow down every build.
+    optimise = {
+      automatic = true;
+      dates     = [ "03:45" ];
+    };
   };
 
   # Increase inotify watch limit to prevent warnings
