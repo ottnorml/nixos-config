@@ -32,7 +32,7 @@ with pkgs; [
 
   # B
   bash-completion # Bash completion scripts
-  bat # Cat clone with syntax highlighting
+  # bat is installed by programs.bat in modules/shared/home-manager.nix
   btop # System monitor and process viewer
 
   # C
@@ -49,7 +49,7 @@ with pkgs; [
   fd # Fast find alternative
   ffmpeg # Multimedia framework
   flyctl # Fly.io tools
-  fzf # Fuzzy finder
+  # fzf is installed by programs.fzf in modules/shared/home-manager.nix
 
   # G
   go # Go
@@ -69,7 +69,6 @@ with pkgs; [
   intelephense # PHP LSP server
 
   # J
-  jetbrains.phpstorm # PHP IDE
   jpegoptim # JPEG optimizer
   jq # JSON processor
 
@@ -78,6 +77,8 @@ with pkgs; [
   kubectl # Kubernetes CLI
 
   # L
+  lazydocker # Terminal UI for containers, logs and compose projects
+  lazygit # Terminal UI for git: stage hunks, rebase, resolve conflicts
   linear-cli # Linear project management CLI
   lnav # Log file navigator
   libfido2 # FIDO2 library

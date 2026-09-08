@@ -11,10 +11,96 @@ let name = "Dustin Lyons";
       nix-direnv.enable = true;
     };
 
+  # Fuzzy finder. The binary alone does nothing for daily use -- the value is
+  # in the zsh integration, which binds Ctrl-T (paste a file path) and Alt-C
+  # (cd into a subdirectory). Ctrl-R is claimed by atuin below.
+  fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "fd --type f --hidden --exclude .git";
+    defaultOptions = [ "--height 40%" "--layout=reverse" "--border" ];
+
+    # fzf and atuin both bind Ctrl-R. atuin's init is sourced after fzf's, so
+    # atuin's binding wins at runtime -- this setting doesn't unbind anything,
+    # it just declares that fzf isn't claiming the key, which is what silences
+    # home-manager's conflict warning. Ctrl-T and Alt-C are untouched.
+    historyWidget.zsh.command = "";
+  };
+
+  # Syntax-highlighting `cat`. Note the module does NOT wire bat into `man` on
+  # its own -- MANPAGER is exported in initContent below to do that.
+  bat = {
+    enable = true;
+    config = {
+      theme = "base16";
+      style = "numbers,changes,header";
+    };
+  };
+
+  # Side-by-side, syntax-highlighted `git diff`/`show`/`blame`/`add -p`.
+  # `diff` on the command line stays difftastic (aliased in zsh below).
+  # Note: enableGitIntegration defaults to false, so it has to be set.
+  delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      line-numbers = true;
+      side-by-side = true;
+    };
+  };
+
+  # `z conductly` jumps to the directory from anywhere, ranked by how often
+  # and how recently it has been visited.
+  zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # Replaces `ls` with a listing that carries git status and icons. The zsh
+  # integration defines ls/ll/la/lt/lla, which is why the hand-written
+  # `alias ls` is gone from initContent below.
+  eza = {
+    enable = true;
+    enableZshIntegration = true;
+    icons = "auto";
+    git = true;
+    extraOptions = [ "--group-directories-first" ];
+  };
+
+  # Shell history in a searchable SQLite database, recording directory, exit
+  # code and duration. Local-only until `atuin login` is run.
+  #
+  # Ordering: atuin's init lands at order 1000, after fzf's keybindings at
+  # 910, so atuin wins Ctrl-R without an explicit rebind. Up-arrow is left
+  # alone so it stays plain zsh history.
+  atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    flags = [ "--disable-up-arrow" ];
+    settings = {
+      style = "compact";
+      inline_height = 20;
+
+      # Carried over from the hand-written ~/.config/atuin/config.toml that
+      # predates this module (an atuin install from Nov 2025, whose history.db
+      # is still in ~/.local/share/atuin). Everything else in that file was the
+      # stock commented-out template; these two were the only live settings.
+      enter_accept = true;
+      sync.records = true;
+    };
+  };
+
   zsh = {
     enable = true;
     autocd = false;
     cdpath = [ "~/.local/share/src" ];
+
+    # Ghost-writes the rest of a command from history; right-arrow accepts.
+    autosuggestion.enable = true;
+
+    # Colors a command red until it resolves to something runnable.
+    syntaxHighlighting.enable = true;
     plugins = [
       {
           name = "powerlevel10k";
@@ -27,7 +113,8 @@ let name = "Dustin Lyons";
           file = "p10k.zsh";
       }
     ];
-    initContent = lib.mkBefore ''
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
@@ -66,6 +153,10 @@ let name = "Dustin Lyons";
       # Ripgrep alias
       alias search='rg -p --glob "!node_modules/*" --glob "!vendor/*" "$@"'
 
+      # Render man pages through bat. programs.bat does not set this itself.
+      export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+      export MANROFFOPT="-c"
+
       # Emacs is my editor
       export ALTERNATE_EDITOR=""
       export EDITOR="emacsclient -t"
@@ -80,8 +171,7 @@ let name = "Dustin Lyons";
       # Use difftastic, syntax-aware diffing
       alias diff=difft
 
-      # Always color ls and group directories
-      alias ls='ls --color=auto'
+      # `ls` and friends are aliased to eza by programs.eza.enableZshIntegration
       
       # SSH wrapper functions with terminal color changes
       ssh-production() {
@@ -184,7 +274,24 @@ let name = "Dustin Lyons";
           spectacle -r -b -o "$project_path/$filename"
           echo "Screenshot saved to: $project_path/$filename"
       }
-    '';
+    '')
+
+      # fzf-tab replaces zsh's tab-completion menu with a fuzzy-searchable one.
+      # It has to be sourced after compinit (home-manager emits that at order
+      # 570) and before zsh-autosuggestions (order 700), which wraps the
+      # completion widget -- so it cannot go in the `plugins` list above.
+      (lib.mkOrder 600 ''
+        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+      '')
+
+      # fzf's own zsh integration is sourced at order 910 and rebinds Tab to
+      # its `fzf-completion` widget, silently overwriting what fzf-tab bound at
+      # 600. fzf-tab still has to load early so zsh-autosuggestions wraps its
+      # widget correctly, so reclaim the key here rather than moving the load.
+      (lib.mkOrder 920 ''
+        bindkey '^I' fzf-tab-complete
+      '')
+    ];
   };
 
   git = {
@@ -467,6 +574,10 @@ let name = "Dustin Lyons";
       # Split panes, vertical or horizontal
       bind-key x split-window -v
       bind-key v split-window -h
+
+      # Cycle windows with prefix + arrows (-r allows repeating without the prefix)
+      bind-key -r Right next-window
+      bind-key -r Left previous-window
 
       # Move around panes with vim-like bindings (h,j,k,l)
       bind-key -n M-k select-pane -U

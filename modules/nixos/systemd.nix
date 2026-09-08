@@ -38,8 +38,13 @@
           ''}";
           ExecStop = "${pkgs.tmux}/bin/tmux -S /run/user/1000/tmux-atlas kill-session -t atlas";
           RemainAfterExit = "no";
+          # Include the user's global JS tool dirs (npm/pnpm prefix) so CLIs
+          # installed via `npm i -g` (e.g. qmd, keeper's vault indexer) are on
+          # PATH for agents spawned under the print transport too. Interactive
+          # tmux sessions get these from .zshrc; a service child does not, so the
+          # re-index silently no-op'd outside tmux until this was added.
           Environment = [
-            "PATH=/run/current-system/sw/bin:/home/dustin/.nix-profile/bin:/etc/profiles/per-user/dustin/bin:/nix/var/nix/profiles/default/bin:/run/wrappers/bin:/usr/bin:/bin"
+            "PATH=/run/current-system/sw/bin:/home/dustin/.nix-profile/bin:/etc/profiles/per-user/dustin/bin:/nix/var/nix/profiles/default/bin:/run/wrappers/bin:/usr/bin:/bin:/home/dustin/.npm-packages/bin:/home/dustin/.pnpm-packages/bin"
           ];
         };
       };

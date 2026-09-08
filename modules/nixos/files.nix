@@ -12,14 +12,6 @@ let
     '';
   };
 
-  "${xdg_configHome}/swappy/config" = {
-    text = ''
-      [Default]
-      save_dir=$HOME/Pictures/Screenshots
-      save_filename_format=screenshot-%Y%m%d-%H%M%S.png
-    '';
-  };
-  
   "${xdg_dataHome}/applications/cheatsheet-viewer.desktop" = {
     text = ''
       [Desktop Entry]

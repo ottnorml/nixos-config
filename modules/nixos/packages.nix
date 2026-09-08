@@ -102,7 +102,9 @@ shared-packages ++ [
 
   qmk # Keyboard firmware toolkit
 
-  screenkey # Display pressed keys on screen
+  showmethekey # Display pressed keys on screen; reads libinput, so it works
+               # under Wayland. screenkey, which this replaces, is X11-only and
+               # could never have run in this Plasma session.
   simplescreenrecorder # Screen recording tool
 
   unixtools.ifconfig # Network interface configuration
@@ -115,12 +117,11 @@ shared-packages ++ [
 
   vlc # Media player
 
-  # Wayland-specific tools for Niri
-  swayidle # Idle management daemon
-  kanshi # Dynamic display configuration
-  wdisplays # GUI display configurator for Wayland
-  wev # Wayland event viewer (useful for debugging)
-  swaybg # Wallpaper daemon for Wayland
+  # Left over from a Niri setup that never landed -- this machine boots Plasma.
+  # swaybg, kanshi and wdisplays speak wlroots-only protocols that KWin does not
+  # implement, and Plasma handles wallpaper, idle and display arrangement
+  # itself, so swayidle was redundant too. wev is compositor-agnostic and stays.
+  wev # Wayland event viewer (useful for debugging keyboard input)
   
   yubikey-agent # Yubikey SSH agent
   pinentry-qt # GPG pinentry
@@ -148,6 +149,5 @@ shared-packages ++ [
   
   # Application launcher
   rofi # Application launcher and window switcher (includes Wayland support)
-  linuxKernel.packages.linux_zen.xone
 
 ]
