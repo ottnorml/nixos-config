@@ -149,6 +149,9 @@
                   sharedModules = [ plasma-manager.homeModules.plasma-manager ]; 
                   useGlobalPkgs = true;
                   useUserPackages = true;
+                  # Move a pre-existing dotfile aside rather than aborting the
+                  # whole switch when home-manager wants to write over it.
+                  backupFileExtension = "hm-bak";
                   users.${user} = { config, pkgs, lib, ... }:
                     import ./modules/nixos/home-manager.nix { inherit config pkgs lib inputs; };
                 };
@@ -172,6 +175,7 @@
                   sharedModules = [ plasma-manager.homeModules.plasma-manager ];
                   useGlobalPkgs = true;
                   useUserPackages = true;
+                  backupFileExtension = "hm-bak";
                   users.${user} = { config, pkgs, lib, ... }:
                     import ./modules/nixos/home-manager.nix { inherit config pkgs lib inputs; };
                 };
