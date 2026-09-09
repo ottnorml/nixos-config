@@ -27,8 +27,8 @@ let
   "${xdg_configHome}/kwinrulesrc" = {
     text = ''
 [General]
-count=1
-rules=fa8dd962-e5d7-4a39-9bea-190a62f25ce2
+count=2
+rules=fa8dd962-e5d7-4a39-9bea-190a62f25ce2,7c1f0a94-3d6b-4e52-9a08-2b5c41e7d310
 
 [fa8dd962-e5d7-4a39-9bea-190a62f25ce2]
 Description=Cheatsheet Viewer Position and Size
@@ -39,6 +39,15 @@ sizerule=2
 types=1
 wmclass=alacritty cheatsheet-viewer
 wmclasscomplete=true
+wmclassmatch=1
+
+[7c1f0a94-3d6b-4e52-9a08-2b5c41e7d310]
+Description=Steam game on ultrawide (DP-3)
+screen=1
+screenrule=2
+types=1
+wmclass=steam_app_3212376421
+wmclasscomplete=false
 wmclassmatch=1
     '';
   };
