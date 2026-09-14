@@ -42,7 +42,7 @@
     # Explicit Homebrew version override for Casks requiring newer features.
     # Reference: https://github.com/zhaofengli/nix-homebrew/blob/a7760a3a83f7609f742861afb5732210fdc437ed/flake.nix
     homebrew-brew = {
-      url = "github:Homebrew/brew/6.0.22";
+      url = "github:Homebrew/brew/7.0.1";
       flake = false;
     };
 
