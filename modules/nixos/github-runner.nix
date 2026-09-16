@@ -12,6 +12,13 @@ let
   # Custom GitHub runner image with PHP 8.2
   runnerImage = "github-runner-php82:latest";
 
+  # The host's `docker` group, handed to the container as a supplementary
+  # group so the (non-root) runner user inside can open the bind-mounted
+  # socket while it stays root:docker 0660 on the host. The image's own
+  # `docker` group has a different, Ubuntu-assigned GID, which is why
+  # membership baked into the Dockerfile is not enough on its own.
+  dockerGid = toString config.users.groups.docker.gid;
+
   # The runner fleet is split into two label-partitioned pools so that a deploy
   # never waits behind a long pest/playwright job. GitHub Actions has no
   # priority queue and cannot preempt a running job, so reserved capacity is
@@ -52,8 +59,11 @@ let
 
       serviceConfig = {
         Type = "simple";
+        # The container is ephemeral (one job, then exit — see the Dockerfile),
+        # so this restart is the normal path between jobs, not a failure
+        # recovery. Keep the gap short.
         Restart = "always";
-        RestartSec = "30";
+        RestartSec = "5";
         User = ciUser;
         Group = "docker";
 
@@ -85,10 +95,38 @@ let
           # Source the configuration
           source /etc/github-runner/config
 
-          ACCESS_TOKEN=$(cat /etc/github-runner/token)
-
           # Override the runner name for this instance
           RUNNER_NAME="${runner.name}"
+
+          # Exchange the long-lived PAT for a registration token HERE, on the
+          # host, and hand only that to the container. The PAT used to be
+          # passed in as ACCESS_TOKEN, which put it in the entrypoint's
+          # environment — and /proc/1/environ keeps a process's original
+          # environment, readable by the runner user that owns PID 1, so any
+          # CI job could have read it back (an `unset` would not have helped).
+          # A registration token is single-use and expires after an hour.
+          ACCESS_TOKEN=$(cat /etc/github-runner/token)
+          if [ -z "$GITHUB_REPO" ]; then
+            TOKEN_URL="https://api.github.com/orgs/$GITHUB_OWNER/actions/runners/registration-token"
+          else
+            TOKEN_URL="https://api.github.com/repos/$GITHUB_OWNER/$GITHUB_REPOSITORY/actions/runners/registration-token"
+          fi
+          # Keep the HTTP status and body: a 403 from a mis-scoped PAT and a
+          # network failure look identical otherwise, and the journal is the
+          # only place this ever surfaces.
+          RESPONSE=$(${pkgs.curl}/bin/curl -s -X POST -w '\n%{http_code}' \
+            -H "Authorization: token $ACCESS_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "$TOKEN_URL")
+          unset ACCESS_TOKEN
+          HTTP_CODE=$(printf '%s' "$RESPONSE" | tail -n1)
+          BODY=$(printf '%s' "$RESPONSE" | sed '$d')
+          RUNNER_TOKEN=$(printf '%s' "$BODY" | ${pkgs.jq}/bin/jq -r '.token // empty' 2>/dev/null || true)
+          if [ "$HTTP_CODE" != "201" ] || [ -z "$RUNNER_TOKEN" ]; then
+            echo "ERROR: registration-token request to $TOKEN_URL returned HTTP $HTTP_CODE:"
+            printf '%s\n' "$BODY" | ${pkgs.jq}/bin/jq -r '.message // .' 2>/dev/null || printf '%s\n' "$BODY"
+            exit 1
+          fi
 
           # Build docker run command based on whether GITHUB_REPO is set
           if [ -z "$GITHUB_REPO" ]; then
@@ -97,11 +135,12 @@ let
               --name github-runner-${runner.id} \
               --network lab-net \
               --privileged \
+              --group-add ${dockerGid} \
               -v /var/run/docker.sock:/var/run/docker.sock \
               -v /tmp/runner-work-${runner.id}:/tmp/runner-work-${runner.id} \
               -e RUNNER_NAME="$RUNNER_NAME" \
               -e ORG_NAME="$GITHUB_OWNER" \
-              -e ACCESS_TOKEN="$ACCESS_TOKEN" \
+              -e RUNNER_TOKEN="$RUNNER_TOKEN" \
               -e RUNNER_WORKDIR="/tmp/runner-work-${runner.id}" \
               -e LABELS="${runner.labels}" \
               -e RUNNER_SCOPE="org" \
@@ -112,11 +151,12 @@ let
               --name github-runner-${runner.id} \
               --network lab-net \
               --privileged \
+              --group-add ${dockerGid} \
               -v /var/run/docker.sock:/var/run/docker.sock \
               -v /tmp/runner-work-${runner.id}:/tmp/runner-work-${runner.id} \
               -e RUNNER_NAME="$RUNNER_NAME" \
               -e REPO_URL="https://github.com/$GITHUB_OWNER/$GITHUB_REPOSITORY" \
-              -e ACCESS_TOKEN="$ACCESS_TOKEN" \
+              -e RUNNER_TOKEN="$RUNNER_TOKEN" \
               -e RUNNER_WORKDIR="/tmp/runner-work-${runner.id}" \
               -e LABELS="${runner.labels}" \
               -e RUNNER_SCOPE="repo" \
@@ -222,9 +262,10 @@ in
           Type = "oneshot";
           RemainAfterExit = true;
           ExecStart = pkgs.writeShellScript "fix-docker-permissions" ''
-            # Make docker socket accessible to docker group
-            chmod 666 /var/run/docker.sock
-            echo "Docker socket permissions fixed"
+            # The socket is left at its default root:docker 0660. Both
+            # consumers are in that group: lab-ci via extraGroups below and
+            # the container via --group-add above. It used to be chmod 666
+            # here, which made every local account on the box root-equivalent.
 
             # Create and set ownership for CI user home directory
             mkdir -p /var/lib/lab-ci

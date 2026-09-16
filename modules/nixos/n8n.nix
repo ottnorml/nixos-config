@@ -72,7 +72,32 @@ in
       }
       access_log /var/log/nginx/access.log gtm if=$loggable;
       limit_req_zone $binary_remote_addr zone=webhooks:10m rate=5r/s;
+      # Linear delivers webhooks in bursts from a few shared Google Cloud IPs
+      # (35.196.x, 35.231.x), so the 5r/s + burst=10 zone above returned 429 to
+      # 16 of its deliveries in the week of 2026-09-09 and Atlas missed those
+      # events. hooks-proxy.nix puts /hook/linear on this zone; GitHub and n8n
+      # stay on `webhooks`.
+      limit_req_zone $binary_remote_addr zone=webhooks_linear:10m rate=20r/s;
     '';
+
+    # Catch-all for requests that name no vhost: a bare IP, an unknown Host
+    # header, or an SNI nothing here serves. Without this nginx answers such
+    # requests with the alphabetically-first server block — dlyons.dev — which
+    # is the most likely explanation for the 2026-08-27 Jenkins exposure (see
+    # jenkins.nix). Now: TLS handshakes for unknown names are rejected before
+    # a certificate is sent, and plain-HTTP requests get 444 (connection
+    # closed, no response). fail2ban's nginx-deny jail below counts 444s.
+    #
+    # Scoped to the ports this module opens (80/443); the AppImage host on
+    # 8088 and Jenkins on 8443 declare their own listens and are unaffected.
+    virtualHosts."catch-all" = {
+      serverName = "_";
+      default = true;
+      rejectSSL = true;
+      extraConfig = ''
+        return 444;
+      '';
+    };
 
     virtualHosts.${domain} = {
       forceSSL = true;
@@ -184,11 +209,12 @@ in
   };
 
   # Custom fail2ban filter for the GTM access log format.
-  # Matches 400 (malformed/binary requests), 403 (denied by ACL), 404 (not found).
+  # Matches 400 (malformed/binary requests), 403 (denied by ACL), 404 (not
+  # found), 444 (closed by the catch-all vhost above).
   # No journalmatch — forces file-based reading from the access log.
   environment.etc."fail2ban/filter.d/nginx-deny-gtm.conf".text = ''
     [Definition]
-    failregex = ^<HOST> - \[.*?\] "[^"]*" (?:400|403|404) \d+
+    failregex = ^<HOST> - \[.*?\] "[^"]*" (?:400|403|404|444) \d+
     ignoreregex =
     datepattern = ^[^\[]*\[({DATE})
   '';

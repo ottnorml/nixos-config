@@ -61,24 +61,36 @@ in
     firewall = {
       enable = true;
       allowedTCPPorts = []; # Per-service ports managed below with source restrictions
-      # Allow SSH and Home Assistant only from LAN subnets.
-      # Without this, ports 22/8123 are open to any source IP — reachable
-      # from the Internet if the UDM forwards them.
+      # Allow SSH and Home Assistant only from the LAN subnets and the
+      # remote-access VPN. Without this, ports 22/8123 are open to any source
+      # IP — reachable from the Internet if the UDM forwards them.
+      #
+      # 192.168.1.0/24 is the UDM's remote-user VPN range ("WireGuard Server
+      # 1", the network behind Teleport), added 2026-09-10. The UDM already
+      # routed Vpn -> Internal, so these two services were unreachable over
+      # the VPN purely because this host dropped the packets — including the
+      # `ssh -L` tunnel that jenkins.nix suggests as a fallback, which could
+      # never have worked from off-LAN. See the vpnCidrs note in jenkins.nix
+      # for why allowing this range does not weaken the WAN threat model.
       extraCommands = ''
         iptables -A nixos-fw -p tcp --dport 22 -s 10.0.10.0/24 -j nixos-fw-accept
         iptables -A nixos-fw -p tcp --dport 22 -s 192.168.0.0/24 -j nixos-fw-accept
         iptables -A nixos-fw -p tcp --dport 22 -s 127.0.0.0/8 -j nixos-fw-accept
+        iptables -A nixos-fw -p tcp --dport 22 -s 192.168.1.0/24 -j nixos-fw-accept
         iptables -A nixos-fw -p tcp --dport 8123 -s 10.0.10.0/24 -j nixos-fw-accept
         iptables -A nixos-fw -p tcp --dport 8123 -s 192.168.0.0/24 -j nixos-fw-accept
         iptables -A nixos-fw -p tcp --dport 8123 -s 127.0.0.0/8 -j nixos-fw-accept
+        iptables -A nixos-fw -p tcp --dport 8123 -s 192.168.1.0/24 -j nixos-fw-accept
       '';
       extraStopCommands = ''
         iptables -D nixos-fw -p tcp --dport 22 -s 10.0.10.0/24 -j nixos-fw-accept 2>/dev/null || true
         iptables -D nixos-fw -p tcp --dport 22 -s 192.168.0.0/24 -j nixos-fw-accept 2>/dev/null || true
         iptables -D nixos-fw -p tcp --dport 22 -s 127.0.0.0/8 -j nixos-fw-accept 2>/dev/null || true
+        iptables -D nixos-fw -p tcp --dport 22 -s 192.168.1.0/24 -j nixos-fw-accept 2>/dev/null || true
         iptables -D nixos-fw -p tcp --dport 8123 -s 10.0.10.0/24 -j nixos-fw-accept 2>/dev/null || true
         iptables -D nixos-fw -p tcp --dport 8123 -s 192.168.0.0/24 -j nixos-fw-accept 2>/dev/null || true
         iptables -D nixos-fw -p tcp --dport 8123 -s 127.0.0.0/8 -j nixos-fw-accept 2>/dev/null || true
+        iptables -D nixos-fw -p tcp --dport 8123 -s 192.168.1.0/24 -j nixos-fw-accept 2>/dev/null || true
       '';
     };
 
@@ -167,10 +179,13 @@ in
 
     displayManager = {
       sddm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "dustin";
-      };
+      # No auto-login on the server (off since 2026-09-11). With it on, a
+      # keyboard plugged into this box landed in a wheel session — and this
+      # host runs Jenkins, n8n and Home Assistant. Nothing here depends on a
+      # graphical session: the nightly backup runs as root and uses the SSH key
+      # file, Emacs is a system service, and systemd.nix's user services are
+      # not imported on this host.
+      autoLogin.enable = false;
     };
 
     desktopManager.plasma6.enable = true;
@@ -196,6 +211,12 @@ in
     openssh = {
       enable = true;
       openFirewall = false;
+      # Keys only. fail2ban (n8n.nix) still watches sshd, but there is nothing
+      # for it to brute-force once passwords are off.
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
     };
 
     # Bluetooth
@@ -289,7 +310,10 @@ in
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
-  # Don't require password for users in `wheel` group for these commands
+  # Don't require a password for `reboot`. nixos-rebuild used to be listed
+  # here too; removed 2026-09-11 — it evaluates and activates arbitrary Nix,
+  # so a passwordless entry for it is a passwordless root shell for anyone
+  # holding a wheel session. `nix run .#build-switch` now prompts once.
   security.sudo = {
     enable     = true;
     extraRules = [
@@ -297,10 +321,6 @@ in
         commands = [
           {
             command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
-          }
-          {
-            command = "/run/current-system/sw/bin/nixos-rebuild";
             options = [ "NOPASSWD" ];
           }
         ];
