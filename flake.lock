@@ -249,11 +249,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1789492891,
-        "narHash": "sha256-C10XnwbpvC1gOY4W7NrRdm4IlreqTJPF6PZwbz8q3YA=",
+        "lastModified": 1789554993,
+        "narHash": "sha256-8zekgorgwNIK1DFumO/eoKRftIodeZgsNzso55z2gMU=",
         "ref": "refs/heads/main",
-        "rev": "20321c7eeb22ec0de24e8ccb1817eec3ba9e56a9",
-        "revCount": 658,
+        "rev": "64f89c29e1ca3843994ec4bd98dd66d5842dacbe",
+        "revCount": 659,
         "type": "git",
         "url": "ssh://git@github.com/OttNorml/nixos-config.git"
       },
