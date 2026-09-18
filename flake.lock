@@ -251,15 +251,15 @@
       "locked": {
         "lastModified": 1789604054,
         "narHash": "sha256-bBJS9qXAeP1epxItmRexYAHBElHyynlQqqEOnZJXM7A=",
-        "ref": "refs/heads/main",
+        "owner": "OttNorml",
+        "repo": "nixos-config",
         "rev": "d5c7f2150ac9b10eb2a986bcfce2d9cb8f8fd8ed",
-        "revCount": 661,
-        "type": "git",
-        "url": "ssh://git@github.com/OttNorml/nixos-config.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/OttNorml/nixos-config.git"
+        "owner": "OttNorml",
+        "repo": "nixos-config",
+        "type": "github"
       }
     },
     "systems": {
