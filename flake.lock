@@ -111,11 +111,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789482455,
-        "narHash": "sha256-pD3qVlQ4mUCFoTWrYtxecpSitQMsgJvJIN0FUIDZoEU=",
+        "lastModified": 1789765459,
+        "narHash": "sha256-voJJ5IZR4w2149u2Jm/j2zifeWROlpZQ+JzmCQwjgn8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "efa3ccb4c3cc90d832eab232976379058fa75aa3",
+        "rev": "17903129f47656fa4d07e78ad87f6592ff4f2527",
         "type": "github"
       },
       "original": {
@@ -216,11 +216,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1789370336,
-        "narHash": "sha256-6RSEDHIWQtesQKWSu5qRai8L2h4KgCgMEfJHstW99G4=",
+        "lastModified": 1789632929,
+        "narHash": "sha256-RjR8AyvGlWuw16XRj7C1YDEw4E27ciuyPeB2nDMzgTU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c7def046b9a883d46974757852106483d741586f",
+        "rev": "a32edd7654519351e48e80372a928df336394670",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1789554993,
-        "narHash": "sha256-8zekgorgwNIK1DFumO/eoKRftIodeZgsNzso55z2gMU=",
+        "lastModified": 1789604054,
+        "narHash": "sha256-bBJS9qXAeP1epxItmRexYAHBElHyynlQqqEOnZJXM7A=",
         "ref": "refs/heads/main",
-        "rev": "64f89c29e1ca3843994ec4bd98dd66d5842dacbe",
-        "revCount": 659,
+        "rev": "d5c7f2150ac9b10eb2a986bcfce2d9cb8f8fd8ed",
+        "revCount": 661,
         "type": "git",
         "url": "ssh://git@github.com/OttNorml/nixos-config.git"
       },
