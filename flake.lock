@@ -249,17 +249,17 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1789769554,
-        "narHash": "sha256-LAfXHvjMwvVSytRAUFIPclsICyGK9lKZOFORXEPAHfU=",
-        "owner": "OttNorml",
-        "repo": "nixos-config",
-        "rev": "0589b916fcde45eb0281885f79217368975eb903",
-        "type": "github"
+        "lastModified": 1790026611,
+        "narHash": "sha256-Ld+fS8yE84nKG87RbBJU6mz3QYhdjJwpQ0QPd5wM4pE=",
+        "ref": "refs/heads/main",
+        "rev": "aec88a0ad83ccb33daa096528f9867c747e1ec81",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/ottnorml/nix-secrets.git"
       },
       "original": {
-        "owner": "OttNorml",
-        "repo": "nixos-config",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@github.com/ottnorml/nix-secrets.git"
       }
     },
     "systems": {
