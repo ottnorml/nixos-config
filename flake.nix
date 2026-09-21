@@ -48,7 +48,7 @@
 
     # Private configurations
     secrets = {
-      url = "github:OttNorml/nixos-config";
+      url = "git+ssh://git@github.com/ottnorml/nix-secrets.git";
       flake = false;
     };
   };
