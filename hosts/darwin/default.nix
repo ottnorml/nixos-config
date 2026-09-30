@@ -29,7 +29,11 @@ in
 
   # Setup user, packages, programs
   nix = {
-    package = pkgs.lixPackageSets.stable.lix;
+    package = pkgs.lixPackageSets.stable.lix.overrideAttrs (old: {
+      env = (old.env or { }) // {
+        NIX_LDFLAGS = pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isElf "-z,noexecstack";
+      };
+    });
 
     settings = {
       trusted-users = [
