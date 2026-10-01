@@ -73,7 +73,11 @@ with pkgs;
   gh
   kubectl
   lazygit
-  nixpkgs-master.semgrep
+  (nixpkgs-master.semgrep.overridePythonAttrs (old: {
+    # Semgrep currently pins PyJWT to ~=2.13.0 while nixpkgs provides 2.14.0.
+    # Relax the package metadata constraint instead of downgrading PyJWT.
+    pythonRelaxDeps = (old.pythonRelaxDeps or [ ]) ++ [ "pyjwt" ];
+  }))
   shellcheck
   terraform
 
