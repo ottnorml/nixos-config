@@ -165,7 +165,7 @@ _:
   # Memory upgrade for coding agents.
   "beads"
   # Linter checking CLI tools for agent-readiness principles.
-  "brettdavies/tap/agentnative"
+  # "brettdavies/tap/agentnative"
   # Open-source framework for augmenting humans using AI.
   "fabric-ai"
   # CLI for interacting with Google Gemini AI models.
