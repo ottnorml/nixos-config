@@ -139,7 +139,7 @@ in
         TrackpadThreeFingerDrag = true;
       };
 
-      CustomSystemPreferences = {
+      CustomUserPreferences = {
         "com.google.Keystone" = {
           # see https://support.google.com/chrome/a/answer/7591084#zippy=%2Cupdate-policy-settings%2Csample-property-list
           updatePolicies = {
@@ -155,9 +155,6 @@ in
             };
           };
         };
-      };
-
-      CustomUserPreferences = {
         "com.google.Chrome" = {
           # see https://chromeenterprise.google/policies/#GenAiDefaultSettings
           GenAiDefaultSettings = 1;
