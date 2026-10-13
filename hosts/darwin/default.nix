@@ -139,7 +139,35 @@ in
         TrackpadThreeFingerDrag = true;
       };
 
+      CustomSystemPreferences = {
+        "com.google.Keystone.Agent" = {
+          # see https://support.google.com/chrome/a/answer/7591084#zippy=%2Cupdate-policy-settings%2Csample-property-list
+          updatePolicies = {
+            "com.google.Chrome" = {
+              UpdateDefault = 2;
+            };
+            "com.google.drivefs" = {
+              UpdateDefault = 2;
+            };
+            "global" = {
+              DownloadPreference = "cacheable";
+              UpdateDefault = 3;
+            };
+          };
+        };
+      };
+
       CustomUserPreferences = {
+        "com.google.Chrome" = {
+          # see https://chromeenterprise.google/policies/#GenAiDefaultSettings
+          GenAiDefaultSettings = 1;
+          # see https://chromeenterprise.google/policies/#GenAILocalFoundationalModelSettings
+          GenAILocalFoundationalModelSettings = 1;
+        };
+        "org.mozilla.firefox" = {
+          # see https://github.com/mozilla/policy-templates/tree/d2090553c2d1e661063bc5d10731b4d43876c13c/mac
+          EnterprisePoliciesEnabled = true;
+        };
         "com.raycast.macos" = {
           updaterEnabled = false;
         };
