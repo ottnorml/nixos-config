@@ -140,7 +140,7 @@ in
       };
 
       CustomSystemPreferences = {
-        "com.google.Keystone.Agent" = {
+        "com.google.Keystone" = {
           # see https://support.google.com/chrome/a/answer/7591084#zippy=%2Cupdate-policy-settings%2Csample-property-list
           updatePolicies = {
             "com.google.Chrome" = {
