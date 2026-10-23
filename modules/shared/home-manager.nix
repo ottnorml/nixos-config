@@ -395,6 +395,9 @@ in
   # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.vim.enable
   vim = {
     enable = true;
+    packageConfigurable = pkgs.vim-full.override {
+      guiSupport = "none";
+    };
     plugins = with nixpkgs-master.vimPlugins; [
       vim-airline
       vim-airline-themes
