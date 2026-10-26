@@ -4,6 +4,15 @@
   pkgs,
 }:
 
+let
+  # Semgrep 1.180.0 requires the MCP Python SDK 1.x API (FastMCP).
+  # Reuse the MCP 1.29.0 package definition from this pinned nixpkgs revision,
+  # but build it with the current Python package set.
+  mcp1 = nixpkgs-master.python3Packages.callPackage (
+    (builtins.getFlake "github:NixOS/nixpkgs/8825bebf6324e0579d012936eff73379af284b6d").outPath
+    + "/pkgs/development/python-modules/mcp/default.nix"
+  ) { };
+in
 with pkgs;
 [
   # General packages for development and system management
@@ -73,11 +82,15 @@ with pkgs;
   gh
   kubectl
   lazygit
-  (nixpkgs-master.semgrep.overridePythonAttrs (old: {
-    # Semgrep currently pins PyJWT to ~=2.13.0 while nixpkgs provides 2.14.0.
-    # Relax the package metadata constraint instead of downgrading PyJWT.
-    pythonRelaxDeps = (old.pythonRelaxDeps or [ ]) ++ [ "pyjwt" ];
-  }))
+  (
+    (nixpkgs-master.semgrep.override {
+      mcp = mcp1;
+    }).overridePythonAttrs
+      (old: {
+        # Keep the PyJWT metadata relaxation, but enforce the MCP 1.x constraint.
+        pythonRelaxDeps = builtins.filter (dep: dep != "mcp") (old.pythonRelaxDeps or [ ]) ++ [ "pyjwt" ];
+      })
+  )
   shellcheck
   terraform
 
