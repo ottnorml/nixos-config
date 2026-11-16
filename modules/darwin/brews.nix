@@ -157,7 +157,7 @@ _:
 
   # AI & Agent Tooling
   # The AI coding agent for the terminal.
-  "anomalyco/tap/opencode"
+  "anomalyco/tap/opencode-v2"
   # Code searching, linting, and rewriting.
   "ast-grep"
   # Markdown-native task manager and Kanban visualizer.
