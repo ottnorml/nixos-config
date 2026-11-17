@@ -267,9 +267,9 @@ _:
   # Inspect macOS HID devices.
   "masawada/tap/macos-hid-inspector"
   # Real-time network diagnostics in the terminal.
-  "matthart1983/tap/netwatch"
+  "netwatch"
   # Single-host system diagnostics TUI.
-  "matthart1983/tap/syswatch"
+  "syswatch"
   # Kubernetes tool for scanning network policies and workloads.
   "netfetch"
   # Port scanning utility for large networks.

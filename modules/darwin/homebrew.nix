@@ -102,7 +102,6 @@ in
       "kdash-rs/kdash"
       "lablup/tap"
       "masawada/tap"
-      "matthart1983/tap"
       "oven-sh/bun"
       "owenthereal/upterm"
       "richard-fairthorne/tap"
