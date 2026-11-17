@@ -3,9 +3,13 @@
   inputs = {
     # Core
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # Optional fallback to master for fixes not yet available in `nixpkgs-unstable`.
-    # nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-master.follows = "nixpkgs";
+    # Fallback to master for fixes not yet available in `nixpkgs-unstable`.
+    # Active since 2026-11-17: semgrep 1.180.0 is broken in nixpkgs-unstable
+    # 1c872b8c because MCP Python SDK 2.x removed the FastMCP 1.x API.
+    # Upstream fix: nixpkgs PR #588970 ("semgrep: use mcp_1", merged 2026-11-16).
+    # Revert to `nixpkgs-master.follows = "nixpkgs"` once the fix ships in the
+    # next nixpkgs-unstable release.
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
 
     # Core tools
     agenix = {
